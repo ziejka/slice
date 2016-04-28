@@ -1,0 +1,21 @@
+{
+  "name": "slice",
+  "homepage": "https://github.com/ziejka/slice",
+  "authors": [
+    "ziejka <m.ziejkaa@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}
