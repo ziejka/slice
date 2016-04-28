@@ -7,7 +7,7 @@ gulp.task('default', ['watch'], () => {
 });
 
 gulp.task('es6', () =>
-    gulp.src('src/js/app.js')
+    gulp.src('src/js/*.js')
     .pipe(babel({
         presets: ['es2015']
     }))
