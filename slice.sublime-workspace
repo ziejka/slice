@@ -1,0 +1,1327 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cl",
+				"cl	console.log"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"wi",
+				"white"
+			],
+			[
+				"font-",
+				"font-size"
+			],
+			[
+				"len",
+				"length	String"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"fr",
+				"fl-r	float: right;"
+			],
+			[
+				"ng-s",
+				"ng-show	AngularJS"
+			],
+			[
+				"non",
+				"none"
+			],
+			[
+				"ri",
+				"right"
+			],
+			[
+				"flo",
+				"float"
+			],
+			[
+				"transition",
+				"transitions"
+			],
+			[
+				"transi",
+				"transition	(var.scss)"
+			],
+			[
+				"op",
+				"op	opacity"
+			],
+			[
+				"rig",
+				"rig	CSS - right: 0;"
+			],
+			[
+				"$lo",
+				"$location	AngularJS(DI)"
+			],
+			[
+				"$l",
+				"$location	AngularJS"
+			],
+			[
+				"func",
+				"function with name"
+			],
+			[
+				"mar",
+				"margin"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"hr",
+				"href"
+			],
+			[
+				"opa",
+				"opacity"
+			],
+			[
+				"bot",
+				"bottom"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"he",
+				"height	(header.scss)"
+			],
+			[
+				"ng-cl",
+				"ng-click	AngularJS"
+			],
+			[
+				"lef",
+				"left"
+			],
+			[
+				"last",
+				"last-child"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"trasp",
+				"transparent"
+			],
+			[
+				"o",
+				"opacity"
+			],
+			[
+				"no",
+				"none"
+			],
+			[
+				"blo",
+				"block"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"space-a",
+				"space-around"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"wra",
+				"wrap"
+			],
+			[
+				"media",
+				"@media	@media ${1:screen} {\n	${0}\n}"
+			],
+			[
+				"me",
+				"media	@media"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"gete",
+				"getElementsByClassName(names)	Element"
+			],
+			[
+				"mixi",
+				"mixin	@mixin"
+			],
+			[
+				"impo",
+				"important"
+			],
+			[
+				"color-fon",
+				"color-font"
+			],
+			[
+				"wh",
+				"white	(inputs.scss)"
+			],
+			[
+				"col",
+				"color"
+			],
+			[
+				"but",
+				"button"
+			],
+			[
+				"le",
+				"left"
+			],
+			[
+				"ov",
+				"ov	overflow: ${1:hidden};"
+			],
+			[
+				"z-",
+				"z-index"
+			],
+			[
+				"tras",
+				"transition	(var.scss)"
+			],
+			[
+				"fun",
+				"function with name"
+			],
+			[
+				"tag",
+				"target	Event"
+			],
+			[
+				"wr",
+				"wrap"
+			],
+			[
+				"fl",
+				"fl	float: ${1:left};"
+			],
+			[
+				"vis",
+				"visibility"
+			],
+			[
+				"map",
+				"mapCanvas"
+			],
+			[
+				"min-",
+				"min-width"
+			],
+			[
+				"module",
+				"angular.module"
+			],
+			[
+				"bacg",
+				"background"
+			],
+			[
+				"tran",
+				"transparent"
+			],
+			[
+				"$root",
+				"$rootScope	AngularJS(DI)"
+			],
+			[
+				"con",
+				"controller	AngularJS"
+			],
+			[
+				"contr",
+				"$controller	AngularJS"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"respon",
+				"responseText	XMLHttpRequest"
+			],
+			[
+				"stats",
+				"status	Window"
+			],
+			[
+				"ready",
+				"readyState	Document"
+			],
+			[
+				"log",
+				"console.log()"
+			],
+			[
+				"color-",
+				"color-light"
+			],
+			[
+				"white",
+				"white"
+			],
+			[
+				"visi",
+				"visible"
+			],
+			[
+				"opacity",
+				"opacity"
+			],
+			[
+				"opac",
+				"opacity	opacity()"
+			],
+			[
+				"incl",
+				"include	@include"
+			],
+			[
+				"in",
+				"include	+include - Sass syntax"
+			],
+			[
+				"hid",
+				"hidden"
+			],
+			[
+				"POS",
+				"position"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"padd",
+				"padding-right"
+			],
+			[
+				"first",
+				"first-child"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"isn",
+				"isNested"
+			],
+			[
+				"chil",
+				"children	(style.scss)"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"ng-",
+				"ng-show"
+			],
+			[
+				"m",
+				"message"
+			],
+			[
+				"csv",
+				"csvfile"
+			],
+			[
+				"ex",
+				"except"
+			],
+			[
+				"pep",
+				"peptideMass"
+			],
+			[
+				"P",
+				"PrefixMass"
+			],
+			[
+				"let",
+				"letter"
+			],
+			[
+				"leter",
+				"letterList"
+			],
+			[
+				"proteint",
+				"proteinToAmino"
+			],
+			[
+				"pro",
+				"proteinToAmino"
+			],
+			[
+				"pr",
+				"proteinTranslation"
+			],
+			[
+				"ma",
+				"make3merList"
+			],
+			[
+				"te",
+				"text2"
+			],
+			[
+				"Max",
+				"maxL"
+			],
+			[
+				"patt",
+				"patternToNumber"
+			],
+			[
+				"sy",
+				"symbol"
+			],
+			[
+				"pattr",
+				"patternToNumber"
+			],
+			[
+				"pat",
+				"pattern"
+			],
+			[
+				"fe",
+				"frequenrWords"
+			],
+			[
+				"pa",
+				"pattern"
+			],
+			[
+				"fom",
+				"form-to"
+			],
+			[
+				"center",
+				"center-selection"
+			],
+			[
+				"v",
+				"verssion"
+			],
+			[
+				"vers",
+				"verssion"
+			],
+			[
+				"send",
+				"sendForm"
+			],
+			[
+				"form",
+				"form-to"
+			],
+			[
+				"ver",
+				"versio-selection"
+			],
+			[
+				"drop",
+				"drop-down"
+			],
+			[
+				"user",
+				"user"
+			],
+			[
+				"ge",
+				"get"
+			],
+			[
+				"get",
+				"get-user"
+			],
+			[
+				"id",
+				"id_cost"
+			],
+			[
+				"login",
+				"login-page"
+			],
+			[
+				"co",
+				"cost-on-center"
+			],
+			[
+				"cost",
+				"cos-on-center"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"im",
+				"Images"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 242.0,
+		"last_filter": "beau",
+		"selected_items":
+		[
+			[
+				"beau",
+				"Javascript Beautify"
+			],
+			[
+				"pckgage",
+				"Package Control: Remove Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Reset"
+			],
+			[
+				"sublimelinter",
+				"Preferences: SublimeLinter Settings – Default"
+			],
+			[
+				"jshint",
+				"JSHint: Set Plugin Options"
+			],
+			[
+				"jsh",
+				"JSHint: Set Linting Preferences"
+			],
+			[
+				"jshi",
+				"JSHint: Set Plugin Options"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git add a",
+				"Git: Add All"
+			],
+			[
+				"sass",
+				"SassBeautify"
+			],
+			[
+				"sas",
+				"SassBeautify"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"htmlw",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"color",
+				"Snippet: color"
+			],
+			[
+				"wrap",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"html",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"jslint",
+				"JSHint: Set Linting Preferences"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"commit",
+				"Git: Quick Commit"
+			],
+			[
+				"add a",
+				"Git: Add All"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"hin",
+				"JSHint"
+			],
+			[
+				"jhi",
+				"JSHint"
+			],
+			[
+				"bea",
+				"HTMLBeautify"
+			],
+			[
+				"wr",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Git: Add All"
+			],
+			[
+				"comi",
+				"Git: Quick Commit"
+			],
+			[
+				"format",
+				"Format: Javascript"
+			],
+			[
+				"pus",
+				"Git: Push"
+			],
+			[
+				"termina",
+				"Terminal: Open in project folder"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"git ",
+				"Git: Toggle Annotations"
+			],
+			[
+				"quic",
+				"Git: Quick Commit"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"quick",
+				"Git: Quick Commit"
+			],
+			[
+				"emme",
+				"Emmet: Merge Lines"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"termin",
+				"Terminal: Open in project folder"
+			],
+			[
+				"git p",
+				"Git: Push"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"git commit",
+				"Git: Quick Commit"
+			],
+			[
+				"git ad",
+				"Git: Add All"
+			],
+			[
+				"package en",
+				"Package Control: Enable Package"
+			],
+			[
+				"package",
+				"Package Control: Disable Package"
+			],
+			[
+				"jshin",
+				"JSHint"
+			],
+			[
+				"hint",
+				"JSHint"
+			],
+			[
+				"j",
+				"JSHint"
+			],
+			[
+				"hml",
+				"HTMLBeautify"
+			],
+			[
+				"add all",
+				"Git: Add All"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"git commi",
+				"Git: Commit"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Install Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: en",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control:d",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: int",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 480.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/GitHub/slice"
+	],
+	"file_history":
+	[
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/actions/sendreq_manager.php",
+		"/C/Users/Mateusz/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/sass/footer.scss",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/js/directives.js",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/views/partials/slider.html",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/js/controllers.js",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/index.html",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/actions/sendreq_manager.php",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/views/partials/footer.html",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/sass/var.scss",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-core/gulpfile.config.json",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-core/gulpfile.js",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-core/release/edi-client-web-core.css",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-core/src/assets/scss/_bootstrap.scss",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-core/src/assets/scss/custom/style.scss",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-core/src/assets/scss/custom.scss",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-core/src/assets/scss/bootstrap/_variables.scss",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-core/src/assets/scss/bootstrap/_button-groups.scss",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/purchase-order-information.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/shared/content-elements/dynamic-table.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/js/controllers/purchaseOrderInfoController.js",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/sass/style.scss",
+		"/C/Users/Comarch/OneDrive/Projects/GameAssignment/js/app.js",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-pl-invoice/gulpfile.js",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/js/main.js",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/sass/variables.scss",
+		"/D/WEBapplicationForms/Pages/bower_components/edi-client-web-pl-invoice/release/edi-client-web-pl-invoice.js",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/content/purchaseOrderLines.json",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/content/purchaseOrderInfo.json",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/js/controllers/multiselectController.js",
+		"/C/Users/Comarch/AppData/Roaming/Sublime Text 2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/Comarch/AppData/Roaming/Sublime Text 2/Packages/JSHint Gutter/JSHint.sublime-settings",
+		"/C/Users/Comarch/AppData/Roaming/Sublime Text 2/Packages/JSHint Gutter/.jshintrc",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/sass/content.scss",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/sass/grid-settings.scss",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/shared/content-elements/multiselect.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/DentalAngular/app/common/sass/header.scss",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/edi-received.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/shared/content-elements/elments.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/shared/content-elements/static-table.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/js/app.js",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/shared/content-elements/filters.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/shared/edi-received.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/index.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/sass/header.scss",
+		"/D/BMW/InfoApp/app/css/style.css",
+		"/D/BMW/InfoApp/app/index.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/test.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/sass/header.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/sass/content.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/sass/style.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/views/partials/header.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/index.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/js/directives.js",
+		"/C/Users/Comarch/OneDrive/Freeelance/index.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/sass/slider.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/views/partials/footer.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/views/partials/bottom-baners.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/views/partials/slider.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/sass/inputs.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/sass/footer.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/dental/Page/common/sass/style.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/dental/Page/common/sass/variable.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/dental/Page/common/sass/header.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/views/partials/map.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/views/home.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/js/app.js",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/js/main.js",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/views/treatments.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/views/contact.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/js/jQuery.js",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/sass/angular-animate.scss",
+		"/C/Users/Comarch/OneDrive/Freeelance/DentalAngular/app/common/js/jQuery.js",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/js/controllers.js",
+		"/C/Users/Comarch/OneDrive/Freeelance/DentalAngular/app/index.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/task.txt",
+		"/D/BMW/InfoApp/app/content/information-menu.json",
+		"/D/BMW/InfoApp/app/partials/shared/sidebar.html",
+		"/D/BMW/InfoApp/app/js/controllers/stepsController.js",
+		"/D/BMW/InfoApp/app/js/controllers/sidebarController.js",
+		"/D/BMW/InfoApp/app/partials/shared/header/top-menu.html",
+		"/D/BMW/InfoApp/app/js/main.js",
+		"/C/Users/Comarch/Downloads/angular-translate-master/Gruntfile.js",
+		"/C/Users/Comarch/Downloads/angular-translate-master/demo/server_routes.js",
+		"/D/BMW/InfoApp/app/sass/header.scss",
+		"/D/BMW/InfoApp/app/partials/shared/header/main-menu.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/shared/content-elements/form.html",
+		"/C/Users/Comarch/OneDrive/Freeelance/SouthgateDentists/app/css/style.css",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/content/master-data.json",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/css/angular-growl.css",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/partials/master-data.html",
+		"/D/BMW/RnD_BMW_Mockups/WEBv2/app/content/test-menu.json",
+		"/C/Users/Comarch/Downloads/mop.py",
+		"/D/BMW/makerhtml.py",
+		"/D/XSLT/NIVEA/slownik.py",
+		"/D/ArchiwumAplikacja/ArchiveExportService/xmlTestRaczon.xml",
+		"/D/Wallpaper_change/wchange.py",
+		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic2.py",
+		"/D/Wallpaper_change/wchange2.py",
+		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic.py",
+		"/C/Users/Comarch/.lein/profiles.clj",
+		"/D/XSLT/Comarch PDF/XSL.ECOD.INVOIC.COMARCH.TEST.xsl",
+		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic.clj",
+		"/C/Users/Comarch/AppData/Roaming/Sublime Text 2/Packages/User/SublimeREPL.sublime-settings",
+		"/C/Users/Comarch/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/D/ArchiwumTask/Task/css/general_print_preview_v15.css",
+		"/D/ArchiwumTask/Task/css/general_print_v15.css",
+		"/D/GitHubRepo/controlling-system/src/myapp/routes/home.clj",
+		"/D/GitHubRepo/controlling-system/resources/templates/grid.html",
+		"/D/GitHubRepo/controlling-system/src/myapp/util.clj",
+		"/D/GitHubRepo/controlling-system/src/myapp/dbquery.clj",
+		"/D/Trash/change.css",
+		"/D/GitHubRepo/controlling-system/resources/public/css/screen.css",
+		"/D/GitHubRepo/controlling-system/src/myapp/handler.clj",
+		"/D/GitHubRepo/controlling-system/resources/templates/base.html",
+		"/D/GitHubRepo/controlling-system/resources/templates/home.html",
+		"/D/GitHubRepo/controlling-system/resources/templates/login.html",
+		"/D/GitHubRepo/controlling-system/src/myapp/grid.clj",
+		"/D/METRO/App/AS2SelfCare/AS2SelfCare/Content/bootstrap.css",
+		"/D/METRO/ASD/- Comarch AS2 Selfcare.htm",
+		"/D/METRO/ASD/Content/Site.css",
+		"/D/METRO/ASD/Content/bootstrap.css",
+		"/D/METRO/App/AS2SelfCare/AS2SelfCare/Views/ProfileList/Management.cshtml",
+		"/D/XSLT/xsl examplew/XSL.ECOD.INVOIC.xsl",
+		"/D/GitHubRepo/controlling-system/resources/templates/contact.html",
+		"/D/XSLT/Examples/xsl examplew/03_InputDocument.xml",
+		"/D/XSLT/Examples/przyklad/document_2014_06_20_FS8951_2014_SPKLE.xml",
+		"/D/GitHubRepo/controlling-system/src/myapp/posts.clj"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"D:\\BMW\\RnD_BMW_Mockups\\WEBv2\\app\\sass",
+			"D:\\BMW\\RnD_BMW_Mockups\\WEBv2\\app\\partials",
+			"C:\\Users\\Comarch\\OneDrive\\Freeelance\\SouthgateDentists\\app\\sass",
+			"C:\\Users\\Comarch\\OneDrive\\Freeelance\\SouthgateDentists\\app\\views"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bookin",
+			"booking-dropdown",
+			"time",
+			"header",
+			"Multiple or malformed newlines found in additional",
+			"form",
+			"green",
+			"yellow",
+			"green",
+			"yellow",
+			"yellow\\",
+			"yellow",
+			"config",
+			"sourceDir",
+			"watch",
+			"sass",
+			"variables",
+			"load",
+			"onload",
+			"dynamicTableClass",
+			"class",
+			"show",
+			"shoe",
+			"items",
+			"quantity",
+			".margin-",
+			"margin-",
+			"-margin",
+			"select",
+			"child",
+			"repeatArray",
+			"vm",
+			"repeatNumber",
+			"getrepeatarray",
+			"planNames",
+			"datepicker",
+			"label>",
+			"plantCodes",
+			" \n",
+			"background",
+			"19px",
+			"#mobile-menu-icon",
+			"transparent-button",
+			">\n",
+			">",
+			"opendia",
+			"img",
+			"\"img",
+			"bmw_ngi_header",
+			"ngi",
+			"\\img",
+			"/img",
+			"img",
+			"picker",
+			".row",
+			"1000",
+			"tranform",
+			".nonselect",
+			".button",
+			"button",
+			".fb",
+			".google",
+			"google",
+			"icon",
+			"fb",
+			".offers-banner",
+			"footer",
+			".offers-banner",
+			".treatments-list",
+			"#map",
+			"map",
+			"$font-size-78",
+			"$font-size-41",
+			"$font-size-25",
+			"$font-size-20",
+			"$font-size-expand",
+			"$font-size-header",
+			"$font-normal-size",
+			"$font-big-size",
+			"hover",
+			"$color-grey",
+			"$color-blue-light",
+			"$color-blue-light: #456a95;\n$color-blue-light: #456a95;\n$color-blue-light",
+			"$color-blue-light: #456a95;\n$color-blue-light",
+			"$color-blue-light",
+			"$color-main-highlight",
+			"$color-font",
+			"$color-body-bacground",
+			"$color-light-bacground",
+			"<img src=\"/img",
+			"first",
+			"values",
+			".values\nvalues",
+			".values",
+			"button",
+			"picker",
+			"=\"{'",
+			"hidden",
+			"gray",
+			"126px",
+			"arrow",
+			"input",
+			"bookin",
+			".slider",
+			"slider",
+			"#map",
+			"\n</",
+			"bacground",
+			"    \n",
+			"of",
+			".charts.bottom",
+			"\n",
+			" :",
+			"fade",
+			"update",
+			";\n",
+			"getSidebar",
+			"$http",
+			">\n",
+			"{    ",
+			"selec",
+			"has-child",
+			"child",
+			"secion",
+			"bg",
+			"urlretrieve",
+			"num",
+			"frequenscyArry"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"purchase",
+			"partnerNumbers",
+			"$font-78",
+			"$font-41",
+			"$font-25",
+			"$font-20",
+			"$font-18",
+			"$font-33",
+			"$font-14",
+			"$font-16",
+			"$color-text",
+			"$color-secondary",
+			"$color-main",
+			"$color-body-bg",
+			"$color-bg",
+			"<img src=\"img",
+			"n",
+			"frequencyArry"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 210.0
+	},
+	"pinned_build_system": "",
+	"project": "slice.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"vars",
+				"sass/variables.scss"
+			],
+			[
+				"main",
+				"js/main.js"
+			],
+			[
+				"style",
+				"sass/style.scss"
+			],
+			[
+				"footer",
+				"sass/footer.scss"
+			],
+			[
+				"input",
+				"sass/inputs.scss"
+			],
+			[
+				"home",
+				"views/home.html"
+			],
+			[
+				"app",
+				"js/app.js"
+			],
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"content",
+				"sass/content.scss"
+			],
+			[
+				"contet",
+				"sass/content.scss"
+			],
+			[
+				"sideba",
+				"js/controllers/sidebarController.js"
+			],
+			[
+				"steps",
+				"js/controllers/stepsController.js"
+			],
+			[
+				"top",
+				"partials/shared/header/top-menu.html"
+			],
+			[
+				"sty",
+				"css/style.css"
+			],
+			[
+				"menu",
+				"partials/shared/header/top-menu.html"
+			],
+			[
+				"header",
+				"sass/header.scss"
+			],
+			[
+				"informat",
+				"partials/informations.html"
+			],
+			[
+				"var",
+				"sass/variables.scss"
+			],
+			[
+				"pur",
+				"content/purchaseOrderInfo.json"
+			],
+			[
+				"purchase",
+				"partials/purchase-order-information.html"
+			],
+			[
+				"formt",
+				"partials/shared/content-elements/form.html"
+			],
+			[
+				"styl",
+				"sass/style.scss"
+			],
+			[
+				"filter",
+				"partials/shared/content-elements/filters.html"
+			],
+			[
+				"static",
+				"partials/shared/content-elements/static-table.html"
+			],
+			[
+				"conten",
+				"sass/content.scss"
+			],
+			[
+				"purchas",
+				"content/purchaseOrderInfo.json"
+			],
+			[
+				"dynacm",
+				"partials/shared/content-elements/dynamic-table.html"
+			],
+			[
+				"growl",
+				"css/angular-growl.css"
+			],
+			[
+				"varia",
+				"sass/variables.scss"
+			],
+			[
+				"grid",
+				"sass/grid-settings.scss"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
