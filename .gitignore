@@ -1,7 +1,7 @@
 # Numerous always-ignore extensions
 *.diff
 *.err
-*.log
+*.log	
 *~
 *.sass-cache
 # OS or Editor folders

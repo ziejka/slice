@@ -1,2 +1,6 @@
-let tmp = g.x;
-console.log(tmp);
+(function  (G) {
+	'use strict';
+
+	console.log(G.WIDTH);
+	
+})(GLOBALS)

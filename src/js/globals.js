@@ -1,6 +1,9 @@
-let g = () => {
-	let glob = {}
-	glob.x = 300;
+var GLOBALS = (function () {
+	'use strict';
+	
+	var obj = {};
 
-	return glob;
-}
+	obj.WIDTH = 300;
+
+	return obj;
+})();
