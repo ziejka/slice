@@ -15,6 +15,7 @@ nbproject
 Thumbs.db
 node_modules/
 bower_components/
+cdd/
 
 # files needed for work
 dist/
