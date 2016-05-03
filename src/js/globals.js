@@ -1,9 +1,11 @@
-var GLOBALS = (function () {
-	'use strict';
-	
-	var obj = {};
+var GLOBALS = (function() {
+    'use strict';
 
-	obj.WIDTH = 300;
+    var obj = {
 
-	return obj;
+        STAGE_WIDTH: 960,
+        STAGE_HEIGHT: 536
+    };
+
+    return obj;
 })();

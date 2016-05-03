@@ -1,6 +1,6 @@
-(function  (G) {
+(function  (G, setup) {
 	'use strict';
 
-	console.log(G.WIDTH);
+	console.log(G.STAGE_WIDTH);	
 	
-})(GLOBALS)
+})(GLOBALS, setup)
