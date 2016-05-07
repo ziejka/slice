@@ -4,6 +4,7 @@
 *.log	
 *~
 *.sass-cache
+*.css
 # OS or Editor folders
 .DS_Store
 .cache
