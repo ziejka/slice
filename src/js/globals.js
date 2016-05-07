@@ -4,7 +4,8 @@ var GLOBALS = (function() {
     var obj = {
 
         STAGE_WIDTH: 960,
-        STAGE_HEIGHT: 536
+        STAGE_HEIGHT: 536,
+        STAGE_BG: '#333'
     };
 
     return obj;

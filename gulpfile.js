@@ -3,7 +3,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
-const jasmine = require('gulp-jasmine');
 
 gulp.task('sass', function() {
     return gulp.src('src/sass/**/style.scss')
@@ -17,21 +16,26 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('jasmine-concat', () => {
+    return gulp.src('spec/*js')
+        .pipe(concat('tests.js'))
+        .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('sass:watch', function() {
     gulp.watch('src/sass/**/*.scss', ['sass']);
 });
 
-gulp.task('scripts:watch', function() {
+gulp.task('src:watch', function() {
     gulp.watch('src/js/*.js', ['scripts']);
 });
 
-gulp.task('jasmine', () =>
-    gulp.src('spec/test.js')
-    // gulp-jasmine works on filepaths so you can't have any plugins before it 
-    .pipe(jasmine())
-);
-
 gulp.task('test:watch', () => {
-    gulp.watch('src/js/*.js', ['jasmine']);
-    gulp.watch('spec/*.js', ['jasmine']);
+    gulp.watch('spec/*.js', ['jasmine-concat']);
+});
+
+gulp.task('watch', () => {
+    gulp.watch('src/sass/**/*.scss', ['sass']);
+    gulp.watch('src/js/*.js', ['scripts']);
+    gulp.watch('spec/*.js', ['jasmine-concat']);
 });
