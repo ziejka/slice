@@ -11,7 +11,8 @@ gulp.task('sass', function() {
 });
 
 gulp.task('scripts', function() {
-    return gulp.src(['src/js/globals.js', 'src/js/setup.js', 'src/js/app.js'])
+    // return gulp.src(['src/js/globals.js', 'src/js/setup.js', 'src/js/game-setup.js', 'src/js/app.js'])
+    return gulp.src('src/js/*.js')
         .pipe(concat('all.js'))
         .pipe(gulp.dest('dist/'));
 });

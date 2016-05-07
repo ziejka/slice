@@ -1,15 +1,21 @@
-var setup = (function(G) {
-    'use strict';
+// setup.js
+'use strict';
 
-    var obj = {};
+var stage = document.getElementById('main-canvas');
+var ctx = stage.getContext("2d");
 
-    obj.stage = document.getElementById('main-canvas');
-    obj.ctx = obj.stage.getContext("2d");
+var Canvas = function() {
 
-    function set_stage (argument) {
-    	obj.stage.height = G.HEIGHT;
+    function set_stage() {
+        stage.height = STAGE_HEIGHT;
+        stage.width = STAGE_WIDTH;
     }
 
-    return obj;
+    function init() {
+        set_stage();
+    }
 
-})(GLOBALS);
+    init();
+};
+
+Canvas(); 
