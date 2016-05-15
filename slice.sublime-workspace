@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"draw",
+				"draw_hero	(player.js)"
+			],
+			[
+				"max",
+				"maxV"
+			],
+			[
+				"rand",
+				"Math.random()	Math"
+			],
+			[
+				"he",
+				"height	(setup.js)"
+			],
+			[
+				"func",
+				"function with name"
+			],
+			[
+				"Mat",
+				"Math	(enemy.js)"
+			],
+			[
+				"sa",
+				"sayHi	(enemy.js)"
+			],
+			[
 				"en",
 				"enemy_x"
 			],
@@ -12,20 +40,12 @@
 				"ennemy"
 			],
 			[
-				"draw",
-				"draw_ball	(enemy.js)"
-			],
-			[
 				"fill",
 				"fillRect	(stage.js)"
 			],
 			[
 				"sett",
 				"setTimeout(func, delay)	Window"
-			],
-			[
-				"he",
-				"height"
 			],
 			[
 				"drawb",
@@ -42,14 +62,6 @@
 			[
 				"ct",
 				"ctx"
-			],
-			[
-				"Mat",
-				"Math.PI	Math"
-			],
-			[
-				"func",
-				"function with name"
 			],
 			[
 				"set",
@@ -194,10 +206,6 @@
 			[
 				"blo",
 				"block"
-			],
-			[
-				"max",
-				"max-width"
 			],
 			[
 				"space-a",
@@ -506,14 +514,6 @@
 			[
 				"ver",
 				"versio-selection"
-			],
-			[
-				"drop",
-				"drop-down"
-			],
-			[
-				"user",
-				"user"
 			]
 		]
 	},
@@ -531,7 +531,15 @@
 			"file": "src/js/setup.js",
 			"settings":
 			{
-				"buffer_size": 203,
+				"buffer_size": 301,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "spec/setup.js",
+			"settings":
+			{
+				"buffer_size": 242,
 				"line_ending": "Windows"
 			}
 		},
@@ -539,7 +547,7 @@
 			"file": "src/js/stage.js",
 			"settings":
 			{
-				"buffer_size": 148,
+				"buffer_size": 210,
 				"line_ending": "Windows"
 			}
 		},
@@ -547,15 +555,7 @@
 			"file": "src/js/app.js",
 			"settings":
 			{
-				"buffer_size": 423,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/enemy.js",
-			"settings":
-			{
-				"buffer_size": 709,
+				"buffer_size": 761,
 				"line_ending": "Windows"
 			}
 		},
@@ -563,7 +563,7 @@
 			"file": "src/js/player.js",
 			"settings":
 			{
-				"buffer_size": 1041,
+				"buffer_size": 1083,
 				"line_ending": "Windows"
 			}
 		},
@@ -877,6 +877,8 @@
 	],
 	"file_history":
 	[
+		"/E/GitHub/slice/src/js/enemy.js",
+		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/js/jquery-ui.min.js",
 		"/E/GitHub/slice/index.html",
 		"/E/GitHub/slice/dist/all.js",
 		"/E/GitHub/slice/src/js/player.js",
@@ -1002,9 +1004,7 @@
 		"/D/ArchiwumAplikacja/ArchiveExportService/xmlTestRaczon.xml",
 		"/D/Wallpaper_change/wchange.py",
 		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic2.py",
-		"/D/Wallpaper_change/wchange2.py",
-		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic.py",
-		"/C/Users/Comarch/.lein/profiles.clj"
+		"/D/Wallpaper_change/wchange2.py"
 	],
 	"find":
 	{
@@ -1190,7 +1190,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -1220,7 +1220,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1229,15 +1229,43 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 203,
+						"buffer_size": 301,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								203,
-								203
+								246,
+								246
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "spec/setup.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 242,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								242
 							]
 						],
 						"settings":
@@ -1252,20 +1280,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "src/js/stage.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 148,
+						"buffer_size": 210,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								148,
-								148
+								18,
+								16
 							]
 						],
 						"settings":
@@ -1280,20 +1308,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "src/js/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 423,
+						"buffer_size": 761,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								399,
-								399
+								190,
+								190
 							]
 						],
 						"settings":
@@ -1308,50 +1336,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "src/js/enemy.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 709,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								170,
-								163
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
 					"buffer": 5,
 					"file": "src/js/player.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1041,
+						"buffer_size": 1083,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								389,
-								389
+								77,
+								77
 							]
 						],
 						"settings":
@@ -1362,7 +1360,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1394,7 +1392,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]

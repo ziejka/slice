@@ -17,24 +17,28 @@ var Hero = function() {
         switch (evt.keyCode) {
             case 38:
                 /* Up arrow was pressed */
+                evt.preventDefault();
                 if (y - dy > 0) {
                     y -= dy;
                 }
                 break;
             case 40:
                 /* Down arrow was pressed */
+                evt.preventDefault();
                 if (y + dy < STAGE_HEIGHT) {
                     y += dy;
                 }
                 break;
             case 37:
                 /* Left arrow was pressed */
+                evt.preventDefault();
                 if (x - dx > 0) {
                     x -= dx;
                 }
                 break;
             case 39:
                 /* Right arrow was pressed */
+                evt.preventDefault();
                 if (x + dx < STAGE_WIDTH) {
                     x += dx;
                 }
