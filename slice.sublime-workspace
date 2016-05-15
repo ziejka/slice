@@ -4,16 +4,68 @@
 		"selected_items":
 		[
 			[
+				"en",
+				"enemy_x"
+			],
+			[
+				"ene",
+				"ennemy"
+			],
+			[
+				"draw",
+				"draw_ball	(enemy.js)"
+			],
+			[
+				"fill",
+				"fillRect	(stage.js)"
+			],
+			[
+				"sett",
+				"setTimeout(func, delay)	Window"
+			],
+			[
+				"he",
+				"height"
+			],
+			[
+				"drawb",
+				"draw_ball"
+			],
+			[
+				"sp",
+				"speed_y"
+			],
+			[
+				"y",
+				"style.backgroundRepeat = 'repeat-y'	Style CSS"
+			],
+			[
+				"ct",
+				"ctx"
+			],
+			[
+				"Mat",
+				"Math.PI	Math"
+			],
+			[
+				"func",
+				"function with name"
+			],
+			[
+				"set",
+				"set_stage"
+			],
+			[
+				"fun",
+				"function without name"
+			],
+			[
 				"req",
 				"require	(gulpfile.js)"
 			],
 			[
 				"S",
 				"STAGE_WIDTH	(globals.js)"
-			],
-			[
-				"func",
-				"function without name"
 			],
 			[
 				"cl",
@@ -110,10 +162,6 @@
 			[
 				"pos",
 				"position"
-			],
-			[
-				"he",
-				"height	(header.scss)"
 			],
 			[
 				"ng-cl",
@@ -218,10 +266,6 @@
 			[
 				"tras",
 				"transition	(var.scss)"
-			],
-			[
-				"fun",
-				"function with name"
 			],
 			[
 				"tag",
@@ -470,72 +514,16 @@
 			[
 				"user",
 				"user"
-			],
-			[
-				"ge",
-				"get"
-			],
-			[
-				"get",
-				"get-user"
-			],
-			[
-				"id",
-				"id_cost"
-			],
-			[
-				"login",
-				"login-page"
-			],
-			[
-				"co",
-				"cost-on-center"
-			],
-			[
-				"cost",
-				"cos-on-center"
-			],
-			[
-				"bor",
-				"border-bottom"
-			],
-			[
-				"im",
-				"Images"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 659,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/globals.js",
-			"settings":
-			{
-				"buffer_size": 146,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "gulpfile.js",
 			"settings":
 			{
-				"buffer_size": 968,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "spec/test.js",
-			"settings":
-			{
-				"buffer_size": 101,
+				"buffer_size": 1143,
 				"line_ending": "Windows"
 			}
 		},
@@ -543,7 +531,15 @@
 			"file": "src/js/setup.js",
 			"settings":
 			{
-				"buffer_size": 271,
+				"buffer_size": 203,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/stage.js",
+			"settings":
+			{
+				"buffer_size": 148,
 				"line_ending": "Windows"
 			}
 		},
@@ -551,7 +547,31 @@
 			"file": "src/js/app.js",
 			"settings":
 			{
-				"buffer_size": 90,
+				"buffer_size": 423,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/enemy.js",
+			"settings":
+			{
+				"buffer_size": 709,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/player.js",
+			"settings":
+			{
+				"buffer_size": 1041,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/js/globals.js",
+			"settings":
+			{
+				"buffer_size": 157,
 				"line_ending": "Windows"
 			}
 		}
@@ -857,15 +877,33 @@
 	],
 	"file_history":
 	[
+		"/E/GitHub/slice/index.html",
+		"/E/GitHub/slice/dist/all.js",
+		"/E/GitHub/slice/src/js/player.js",
+		"/E/GitHub/slice/src/js/stage.js",
+		"/E/GitHub/slice/src/js/game.js",
+		"/E/GitHub/slice/src/js/level.js",
+		"/E/GitHub/slice/src/js/app.js",
+		"/E/GitHub/slice/spec/some.js",
+		"/E/GitHub/slice/src/js/globals.js",
+		"/E/GitHub/slice/spec/setup.js",
+		"/C/Users/Mateusz/OneDrive/Freeelance/dental/Page/common/js/jQuery.js",
+		"/E/GitHub/slice/gulpfile.js",
+		"/E/GitHub/slice/dist/tests.js",
+		"/E/GitHub/slice/src/sass/style.scss",
+		"/E/GitHub/slice/package.json",
+		"/C/Users/Mateusz/Downloads/jasmine-standalone-2.4.1/spec/PlayerSpec.js",
+		"/E/GitHub/slice/SpecRunner.html",
+		"/C/Users/Mateusz/Downloads/jasmine-standalone-2.4.1/spec/SpecHelper.js",
+		"/C/Users/Mateusz/Downloads/spec/PlayerSpec.js",
+		"/C/Users/Mateusz/Downloads/jasmine-standalone-2.4.1/src/Player.js",
+		"/C/Users/Mateusz/Downloads/SpecRunner.html",
 		"/E/Filmy/Frank 2014 1080p BRRip x264 AC3-JYK/Frank 2014 1080p BRRip x264 AC3-JYK.txt",
 		"/E/GitHub/slice/.gitignore",
 		"/C/Users/Mateusz/Desktop/PlayerSpec.js",
 		"/C/Users/Mateusz/OneDrive/Projects/GameAssignment/js/app.js",
 		"/C/Users/Mateusz/OneDrive/Projects/GameAssignment/js/globals.js",
-		"/E/GitHub/slice/gulpfile.js",
-		"/E/GitHub/slice/package.json",
 		"/C/Users/Mateusz/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
-		"/E/GitHub/slice/src/js/app.js",
 		"/E/GitHub/slice/.babelrc",
 		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/actions/sendreq_manager.php",
 		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/sass/footer.scss",
@@ -966,29 +1004,11 @@
 		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic2.py",
 		"/D/Wallpaper_change/wchange2.py",
 		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic.py",
-		"/C/Users/Comarch/.lein/profiles.clj",
-		"/D/XSLT/Comarch PDF/XSL.ECOD.INVOIC.COMARCH.TEST.xsl",
-		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic.clj",
-		"/C/Users/Comarch/AppData/Roaming/Sublime Text 2/Packages/User/SublimeREPL.sublime-settings",
-		"/C/Users/Comarch/AppData/Roaming/Sublime Text 2/Packages/SublimeREPL/SublimeREPL.sublime-settings",
-		"/D/ArchiwumTask/Task/css/general_print_preview_v15.css",
-		"/D/ArchiwumTask/Task/css/general_print_v15.css",
-		"/D/GitHubRepo/controlling-system/src/myapp/routes/home.clj",
-		"/D/GitHubRepo/controlling-system/resources/templates/grid.html",
-		"/D/GitHubRepo/controlling-system/src/myapp/util.clj",
-		"/D/GitHubRepo/controlling-system/src/myapp/dbquery.clj",
-		"/D/Trash/change.css",
-		"/D/GitHubRepo/controlling-system/resources/public/css/screen.css",
-		"/D/GitHubRepo/controlling-system/src/myapp/handler.clj",
-		"/D/GitHubRepo/controlling-system/resources/templates/base.html",
-		"/D/GitHubRepo/controlling-system/resources/templates/home.html",
-		"/D/GitHubRepo/controlling-system/resources/templates/login.html",
-		"/D/GitHubRepo/controlling-system/src/myapp/grid.clj",
-		"/D/METRO/App/AS2SelfCare/AS2SelfCare/Content/bootstrap.css"
+		"/C/Users/Comarch/.lein/profiles.clj"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -1006,6 +1026,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"c.ctx",
+			"toBe",
 			"bookin",
 			"booking-dropdown",
 			"time",
@@ -1131,9 +1153,7 @@
 			"child",
 			"secion",
 			"bg",
-			"urlretrieve",
-			"num",
-			"frequenscyArry"
+			"urlretrieve"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1141,6 +1161,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"ctx",
 			"purchase",
 			"partnerNumbers",
 			"$font-78",
@@ -1169,29 +1190,29 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "gulpfile.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 659,
+						"buffer_size": 1143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								623,
-								623
+								495,
+								495
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
@@ -1204,19 +1225,19 @@
 				},
 				{
 					"buffer": 1,
-					"file": "src/js/globals.js",
+					"file": "src/js/setup.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 146,
+						"buffer_size": 203,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								122,
-								122
+								203,
+								203
 							]
 						],
 						"settings":
@@ -1227,24 +1248,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "gulpfile.js",
+					"file": "src/js/stage.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 968,
+						"buffer_size": 148,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13,
-								13
+								148,
+								148
 							]
 						],
 						"settings":
@@ -1260,19 +1281,19 @@
 				},
 				{
 					"buffer": 3,
-					"file": "spec/test.js",
+					"file": "src/js/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 101,
+						"buffer_size": 423,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								101,
-								101
+								399,
+								399
 							]
 						],
 						"settings":
@@ -1283,24 +1304,54 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "src/js/setup.js",
+					"file": "src/js/enemy.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 271,
+						"buffer_size": 709,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								139,
-								139
+								170,
+								163
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/js/player.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1041,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								389,
+								389
 							]
 						],
 						"settings":
@@ -1315,20 +1366,24 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "src/js/app.js",
+					"buffer": 6,
+					"file": "src/js/globals.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 90,
+						"buffer_size": 157,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								69,
-								69
+								75,
+								75
+							],
+							[
+								156,
+								156
 							]
 						],
 						"settings":
@@ -1339,7 +1394,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1392,7 +1447,7 @@
 	"project": "slice.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1401,6 +1456,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"stage",
+				"src\\js\\stage.js"
+			],
 			[
 				"vars",
 				"sass/variables.scss"

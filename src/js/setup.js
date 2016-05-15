@@ -4,18 +4,15 @@
 var stage = document.getElementById('main-canvas');
 var ctx = stage.getContext("2d");
 
-var Canvas = function() {
+var canvas = function() {
 
     function set_stage() {
         stage.height = STAGE_HEIGHT;
         stage.width = STAGE_WIDTH;
     }
 
-    function init() {
-        set_stage();
+    return {
+        set_stage: set_stage
     }
 
-    init();
-};
-
-Canvas(); 
+}();

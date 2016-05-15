@@ -3,42 +3,35 @@
 
 var Ennemy = function() {
 
-    var x = Math.random() * STAGE_WIDTH,
-        y = Math.random() * STAGE_HEIGHT,
-        speed_x = 5,
-        speed_y = 5;
-
-    function draw_bg() {
-        ctx.fillStyle = STAGE_BG;
-        ctx.fillRect(0, 0, stage.width, stage.height);
-    }
+    var speed_x = generateRandom(3),
+        speed_y = generateRandom(3);
+    var enemy_x, enemy_y;
 
     function draw_ball(x, y) {
-        draw_bg();
+        enemy_x = x;
+        enemy_y = y;
         ctx.fillStyle = BALL_COLOR;
         ctx.beginPath();
-        ctx.arc(x, y, 10, 0, 2 * Math.PI, false);
+        ctx.arc(enemy_x, enemy_y, 10, 0, 2 * Math.PI, false);
         ctx.fill();
     }
 
+    function generateRandom(maxV) {
+        var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
+        return (Math.random() * maxV + 3) * plusOrMinus;
+    }
+
     function bouncing() {
+        if (enemy_x < 0 || enemy_x > stage.width) { speed_x = speed_x * -1 };
+        if (enemy_y < 0 || enemy_y > stage.height) { speed_y = speed_y * -1 };
 
-        if (x < 0 || x > stage.width) { speed_x = speed_x * -1 };
-        if (y < 0 || y > stage.height) { speed_y = speed_y * -1 };
-
-        x += speed_x;
-        y += speed_y;
-        draw_ball(x, y);
+        enemy_x += speed_x;
+        enemy_y += speed_y;
+        draw_ball(enemy_x, enemy_y);
     }
-
-    function init() {
-        setInterval(bouncing, 10);
-    }
-
-    init();
 
     return {
-            init: init
-        };
-
+        draw_ball: draw_ball,
+        bouncing: bouncing
+    }
 }
