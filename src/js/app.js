@@ -19,10 +19,8 @@ var game = function(argument) {
         hero.draw_hero();
         en1.draw_ball(Math.random() * stage.width, Math.random() * stage.height);
         en2.draw_ball(Math.random() * stage.width, Math.random() * stage.height);
-        // ennemy.draw_ball(Math.random() * 200, Math.random() * 200);
         window.addEventListener('keydown',hero.doKeyDown,true);
         window.requestAnimationFrame(animate);
-
     }
 
     init();

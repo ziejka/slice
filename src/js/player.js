@@ -1,16 +1,25 @@
 // player.js
 
 var Hero = function() {
-	'use strict';
+    'use strict';
 
-	var x = 10, 
-		y = 10,
-		dy= 5,
-		dx = 5;
+    var x = 0,
+        y = 0,
+        dy = 10,
+        dx = 10,
+        pw = 20,
+        ph = 20;
 
     function draw_hero() {
         ctx.fillStyle = PLAYER_COLOR;
-        ctx.fillRect(x, y, 20, 20);
+        ctx.fillRect(x, y, pw, ph);
+    }
+
+    function moveDown() {
+        if (y + dy < STAGE_HEIGHT) {
+            y += dy;
+        }
+        break;
     }
 
     function doKeyDown(evt) {
@@ -20,6 +29,8 @@ var Hero = function() {
                 evt.preventDefault();
                 if (y - dy > 0) {
                     y -= dy;
+                } else {
+                    y = 0;
                 }
                 break;
             case 40:
@@ -34,6 +45,8 @@ var Hero = function() {
                 evt.preventDefault();
                 if (x - dx > 0) {
                     x -= dx;
+                } else {
+                    x = 0;
                 }
                 break;
             case 39:
@@ -44,11 +57,10 @@ var Hero = function() {
                 }
                 break;
         }
-        draw_hero(x, y);
     }
 
     return {
-    	draw_hero: draw_hero,
-    	doKeyDown: doKeyDown
+        draw_hero: draw_hero,
+        doKeyDown: doKeyDown
     }
 }
