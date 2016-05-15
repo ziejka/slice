@@ -520,42 +520,10 @@
 	"buffers":
 	[
 		{
-			"file": "gulpfile.js",
-			"settings":
-			{
-				"buffer_size": 1143,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/setup.js",
-			"settings":
-			{
-				"buffer_size": 301,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "spec/setup.js",
-			"settings":
-			{
-				"buffer_size": 242,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/stage.js",
-			"settings":
-			{
-				"buffer_size": 210,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "src/js/app.js",
 			"settings":
 			{
-				"buffer_size": 761,
+				"buffer_size": 689,
 				"line_ending": "Windows"
 			}
 		},
@@ -563,15 +531,7 @@
 			"file": "src/js/player.js",
 			"settings":
 			{
-				"buffer_size": 1083,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/js/globals.js",
-			"settings":
-			{
-				"buffer_size": 157,
+				"buffer_size": 1494,
 				"line_ending": "Windows"
 			}
 		}
@@ -877,20 +837,21 @@
 	],
 	"file_history":
 	[
+		"/E/GitHub/slice/src/js/globals.js",
+		"/E/GitHub/slice/gulpfile.js",
+		"/E/GitHub/slice/src/js/setup.js",
+		"/E/GitHub/slice/src/js/stage.js",
+		"/E/GitHub/slice/spec/setup.js",
 		"/E/GitHub/slice/src/js/enemy.js",
 		"/C/Users/Mateusz/OneDrive/Freeelance/SouthgateDentists/app/js/jquery-ui.min.js",
 		"/E/GitHub/slice/index.html",
 		"/E/GitHub/slice/dist/all.js",
 		"/E/GitHub/slice/src/js/player.js",
-		"/E/GitHub/slice/src/js/stage.js",
 		"/E/GitHub/slice/src/js/game.js",
 		"/E/GitHub/slice/src/js/level.js",
 		"/E/GitHub/slice/src/js/app.js",
 		"/E/GitHub/slice/spec/some.js",
-		"/E/GitHub/slice/src/js/globals.js",
-		"/E/GitHub/slice/spec/setup.js",
 		"/C/Users/Mateusz/OneDrive/Freeelance/dental/Page/common/js/jQuery.js",
-		"/E/GitHub/slice/gulpfile.js",
 		"/E/GitHub/slice/dist/tests.js",
 		"/E/GitHub/slice/src/sass/style.scss",
 		"/E/GitHub/slice/package.json",
@@ -1003,8 +964,7 @@
 		"/D/XSLT/NIVEA/slownik.py",
 		"/D/ArchiwumAplikacja/ArchiveExportService/xmlTestRaczon.xml",
 		"/D/Wallpaper_change/wchange.py",
-		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic2.py",
-		"/D/Wallpaper_change/wchange2.py"
+		"/C/Users/Comarch/OneDrive/Bioinformatc/bioinformatic2.py"
 	],
 	"find":
 	{
@@ -1190,138 +1150,24 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "gulpfile.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1143,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								495,
-								495
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "src/js/setup.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 301,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								246,
-								246
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "spec/setup.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 242,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								242,
-								242
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "src/js/stage.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 210,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18,
-								16
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "src/js/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 761,
+						"buffer_size": 689,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								190,
-								190
+								665,
+								665
 							]
 						],
 						"settings":
@@ -1336,20 +1182,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 1,
 					"file": "src/js/player.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1083,
+						"buffer_size": 1494,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								77,
-								77
+								357,
+								357
 							]
 						],
 						"settings":
@@ -1357,42 +1203,10 @@
 							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 135.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "src/js/globals.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 157,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								75,
-								75
-							],
-							[
-								156,
-								156
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript Ultimate/JavaScript (DOM).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]

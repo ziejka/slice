@@ -16,10 +16,35 @@ var Hero = function() {
     }
 
     function moveDown() {
-        if (y + dy < STAGE_HEIGHT) {
+        if (y + ph + dy < STAGE_HEIGHT) {
             y += dy;
+        } else {
+            y = STAGE_HEIGHT - ph;
         }
-        break;
+    }
+
+    function moveUP() {
+        if (y - dy > 0) {
+            y -= dy;
+        } else {
+            y = 0;
+        }
+    }
+
+    function moveLeft() {
+        if (x - dx > 0) {
+            x -= dx;
+        } else {
+            x = 0;
+        }
+    }
+
+    function moveRight() {
+        if (x + pw + dx < STAGE_WIDTH) {
+            x += dx;
+        } else {
+        	x = STAGE_WIDTH - pw;
+        }
     }
 
     function doKeyDown(evt) {
@@ -27,34 +52,22 @@ var Hero = function() {
             case 38:
                 /* Up arrow was pressed */
                 evt.preventDefault();
-                if (y - dy > 0) {
-                    y -= dy;
-                } else {
-                    y = 0;
-                }
+                moveUP();
                 break;
             case 40:
                 /* Down arrow was pressed */
                 evt.preventDefault();
-                if (y + dy < STAGE_HEIGHT) {
-                    y += dy;
-                }
+                moveDown();
                 break;
             case 37:
                 /* Left arrow was pressed */
                 evt.preventDefault();
-                if (x - dx > 0) {
-                    x -= dx;
-                } else {
-                    x = 0;
-                }
+                moveLeft();
                 break;
             case 39:
                 /* Right arrow was pressed */
                 evt.preventDefault();
-                if (x + dx < STAGE_WIDTH) {
-                    x += dx;
-                }
+                moveRight();
                 break;
         }
     }
