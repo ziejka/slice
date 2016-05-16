@@ -3,8 +3,8 @@
 var Hero = function() {
     var x = 0,
         y = 0,
-        dy = 10,
-        dx = 10,
+        dy = 20,
+        dx = 20,
         pw = 20,
         ph = 20;
 
@@ -71,7 +71,7 @@ var Hero = function() {
                 /* Up arrow was pressed */
                 evt.preventDefault();
                 if (!moving.isMovingUp) {
-                    setMove('isMovingUp');                    
+                    setMove('isMovingUp');
                     moveUP();
                 };
                 break;

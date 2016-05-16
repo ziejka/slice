@@ -1,24 +1,29 @@
 // app.js
 
 var game = function() {
-    var en1 = new Ennemy();
-    var en2 = new Ennemy();
+
+    var ennemys = [];
+    for (var i = 0; i < 10; i++) {
+        ennemys.push(new Ennemy());
+    }
     var hero = new Hero();
 
     function animate() {
         bg.drawBg();
         hero.drawHero();
-        en1.bouncing();
-        en2.bouncing();
+        for (var i = 0; i < ennemys.length; i++) {
+            actions.bouncing(ennemys[i]);
+        };
         window.requestAnimationFrame(animate);
     }
 
     function init() {
         canvas.setStage();
         bg.drawBg();
-        hero.drawHero();
-        en1.draw_ball(Math.random() * stage.width, Math.random() * stage.height);
-        en2.draw_ball(Math.random() * stage.width, Math.random() * stage.height);
+        hero.drawHero();        
+        for (var i = 0; i < ennemys.length; i++) {
+            actions.drawBall(ennemys[i], Math.random() * stage.width, Math.random() * stage.height);
+        };
         window.addEventListener('keydown', hero.doKeyDown, false);
         window.requestAnimationFrame(animate);
     }
