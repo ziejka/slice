@@ -19,7 +19,7 @@ var game = function() {
         hero.drawHero();
         en1.draw_ball(Math.random() * stage.width, Math.random() * stage.height);
         en2.draw_ball(Math.random() * stage.width, Math.random() * stage.height);
-        window.addEventListener('keydown', hero.doKeyDown, true);
+        window.addEventListener('keydown', hero.doKeyDown, false);
         window.requestAnimationFrame(animate);
     }
 

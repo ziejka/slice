@@ -8,6 +8,14 @@ var Hero = function() {
         pw = 20,
         ph = 20;
 
+    var animationID;
+    var moving = {
+        isMovingLeft: false,
+        isMovingRight: false,
+        isMovingUp: false,
+        isMovingDown: false
+    }
+
     function drawHero() {
         ctx.fillStyle = PLAYER_COLOR;
         ctx.fillRect(x, y, pw, ph);
@@ -19,6 +27,7 @@ var Hero = function() {
         } else {
             y = STAGE_HEIGHT - ph;
         }
+        animationID = window.requestAnimationFrame(moveDown);
     }
 
     function moveUP() {
@@ -27,6 +36,7 @@ var Hero = function() {
         } else {
             y = 0;
         }
+        animationID = window.requestAnimationFrame(moveUP);
     }
 
     function moveLeft() {
@@ -35,6 +45,7 @@ var Hero = function() {
         } else {
             x = 0;
         }
+        animationID = window.requestAnimationFrame(moveLeft);
     }
 
     function moveRight() {
@@ -43,6 +54,14 @@ var Hero = function() {
         } else {
             x = STAGE_WIDTH - pw;
         }
+        animationID = window.requestAnimationFrame(moveRight);
+    }
+
+    function setMove(direction) {
+        for (var key in moving) {
+            moving[key] = false;
+        }
+        moving[direction] = true;
     }
 
     function doKeyDown(evt) {
@@ -50,22 +69,39 @@ var Hero = function() {
             case 38:
                 /* Up arrow was pressed */
                 evt.preventDefault();
-                moveUP();
+                if (!moving.isMovingUp) {
+                    setMove('isMovingUp');
+                    window.cancelAnimationFrame(animationID);
+                    moveUP();
+                };
                 break;
             case 40:
                 /* Down arrow was pressed */
                 evt.preventDefault();
-                moveDown();
+                if (!moving.isMovingDown) {
+                    setMove('isMovingDown');
+                    window.cancelAnimationFrame(animationID);
+                    moveDown();
+                };
                 break;
             case 37:
                 /* Left arrow was pressed */
                 evt.preventDefault();
-                moveLeft();
+                if (!moving.isMovingLeft) {
+                    setMove('isMovingLeft');
+                    window.cancelAnimationFrame(animationID);
+                    moveLeft();
+                };
                 break;
             case 39:
                 /* Right arrow was pressed */
                 evt.preventDefault();
-                moveRight();
+                if (!moving.isMovingRight) {
+                    setMove('isMovingRight');
+                    window.cancelAnimationFrame(animationID);
+                    moveRight();
+                };
+                
                 break;
         }
     }
