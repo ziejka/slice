@@ -21,12 +21,12 @@ var actions = function() {
 
     function generateRandom(maxV) {
         var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-        return (Math.random() * maxV + 3) * plusOrMinus;
+        return Math.floor((Math.random() * maxV + 3) * plusOrMinus);
     }
 
     function bouncing(ennemy) {
-        if (ennemy.x < 0 || ennemy.x > stage.width) { ennemy.speedX = ennemy.speedX * -1 };
-        if (ennemy.y < 0 || ennemy.y > stage.height) { ennemy.speedY = ennemy.speedY * -1 };
+        if (ennemy.x < 0 || ennemy.x > stage.width) { ennemy.speedX *= -1 };
+        if (ennemy.y < 0 || ennemy.y > stage.height) { ennemy.speedY *= -1 };
 
         ennemy.x += ennemy.speedX;
         ennemy.y += ennemy.speedY;
@@ -34,28 +34,47 @@ var actions = function() {
     }
 
     function isInCollision(ennemy, hero) {
-        var distX = Math.abs(ennemy.x - hero.x - hero.w / 2);
-        var distY = Math.abs(ennemy.y - hero.y - hero.h / 2);
+        var distX = Math.abs(ennemy.x - (hero.x + hero.w / 2));
+        var distY = Math.abs(ennemy.y - (hero.y + hero.h / 2));
 
         if (distX > (hero.w / 2 + ennemy.r)) {
-            return false; }
+            return false;
+        }
         if (distY > (hero.h / 2 + ennemy.r)) {
-            return false; }
+            return false;
+        }
 
         if (distX <= (hero.w / 2)) {
-            return true; }
+            return true;
+        }
         if (distY <= (hero.h / 2)) {
-            return true; }
+            return true;
+        }
 
         var dx = distX - hero.w / 2;
         var dy = distY - hero.h / 2;
         return (dx * dx + dy * dy <= (ennemy.r * ennemy.r));
     }
 
-    function checkCollision (ennemy, hero) {
-         if (isInCollision(ennemy, hero)) {
-            console.log(ennemy.x, hero.x);
-         };
+    function changeDirection(ennemy, hero) {
+        if (ennemy.x <= hero.x || ennemy.x >= hero.x + hero.w) {
+            ennemy.speedX *= -1;
+            ennemy.x += ennemy.speedX;
+        };
+        if (ennemy.y <= hero.y || ennemy.y >= hero.y + hero.h) {
+            ennemy.speedY *= -1;
+            ennemy.y += ennemy.speedY;
+        };
+    }
+
+    var counter = 0;
+
+    function checkCollision(ennemy, hero) {
+        if (isInCollision(ennemy, hero)) {
+            changeDirection(ennemy, hero)
+            counter += 1;
+            document.getElementById('paper').innerHTML = counter.toString();
+        };
     }
 
 
@@ -63,7 +82,8 @@ var actions = function() {
         drawBall: drawBall,
         generateRandom: generateRandom,
         bouncing: bouncing,
-        checkCollision: checkCollision
+        checkCollision: checkCollision,
+        isInCollision: isInCollision
     }
 }();
 
