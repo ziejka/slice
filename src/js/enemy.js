@@ -54,7 +54,7 @@ var actions = function() {
 
     function checkCollision (ennemy, hero) {
          if (isInCollision(ennemy, hero)) {
-            alert('Collision!')
+            console.log(ennemy.x, hero.x);
          };
     }
 

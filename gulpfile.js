@@ -7,7 +7,7 @@ var concat = require('gulp-concat');
 gulp.task('sass', function() {
     return gulp.src('src/sass/**/style.scss')
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css'));
+        .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('scripts', function() {
