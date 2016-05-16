@@ -2,8 +2,8 @@
 'use strict';
 
 var Ennemy = function() {
-    this.speedX = actions.generateRandom(3);
-    this.speedY = actions.generateRandom(3);
+    this.speedX = actions.generateRandomSpeed(3);
+    this.speedY = actions.generateRandomSpeed(3);
     this.x;
     this.y;
     this.r = 10;
@@ -14,12 +14,10 @@ var actions = function() {
         ennemy.x = x;
         ennemy.y = y;
         ctx.fillStyle = BALL_COLOR;
-        ctx.beginPath();
-        ctx.arc(ennemy.x, ennemy.y, ennemy.r, 0, 2 * Math.PI, false);
-        ctx.fill();
+        helpers.drawCircle(ennemy.x, ennemy.y, ennemy.r);
     }
 
-    function generateRandom(maxV) {
+    function generateRandomSpeed(maxV) {
         var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
         return Math.floor((Math.random() * maxV + 3) * plusOrMinus);
     }
@@ -27,7 +25,6 @@ var actions = function() {
     function bouncing(ennemy) {
         if (ennemy.x < 0 || ennemy.x > stage.width) { ennemy.speedX *= -1 };
         if (ennemy.y < 0 || ennemy.y > stage.height) { ennemy.speedY *= -1 };
-
         ennemy.x += ennemy.speedX;
         ennemy.y += ennemy.speedY;
         drawBall(ennemy, ennemy.x, ennemy.y);
@@ -56,22 +53,10 @@ var actions = function() {
         return (dx * dx + dy * dy <= (ennemy.r * ennemy.r));
     }
 
-    function changeDirection(ennemy, hero) {
-        if (ennemy.x <= hero.x || ennemy.x >= hero.x + hero.w) {
-            ennemy.speedX *= -1;
-            ennemy.x += ennemy.speedX;
-        };
-        if (ennemy.y <= hero.y || ennemy.y >= hero.y + hero.h) {
-            ennemy.speedY *= -1;
-            ennemy.y += ennemy.speedY;
-        };
-    }
-
     var counter = 0;
 
     function checkCollision(ennemy, hero) {
         if (isInCollision(ennemy, hero)) {
-            changeDirection(ennemy, hero)
             counter += 1;
             document.getElementById('paper').innerHTML = counter.toString();
         };
@@ -80,48 +65,9 @@ var actions = function() {
 
     return {
         drawBall: drawBall,
-        generateRandom: generateRandom,
+        generateRandomSpeed: generateRandomSpeed,
         bouncing: bouncing,
         checkCollision: checkCollision,
         isInCollision: isInCollision
     }
 }();
-
-
-// enemy.js 
-// 'use strict';
-
-// var Ennemy = function() {
-
-//     var speedX = generateRandom(3),
-//         speedY = generateRandom(3);
-//     var ennemy.x, ennemy.y;
-
-//     function drawBall(x, y) {
-//         ennemy.x = x;
-//         ennemy.y = y;
-//         ctx.fillStyle = BALL_COLOR;
-//         ctx.beginPath();
-//         ctx.arc(ennemy.x, ennemy.y, 10, 0, 2 * Math.PI, false);
-//         ctx.fill();
-//     }
-
-//     function generateRandom(maxV) {
-//         var plusOrMinus = Math.random() < 0.5 ? -1 : 1;
-//         return (Math.random() * maxV + 3) * plusOrMinus;
-//     }
-
-//     function bouncing() {
-//         if (ennemy.x < 0 || ennemy.x > stage.width) { speedX = speedX * -1 };
-//         if (ennemy.y < 0 || ennemy.y > stage.height) { speedY = speedY * -1 };
-
-//         ennemy.x += speedX;
-//         ennemy.y += speedY;
-//         drawBall(ennemy.x, ennemy.y);
-//     }
-
-//     return {
-//         drawBall: drawBall,
-//         bouncing: bouncing
-//     }
-// }

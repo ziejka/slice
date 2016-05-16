@@ -7,11 +7,12 @@ var game = function() {
         ennemys.push(new Ennemy());
     }
     var hero = new Hero();
-    var enT = new Ennemy();
+    var bonus; 
 
     function animate() {
         bg.drawBg();
         hero.drawHero();
+        bonusActios.drawBonus(bonus);
         for (var i = 0; i < ennemys.length; i++) {
             actions.bouncing(ennemys[i]);
             actions.checkCollision(ennemys[i], hero.getHeroCords());
@@ -22,12 +23,14 @@ var game = function() {
     function init() {
         canvas.setStage();
         bg.drawBg();
-        hero.drawHero();        
+        hero.drawHero();
+        bonus = new Bonus(helpers.generateRandom(stage.width), helpers.generateRandom(stage.height));
+        bonusActios.drawBonus(bonus);
         for (var i = 0; i < ennemys.length; i++) {
-            actions.drawBall(ennemys[i],Math.floor( Math.random() * stage.width), Math.floor(Math.random() * stage.height));
+            actions.drawBall(ennemys[i], helpers.generateRandom(stage.width), helpers.generateRandom(stage.height));
         };
         window.addEventListener('keydown', hero.doKeyDown, false);
-        window.requestAnimationFrame(animate);        
+        animate();
     }
 
     init();
