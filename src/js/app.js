@@ -7,7 +7,7 @@ var game = function() {
         ennemys.push(new Ennemy());
     }
     var hero = new Hero();
-    var bonus; 
+    var bonus = new Bonus(); 
 
     function animate() {
         bg.drawBg();
@@ -15,8 +15,9 @@ var game = function() {
         bonusActios.drawBonus(bonus);
         for (var i = 0; i < ennemys.length; i++) {
             actions.bouncing(ennemys[i]);
-            actions.checkCollision(ennemys[i], hero.getHeroCords());
+            helpers.checkCollision(ennemys[i], hero.getHeroCords(), helpers.ennemyHit);
         };
+        helpers.checkCollision(bonus, hero.getHeroCords(), helpers.bonusHit);
         window.requestAnimationFrame(animate);
     }
 
@@ -24,7 +25,7 @@ var game = function() {
         canvas.setStage();
         bg.drawBg();
         hero.drawHero();
-        bonus = new Bonus(helpers.generateRandom(stage.width), helpers.generateRandom(stage.height));
+        bonus.restart();
         bonusActios.drawBonus(bonus);
         for (var i = 0; i < ennemys.length; i++) {
             actions.drawBall(ennemys[i], helpers.generateRandom(stage.width), helpers.generateRandom(stage.height));
