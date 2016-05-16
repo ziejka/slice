@@ -34,8 +34,8 @@ var actions = function() {
     }
 
     function isInCollision(ennemy, hero) {
-        var distX = Math.abs(ennemy.x - hero.x + hero.w / 2);
-        var distY = Math.abs(ennemy.y - hero.y + hero.h / 2);
+        var distX = Math.abs(ennemy.x - hero.x - hero.w / 2);
+        var distY = Math.abs(ennemy.y - hero.y - hero.h / 2);
 
         if (distX > (hero.w / 2 + ennemy.r)) {
             return false; }
