@@ -6,13 +6,13 @@ var ctx = stage.getContext("2d");
 
 var canvas = function() {
 
-    function set_stage() {
+    function setStage() {
         stage.height = STAGE_HEIGHT;
         stage.width = STAGE_WIDTH;
     }
 
     return {
-        set_stage: set_stage
+        setStage: setStage
     }
 
 }();

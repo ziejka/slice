@@ -1,8 +1,6 @@
 // player.js
 
 var Hero = function() {
-    'use strict';
-
     var x = 0,
         y = 0,
         dy = 10,
@@ -10,7 +8,7 @@ var Hero = function() {
         pw = 20,
         ph = 20;
 
-    function draw_hero() {
+    function drawHero() {
         ctx.fillStyle = PLAYER_COLOR;
         ctx.fillRect(x, y, pw, ph);
     }
@@ -43,7 +41,7 @@ var Hero = function() {
         if (x + pw + dx < STAGE_WIDTH) {
             x += dx;
         } else {
-        	x = STAGE_WIDTH - pw;
+            x = STAGE_WIDTH - pw;
         }
     }
 
@@ -73,7 +71,7 @@ var Hero = function() {
     }
 
     return {
-        draw_hero: draw_hero,
+        drawHero: drawHero,
         doKeyDown: doKeyDown
     }
 }
