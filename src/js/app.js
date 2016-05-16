@@ -3,7 +3,7 @@
 var game = function() {
 
     var ennemys = [];
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 1; i++) {
         ennemys.push(new Ennemy());
     }
     var hero = new Hero();
@@ -13,7 +13,8 @@ var game = function() {
         hero.drawHero();
         for (var i = 0; i < ennemys.length; i++) {
             actions.bouncing(ennemys[i]);
-        };
+            actions.checkCollision(ennemys[i], hero.getHeroCords());
+        };        
         window.requestAnimationFrame(animate);
     }
 
@@ -25,7 +26,7 @@ var game = function() {
             actions.drawBall(ennemys[i], Math.random() * stage.width, Math.random() * stage.height);
         };
         window.addEventListener('keydown', hero.doKeyDown, false);
-        window.requestAnimationFrame(animate);
+        window.requestAnimationFrame(animate);        
     }
 
     init();

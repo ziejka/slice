@@ -6,6 +6,7 @@ var Ennemy = function() {
     this.speedY = actions.generateRandom(3);
     this.x;
     this.y;
+    this.r = 10;
 }
 
 var actions = function() {
@@ -14,7 +15,7 @@ var actions = function() {
         ennemy.y = y;
         ctx.fillStyle = BALL_COLOR;
         ctx.beginPath();
-        ctx.arc(ennemy.x, ennemy.y, 10, 0, 2 * Math.PI, false);
+        ctx.arc(ennemy.x, ennemy.y, ennemy.r, 0, 2 * Math.PI, false);
         ctx.fill();
     }
 
@@ -32,10 +33,37 @@ var actions = function() {
         drawBall(ennemy, ennemy.x, ennemy.y);
     }
 
+    function isInCollision(ennemy, hero) {
+        var distX = Math.abs(ennemy.x - hero.x + hero.w / 2);
+        var distY = Math.abs(ennemy.y - hero.y + hero.h / 2);
+
+        if (distX > (hero.w / 2 + ennemy.r)) {
+            return false; }
+        if (distY > (hero.h / 2 + ennemy.r)) {
+            return false; }
+
+        if (distX <= (hero.w / 2)) {
+            return true; }
+        if (distY <= (hero.h / 2)) {
+            return true; }
+
+        var dx = distX - hero.w / 2;
+        var dy = distY - hero.h / 2;
+        return (dx * dx + dy * dy <= (ennemy.r * ennemy.r));
+    }
+
+    function checkCollision (ennemy, hero) {
+         if (isInCollision(ennemy, hero)) {
+            alert('Collision!')
+         };
+    }
+
+
     return {
         drawBall: drawBall,
         generateRandom: generateRandom,
-        bouncing: bouncing
+        bouncing: bouncing,
+        checkCollision: checkCollision
     }
 }();
 

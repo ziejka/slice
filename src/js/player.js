@@ -3,10 +3,10 @@
 var Hero = function() {
     var x = 0,
         y = 0,
-        dy = 20,
-        dx = 20,
-        pw = 20,
-        ph = 20;
+        dy = 5,
+        dx = 5,
+        w = 20,
+        h = 20;
 
     var animationID;
     var moving = {
@@ -18,14 +18,14 @@ var Hero = function() {
 
     function drawHero() {
         ctx.fillStyle = PLAYER_COLOR;
-        ctx.fillRect(x, y, pw, ph);
+        ctx.fillRect(x, y, w, h);
     }
 
     function moveDown() {
-        if (y + ph + dy < STAGE_HEIGHT) {
+        if (y + h + dy < STAGE_HEIGHT) {
             y += dy;
         } else {
-            y = STAGE_HEIGHT - ph;
+            y = STAGE_HEIGHT - h;
         }
         animationID = window.requestAnimationFrame(moveDown);
     }
@@ -49,10 +49,10 @@ var Hero = function() {
     }
 
     function moveRight() {
-        if (x + pw + dx < STAGE_WIDTH) {
+        if (x + w + dx < STAGE_WIDTH) {
             x += dx;
         } else {
-            x = STAGE_WIDTH - pw;
+            x = STAGE_WIDTH - w;
         }
         animationID = window.requestAnimationFrame(moveRight);
     }
@@ -97,13 +97,23 @@ var Hero = function() {
                 if (!moving.isMovingRight) {
                     setMove('isMovingRight');
                     moveRight();
-                };                
+                };
                 break;
+        }
+    }
+
+    function getHeroCords() {
+        return {
+            x: x,
+            y: y,
+            w: w,
+            h: h
         }
     }
 
     return {
         drawHero: drawHero,
-        doKeyDown: doKeyDown
+        doKeyDown: doKeyDown,
+        getHeroCords: getHeroCords
     }
 }
