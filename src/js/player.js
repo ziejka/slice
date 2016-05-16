@@ -62,6 +62,7 @@ var Hero = function() {
             moving[key] = false;
         }
         moving[direction] = true;
+        window.cancelAnimationFrame(animationID);
     }
 
     function doKeyDown(evt) {
@@ -70,8 +71,7 @@ var Hero = function() {
                 /* Up arrow was pressed */
                 evt.preventDefault();
                 if (!moving.isMovingUp) {
-                    setMove('isMovingUp');
-                    window.cancelAnimationFrame(animationID);
+                    setMove('isMovingUp');                    
                     moveUP();
                 };
                 break;
@@ -80,7 +80,6 @@ var Hero = function() {
                 evt.preventDefault();
                 if (!moving.isMovingDown) {
                     setMove('isMovingDown');
-                    window.cancelAnimationFrame(animationID);
                     moveDown();
                 };
                 break;
@@ -89,7 +88,6 @@ var Hero = function() {
                 evt.preventDefault();
                 if (!moving.isMovingLeft) {
                     setMove('isMovingLeft');
-                    window.cancelAnimationFrame(animationID);
                     moveLeft();
                 };
                 break;
@@ -98,10 +96,8 @@ var Hero = function() {
                 evt.preventDefault();
                 if (!moving.isMovingRight) {
                     setMove('isMovingRight');
-                    window.cancelAnimationFrame(animationID);
                     moveRight();
-                };
-                
+                };                
                 break;
         }
     }
