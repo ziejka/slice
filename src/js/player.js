@@ -3,8 +3,8 @@
 var Hero = function() {
     var x = 0,
         y = 0,
-        dy = 15,
-        dx = 15,
+        dy = 10,
+        dx = 10,
         w = 20,
         h = 20;
 
