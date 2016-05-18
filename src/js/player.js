@@ -8,6 +8,8 @@ var Hero = function() {
         w = 20,
         h = 20;
 
+    var points = [];
+
     var animationID;
     var moving = {
         isMovingLeft: false,
