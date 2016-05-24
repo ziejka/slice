@@ -35,12 +35,12 @@ var helpers = function() {
     }
 
     function checkCollision(cirlce, hero, callback) {
-        if (isInCollision(cirlce, hero)) {
-            callback(cirlce);
+        if (isInCollision(cirlce, hero.getHeroCords())) {
+            callback(cirlce, hero);            
         };
     }
 
-    function ennemyHit(ennemy) {
+    function ennemyHit(ennemy, hero) {
         ctx.fillStyle = 'rgba(255, 0, 0, 0.8)';
         ctx.fillRect(0, 0, stage.width, stage.height);
         if (counter != 0) {
@@ -48,10 +48,11 @@ var helpers = function() {
             counter = 0;
             document.getElementById('score').innerHTML = counter.toString();
         }
+        hero.resetPoints();
     }
 
 
-    function bonusHit(bonus) {
+    function bonusHit(bonus, hero) {
         counter += 1;
         document.getElementById('score').innerHTML = counter.toString();
         bonus.restart();

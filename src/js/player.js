@@ -8,7 +8,7 @@ var Hero = function() {
         w = 20,
         h = 20;
 
-    var points = [];
+    var points = [[x+w/2, y+h/2]];
 
     var animationID;
     var moving = {
@@ -19,8 +19,26 @@ var Hero = function() {
     }
 
     function drawHero() {
+        drawLine();
         ctx.fillStyle = PLAYER_COLOR;
         ctx.fillRect(x, y, w, h);
+        
+    }
+
+    function drawLine () {
+        ctx.strokeStyle = 'green';
+        ctx.beginPath();
+        for (var i = 0; i < points.length; i++) {
+            var px = points[i][0];
+            var py = points[i][1];
+            ctx.lineTo(px, py);
+        };
+        ctx.lineTo(x+w/2, y+h/2);
+        ctx.stroke();
+    }
+
+    function resetPoints () {
+         points = [[x+w/2, y+h/2]];
     }
 
     function moveDown() {
@@ -60,6 +78,7 @@ var Hero = function() {
     }
 
     function setMove(direction) {
+        points.push([x+w/2, y+h/2]);
         for (var key in moving) {
             moving[key] = false;
         }
@@ -116,6 +135,7 @@ var Hero = function() {
     return {
         drawHero: drawHero,
         doKeyDown: doKeyDown,
-        getHeroCords: getHeroCords
+        getHeroCords: getHeroCords,
+        resetPoints: resetPoints
     }
 }

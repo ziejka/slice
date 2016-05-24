@@ -15,9 +15,9 @@ var game = function() {
         bonusActios.drawBonus(bonus);
         for (var i = 0; i < ennemys.length; i++) {
             actions.bouncing(ennemys[i]);
-            helpers.checkCollision(ennemys[i], hero.getHeroCords(), helpers.ennemyHit);
+            helpers.checkCollision(ennemys[i], hero, helpers.ennemyHit);
         };
-        helpers.checkCollision(bonus, hero.getHeroCords(), helpers.bonusHit);
+        helpers.checkCollision(bonus, hero, helpers.bonusHit);
         window.requestAnimationFrame(animate);
     }
 
