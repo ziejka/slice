@@ -78,20 +78,29 @@ var Hero = function() {
             x += dx;
         } else {
             x = STAGE_WIDTH - w;
+            wallHit()
         }
         animationID = window.requestAnimationFrame(moveRight);
     }
 
     function setMove(direction) {
-        if (canPushPoint(direction)) {
-            points.push([x+w/2, y+h/2]);
-        };
-
+        addPoint(direction);
         for (var key in moving) {
             moving[key] = false;
         }
         moving[direction] = true;
         window.cancelAnimationFrame(animationID);
+    }
+
+    function addPoint (direction) {          
+        if (canPushPoint(direction)) {
+            points.push([x+w/2, y+h/2]);
+        };
+    }
+
+    function wallHit () {
+        addPoint();
+        ctx.fill(); 
     }
 
     function canPushPoint (direction) {
