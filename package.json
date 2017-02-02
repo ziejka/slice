@@ -1,28 +1,23 @@
 {
-    "name": "slice",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app.js",
-    "dependencies": {
-        "gulp": "^3.9.1"
-    },
-    "devDependencies": {
-        "gulp": "^3.9.1",
-        "gulp-concat": "^2.6.0",
-        "gulp-jasmine": "^2.3.0",
-        "gulp-sass": "^2.3.1"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ziejka/slice.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ziejka/slice/issues"
-    },
-    "homepage": "https://github.com/ziejka/slice#readme"
+  "name": "slice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ziejka/slice.git"
+  },
+  "author": "Ziejka",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.65.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.0",
+    "mocha": "^3.2.0",
+    "sinon": "^1.17.2"
+  },
+  "scripts": {
+    "test": "mocha tests --recursive --watch"
+  }
 }

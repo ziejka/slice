@@ -1,22 +1,2 @@
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.log	
-*~
-*.sass-cache
-*.css
-# OS or Editor folders
+node_modules
 .DS_Store
-.cache
-.project
-.settings
-.tmproj
-nbproject
-.idea
-Thumbs.db
-node_modules/
-bower_components/
-cdd/
-
-# files needed for work
-dist/
