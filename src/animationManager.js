@@ -1,20 +1,23 @@
+var g = require('./Utils/globals');
+
 function AnimationManager(window, canvas) {
     var objectsToAnimate = [],
         ctx = canvas.getContext("2d");
 
     function animate() {
+        ctx.clearRect(0,0,g.STAGE_WIDTH, g.STAGE_HEIGHT);
         objectsToAnimate.forEach(function (obj) {
-            obj.draw(ctx);
+            obj.onFrame(ctx);
         });
         window.requestAnimationFrame(animate);
     }
 
     function add(obj) {
-        if ('draw' in obj) {
+        if ('onFrame' in obj) {
             objectsToAnimate.push(obj);
         } else {
             console.log(obj);
-            throw new Error('obj need to implement draw method');
+            throw new Error('obj need to implement onFrame() method');
         }
     }
 

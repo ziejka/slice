@@ -6,7 +6,7 @@ function Stage(canvas) {
         canvas.width = g.STAGE_WIDTH;
     }
 
-    function draw(ctx) {
+    function onFrame(ctx) {
         ctx.fillStyle = g.STAGE_BG;
         ctx.fillRect(0, 0, g.STAGE_WIDTH, g.STAGE_HEIGHT);
     }
@@ -14,7 +14,7 @@ function Stage(canvas) {
     setUp();
 
     return {
-        draw: draw
+        onFrame: onFrame
     }
 }
 

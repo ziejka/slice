@@ -68,9 +68,9 @@ describe('Hero tests:', function () {
                 keyCode: 40
             };
         hero.onKeyDown(evt);
-        hero.draw(ctx);
+        hero.onFrame(ctx);
         expect(hero.getPosition()).to.deep.equal(position);
-        hero.draw(ctx);
+        hero.onFrame(ctx);
         position.y += g.HERO_SPEED;
         expect(hero.getPosition()).to.deep.equal(position);
         evt = {
@@ -79,7 +79,7 @@ describe('Hero tests:', function () {
         };
         hero.onKeyDown(evt);
         for (var i = 0; i < repeatNumber; i++) {
-            hero.draw(ctx);
+            hero.onFrame(ctx);
         }
         position.x = g.STAGE_WIDTH;
         expect(hero.getPosition()).to.deep.equal(position);

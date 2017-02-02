@@ -18,7 +18,7 @@ function Hero() {
         return {x: x, y: y};
     }
 
-    function draw(ctx) {
+    function onFrame(ctx) {
         move();
         ctx.fillStyle = g.PLAYER_COLOR;
         ctx.fillRect(x, y, w, h);
@@ -66,8 +66,8 @@ function Hero() {
     }
 
     function onKeyDown(evt) {
-        evt.preventDefault();
         if(g.KEY_MAP[evt.keyCode]) {
+            evt.preventDefault();
             setMove(g.KEY_MAP[evt.keyCode]);
         }
 
@@ -99,7 +99,7 @@ function Hero() {
         moveLeft: moveLeft,
         moveRight: moveRight,
         resetPosition: resetPosition,
-        draw: draw,
+        onFrame: onFrame,
         onKeyDown: onKeyDown
     }
 }
@@ -114,7 +114,7 @@ function Stage(canvas) {
         canvas.width = g.STAGE_WIDTH;
     }
 
-    function draw(ctx) {
+    function onFrame(ctx) {
         ctx.fillStyle = g.STAGE_BG;
         ctx.fillRect(0, 0, g.STAGE_WIDTH, g.STAGE_HEIGHT);
     }
@@ -122,7 +122,7 @@ function Stage(canvas) {
     setUp();
 
     return {
-        draw: draw
+        onFrame: onFrame
     }
 }
 
@@ -136,7 +136,7 @@ module.exports = {
     DOWN: 'down',
     LEFT: 'left',
     RIGHT: 'right',
-    STAGE_BG: 'rgba(51,51,51,0.3)',
+    STAGE_BG: '#484848',
     PLAYER_COLOR: '#cdcdcd',
     KEY_MAP: {
         37: 'left',
@@ -146,23 +146,26 @@ module.exports = {
     }
 };
 },{}],4:[function(require,module,exports){
+var g = require('./Utils/globals');
+
 function AnimationManager(window, canvas) {
     var objectsToAnimate = [],
         ctx = canvas.getContext("2d");
 
     function animate() {
+        ctx.clearRect(0,0,g.STAGE_WIDTH, g.STAGE_HEIGHT);
         objectsToAnimate.forEach(function (obj) {
-            obj.draw(ctx);
+            obj.onFrame(ctx);
         });
         window.requestAnimationFrame(animate);
     }
 
     function add(obj) {
-        if ('draw' in obj) {
+        if ('onFrame' in obj) {
             objectsToAnimate.push(obj);
         } else {
             console.log(obj);
-            throw new Error('obj need to implement draw method');
+            throw new Error('obj need to implement onFrame() method');
         }
     }
 
@@ -173,7 +176,7 @@ function AnimationManager(window, canvas) {
 }
 
 module.exports = AnimationManager;
-},{}],5:[function(require,module,exports){
+},{"./Utils/globals":3}],5:[function(require,module,exports){
 var Stage = require('./Stage/stage');
 var Hero = require('./Hero/hero');
 var AnimationManager = require('./animationManager');

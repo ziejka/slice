@@ -17,7 +17,7 @@ function Hero() {
         return {x: x, y: y};
     }
 
-    function draw(ctx) {
+    function onFrame(ctx) {
         move();
         ctx.fillStyle = g.PLAYER_COLOR;
         ctx.fillRect(x, y, w, h);
@@ -65,8 +65,8 @@ function Hero() {
     }
 
     function onKeyDown(evt) {
-        evt.preventDefault();
         if(g.KEY_MAP[evt.keyCode]) {
+            evt.preventDefault();
             setMove(g.KEY_MAP[evt.keyCode]);
         }
 
@@ -98,7 +98,7 @@ function Hero() {
         moveLeft: moveLeft,
         moveRight: moveRight,
         resetPosition: resetPosition,
-        draw: draw,
+        onFrame: onFrame,
         onKeyDown: onKeyDown
     }
 }
