@@ -9,6 +9,7 @@ function App() {
         animationManager = new AnimationManager(window, canvas);
 
     function init() {
+        hero.subscribe(stage.eventHandler);
         animationManager.add(stage);
         animationManager.add(hero);
         animationManager.animate();
@@ -19,3 +20,4 @@ function App() {
 }
 
 App();
+

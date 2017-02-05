@@ -1,11 +1,12 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var g = require('../Utils/globals');
+var subject = require('../Utils/subject');
 
 function Hero() {
     var x = 0,
         y = 0,
-        w = 10,
-        h = 10,
+        width = 10,
+        height = 10,
         speed = g.HERO_SPEED,
         moving = {
             left: false,
@@ -14,48 +15,56 @@ function Hero() {
             down: false
         };
 
-    function getPosition() {
-        return {x: x, y: y};
-    }
+    this.handlers = [];
 
-    function onFrame(ctx) {
-        move();
+    this.getPosition = function () {
+        return {x: x, y: y};
+    };
+
+    this.onFrame = function (ctx) {
+        move.call(this);
         ctx.fillStyle = g.PLAYER_COLOR;
-        ctx.fillRect(x, y, w, h);
-    }
+        ctx.fillRect(x, y, width, height);
+    };
+
+    this.moveUp = function () {
+        y -= speed;
+        y = y <= 0 ? 0 : y;
+    };
+
+    this.moveDown = function () {
+        y += speed;
+        y = y >= g.STAGE_HEIGHT ? g.STAGE_HEIGHT : y;
+    };
+
+    this.moveLeft = function () {
+        x -= speed;
+        x = x <= 0 ? 0 : x;
+    };
+
+    this.moveRight = function () {
+        x += speed;
+        x = x >= g.STAGE_WIDTH ? g.STAGE_WIDTH : x;
+    };
+
+    this.resetPosition = function () {
+        x = 0;
+        y = 0;
+    };
+
+    this.onKeyDown = function (evt) {
+        if (g.KEY_MAP[evt.keyCode]) {
+            evt.preventDefault();
+            setMove(g.KEY_MAP[evt.keyCode]);
+        }
+    };
 
     function move() {
         for (var key in moving) {
             if (moving[key]) {
-                moveInDirection(key);
-
+                moveInDirection.call(this, key);
             }
         }
-    }
-
-    function moveUp() {
-        y -= speed;
-        y = y <= 0 ? 0 : y;
-    }
-
-    function moveDown() {
-        y += speed;
-        y = y >= g.STAGE_HEIGHT ? g.STAGE_HEIGHT : y;
-    }
-
-    function moveLeft() {
-        x -= speed;
-        x = x <= 0 ? 0 : x;
-    }
-
-    function moveRight() {
-        x += speed;
-        x = x >= g.STAGE_WIDTH ? g.STAGE_WIDTH : x;
-    }
-
-    function resetPosition() {
-        x = 0;
-        y = 0;
     }
 
     function setMove(direction) {
@@ -65,65 +74,64 @@ function Hero() {
         moving[direction] = true;
     }
 
-    function onKeyDown(evt) {
-        if(g.KEY_MAP[evt.keyCode]) {
-            evt.preventDefault();
-            setMove(g.KEY_MAP[evt.keyCode]);
-        }
-
-    }
-
     function moveInDirection(direction) {
+        var me = this;
         switch (direction) {
             case g.UP:
-                moveUp();
+                me.moveUp();
                 break;
             case g.DOWN:
-                moveDown();
+                me.moveDown();
                 break;
             case g.LEFT:
-                moveLeft();
+                me.moveLeft();
                 break;
             case g.RIGHT:
-                moveRight();
+                me.moveRight();
                 break;
             default:
                 break;
         }
     }
-
-    return {
-        getPosition: getPosition,
-        moveUp: moveUp,
-        moveDown: moveDown,
-        moveLeft: moveLeft,
-        moveRight: moveRight,
-        resetPosition: resetPosition,
-        onFrame: onFrame,
-        onKeyDown: onKeyDown
-    }
 }
 
+Hero.prototype = subject;
+
 module.exports = Hero;
-},{"../Utils/globals":3}],2:[function(require,module,exports){
+},{"../Utils/globals":3,"../Utils/subject":4}],2:[function(require,module,exports){
 var g = require('../Utils/globals');
 
 function Stage(canvas) {
+    var stagePoints = [
+        {x: 0, y: 0},
+        {x: g.STAGE_WIDTH, y: 0},
+        {x: g.STAGE_WIDTH, y: g.STAGE_HEIGHT},
+        {x: 0, y: g.STAGE_HEIGHT}
+    ];
+
     function setUp() {
         canvas.height = g.STAGE_HEIGHT;
         canvas.width = g.STAGE_WIDTH;
     }
 
-    function onFrame(ctx) {
+    function drawBg(ctx) {
         ctx.fillStyle = g.STAGE_BG;
         ctx.fillRect(0, 0, g.STAGE_WIDTH, g.STAGE_HEIGHT);
     }
 
-    setUp();
+    this.getPolygon = function () {
+        return stagePoints;
+    };
 
-    return {
-        onFrame: onFrame
-    }
+    this.onFrame = function (ctx) {
+        drawBg(ctx);
+    };
+
+    this.eventHandler = function (arg) {
+
+    };
+
+    setUp();
 }
 
 module.exports = Stage;
@@ -146,11 +154,37 @@ module.exports = {
     }
 };
 },{}],4:[function(require,module,exports){
+module.exports = {
+
+    subscribe: function (fn) {
+        this.handlers.push(fn);
+    },
+
+    unsubscribe: function (fn) {
+        this.handlers = this.handlers.filter(
+            function (item) {
+                if (item !== fn) {
+                    return item;
+                }
+            }
+        );
+    },
+
+    fire: function (o, thisObj) {
+        var scope = thisObj || null;
+        this.handlers.forEach(function (item) {
+            item.call(scope, o);
+        });
+    }
+};
+},{}],5:[function(require,module,exports){
 var g = require('./Utils/globals');
 
 function AnimationManager(window, canvas) {
     var objectsToAnimate = [],
         ctx = canvas.getContext("2d");
+
+
 
     function animate() {
         ctx.clearRect(0,0,g.STAGE_WIDTH, g.STAGE_HEIGHT);
@@ -164,7 +198,7 @@ function AnimationManager(window, canvas) {
         if ('onFrame' in obj) {
             objectsToAnimate.push(obj);
         } else {
-            console.log(obj);
+            console.log("Failed Module: ", obj);
             throw new Error('obj need to implement onFrame() method');
         }
     }
@@ -176,7 +210,7 @@ function AnimationManager(window, canvas) {
 }
 
 module.exports = AnimationManager;
-},{"./Utils/globals":3}],5:[function(require,module,exports){
+},{"./Utils/globals":3}],6:[function(require,module,exports){
 var Stage = require('./Stage/stage');
 var Hero = require('./Hero/hero');
 var AnimationManager = require('./animationManager');
@@ -188,6 +222,7 @@ function App() {
         animationManager = new AnimationManager(window, canvas);
 
     function init() {
+        hero.subscribe(stage.eventHandler);
         animationManager.add(stage);
         animationManager.add(hero);
         animationManager.animate();
@@ -198,4 +233,6 @@ function App() {
 }
 
 App();
-},{"./Hero/hero":1,"./Stage/stage":2,"./animationManager":4}]},{},[5]);
+
+
+},{"./Hero/hero":1,"./Stage/stage":2,"./animationManager":5}]},{},[6]);

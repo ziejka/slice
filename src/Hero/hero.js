@@ -1,10 +1,11 @@
 var g = require('../Utils/globals');
+var subject = require('../Utils/subject');
 
 function Hero() {
     var x = 0,
         y = 0,
-        w = 10,
-        h = 10,
+        width = 10,
+        height = 10,
         speed = g.HERO_SPEED,
         moving = {
             left: false,
@@ -13,48 +14,56 @@ function Hero() {
             down: false
         };
 
-    function getPosition() {
-        return {x: x, y: y};
-    }
+    this.handlers = [];
 
-    function onFrame(ctx) {
-        move();
+    this.getPosition = function () {
+        return {x: x, y: y};
+    };
+
+    this.onFrame = function (ctx) {
+        move.call(this);
         ctx.fillStyle = g.PLAYER_COLOR;
-        ctx.fillRect(x, y, w, h);
-    }
+        ctx.fillRect(x, y, width, height);
+    };
+
+    this.moveUp = function () {
+        y -= speed;
+        y = y <= 0 ? 0 : y;
+    };
+
+    this.moveDown = function () {
+        y += speed;
+        y = y >= g.STAGE_HEIGHT ? g.STAGE_HEIGHT : y;
+    };
+
+    this.moveLeft = function () {
+        x -= speed;
+        x = x <= 0 ? 0 : x;
+    };
+
+    this.moveRight = function () {
+        x += speed;
+        x = x >= g.STAGE_WIDTH ? g.STAGE_WIDTH : x;
+    };
+
+    this.resetPosition = function () {
+        x = 0;
+        y = 0;
+    };
+
+    this.onKeyDown = function (evt) {
+        if (g.KEY_MAP[evt.keyCode]) {
+            evt.preventDefault();
+            setMove(g.KEY_MAP[evt.keyCode]);
+        }
+    };
 
     function move() {
         for (var key in moving) {
             if (moving[key]) {
-                moveInDirection(key);
-
+                moveInDirection.call(this, key);
             }
         }
-    }
-
-    function moveUp() {
-        y -= speed;
-        y = y <= 0 ? 0 : y;
-    }
-
-    function moveDown() {
-        y += speed;
-        y = y >= g.STAGE_HEIGHT ? g.STAGE_HEIGHT : y;
-    }
-
-    function moveLeft() {
-        x -= speed;
-        x = x <= 0 ? 0 : x;
-    }
-
-    function moveRight() {
-        x += speed;
-        x = x >= g.STAGE_WIDTH ? g.STAGE_WIDTH : x;
-    }
-
-    function resetPosition() {
-        x = 0;
-        y = 0;
     }
 
     function setMove(direction) {
@@ -64,43 +73,27 @@ function Hero() {
         moving[direction] = true;
     }
 
-    function onKeyDown(evt) {
-        if(g.KEY_MAP[evt.keyCode]) {
-            evt.preventDefault();
-            setMove(g.KEY_MAP[evt.keyCode]);
-        }
-
-    }
-
     function moveInDirection(direction) {
+        var me = this;
         switch (direction) {
             case g.UP:
-                moveUp();
+                me.moveUp();
                 break;
             case g.DOWN:
-                moveDown();
+                me.moveDown();
                 break;
             case g.LEFT:
-                moveLeft();
+                me.moveLeft();
                 break;
             case g.RIGHT:
-                moveRight();
+                me.moveRight();
                 break;
             default:
                 break;
         }
     }
-
-    return {
-        getPosition: getPosition,
-        moveUp: moveUp,
-        moveDown: moveDown,
-        moveLeft: moveLeft,
-        moveRight: moveRight,
-        resetPosition: resetPosition,
-        onFrame: onFrame,
-        onKeyDown: onKeyDown
-    }
 }
+
+Hero.prototype = subject;
 
 module.exports = Hero;

@@ -4,6 +4,8 @@ function AnimationManager(window, canvas) {
     var objectsToAnimate = [],
         ctx = canvas.getContext("2d");
 
+
+
     function animate() {
         ctx.clearRect(0,0,g.STAGE_WIDTH, g.STAGE_HEIGHT);
         objectsToAnimate.forEach(function (obj) {
@@ -16,7 +18,7 @@ function AnimationManager(window, canvas) {
         if ('onFrame' in obj) {
             objectsToAnimate.push(obj);
         } else {
-            console.log(obj);
+            console.log("Failed Module: ", obj);
             throw new Error('obj need to implement onFrame() method');
         }
     }
