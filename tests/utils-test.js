@@ -33,10 +33,17 @@ describe('Utils tests:', function () {
         {x: 50, y: 0}
     ],
         point = {x: 0, y: 0};
+    
 
     it('should poperly determind inside, outside', function () {
         expect(utils.isInside(point, polygon)).to.equal(false);
-        point.x = 10;
+        point = {x: 10, y: 0};
+        expect(utils.isInside(point, polygon)).to.equal(true);
+        point = {x: 10, y: 39};
+        expect(utils.isInside(point, polygon)).to.equal(true);
+        point = {x: 20, y: 40};
+        expect(utils.isInside(point, polygon)).to.equal(true);
+        point = {x: 21, y: 89};
         expect(utils.isInside(point, polygon)).to.equal(true);
         point = {x: 55, y: 12};
         expect(utils.isInside(point, polygon)).to.equal(false);
@@ -46,13 +53,17 @@ describe('Utils tests:', function () {
         expect(utils.isInside(point, polygon)).to.equal(false);
         point = {x: 69, y: 71};
         expect(utils.isInside(point, polygon)).to.equal(false);
-        point = {x: 69, y: 70};
-        expect(utils.isInside(point, polygon)).to.equal(false);
+        point = {x: 70, y: 70};
+        expect(utils.isInside(point, polygon)).to.equal(true);
         point = {x: 65, y: 69};
         expect(utils.isInside(point, polygon)).to.equal(true);
         point = {x: 70, y: 60};
         expect(utils.isInside(point, polygon)).to.equal(true);
-        point = {x: 79, y: 79};
-        expect(utils.isInside(point, polygon)).to.equal(true);
+        point = {x: 80, y: 80};
+        expect(utils.isInside(point, polygon)).to.equal(false);
+        point = {x: 60, y: 80};
+        expect(utils.isInside(point, polygon)).to.equal(false);
+        point = {x: 50, y: 90};
+        expect(utils.isInside(point, polygon)).to.equal(false);
     });
 });

@@ -1,12 +1,15 @@
 var g = require('../Utils/globals');
 var subject = require('../Utils/subject');
+var Stage = require('../Stage/stage');
+var utils = require('../Utils/utils');
 
 function Hero() {
-    var x = 0,
-        y = 0,
+    var x = 5,
+        y = 5,
         width = 10,
         height = 10,
         speed = g.HERO_SPEED,
+        isOnSegmentLine = false,
         moving = {
             left: false,
             right: false,
@@ -17,33 +20,28 @@ function Hero() {
     this.handlers = [];
 
     this.getPosition = function () {
-        return {x: x, y: y};
+        return {x: x + width / 2, y: y + height / 2};
     };
 
     this.onFrame = function (ctx) {
         move.call(this);
-        ctx.fillStyle = g.PLAYER_COLOR;
-        ctx.fillRect(x, y, width, height);
+        draw(ctx);
     };
 
     this.moveUp = function () {
         y -= speed;
-        y = y <= 0 ? 0 : y;
     };
 
     this.moveDown = function () {
         y += speed;
-        y = y >= g.STAGE_HEIGHT ? g.STAGE_HEIGHT : y;
     };
 
     this.moveLeft = function () {
         x -= speed;
-        x = x <= 0 ? 0 : x;
     };
 
     this.moveRight = function () {
         x += speed;
-        x = x >= g.STAGE_WIDTH ? g.STAGE_WIDTH : x;
     };
 
     this.resetPosition = function () {
@@ -58,12 +56,28 @@ function Hero() {
         }
     };
 
+    function draw(ctx) {
+        ctx.fillStyle = g.PLAYER_COLOR;
+        ctx.fillRect(x, y, width, height);
+    }
+
     function move() {
+        var me = this,
+            newPosition,
+            lastPosition = me.getPosition();
+
         for (var key in moving) {
             if (moving[key]) {
-                moveInDirection.call(this, key);
+                moveInDirection.call(me, key);
             }
         }
+        newPosition = me.getPosition();
+
+        if (JSON.stringify(newPoint) === JSON.stringify(lastPosition)) {
+            return;
+        }
+
+        utils.getNewPoint(lastPosition, newPosition, polygon)
     }
 
     function setMove(direction) {

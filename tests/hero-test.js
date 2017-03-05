@@ -51,7 +51,7 @@ describe('Hero tests:', function () {
         hero.moveLeft();
         hero.moveUp();
         expect(hero.getPosition()).to.deep.equal(position);
-        position = {x: g.STAGE_WIDTH, y: g.STAGE_HEIGHT};
+        position = {x: g.STAGE_WIDTH - 5, y: g.STAGE_HEIGHT - 5};
         for (var i = 0; i < repeatNumber; i++) {
             hero.moveRight();
             hero.moveDown();
@@ -81,10 +81,9 @@ describe('Hero tests:', function () {
         for (var i = 0; i < repeatNumber; i++) {
             hero.onFrame(ctx);
         }
-        position.x = g.STAGE_WIDTH;
+        position.x = g.STAGE_WIDTH - 5;
         expect(hero.getPosition()).to.deep.equal(position);
     });
-
 });
 
 
