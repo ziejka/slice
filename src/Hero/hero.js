@@ -4,12 +4,10 @@ var Stage = require('../Stage/stage');
 var utils = require('../Utils/utils');
 
 function Hero() {
-    var x = 5,
-        y = 5,
-        width = 10,
+
+    var width = 10,
         height = 10,
         speed = g.HERO_SPEED,
-        isOnSegmentLine = false,
         moving = {
             left: false,
             right: false,
@@ -17,36 +15,41 @@ function Hero() {
             down: false
         };
 
+    this.position = {
+        x: 5,
+        y: 5
+    };
+
     this.handlers = [];
 
     this.getPosition = function () {
-        return {x: x + width / 2, y: y + height / 2};
+        return this.position;
     };
 
     this.onFrame = function (ctx) {
         move.call(this);
-        draw(ctx);
+        draw.call(this, ctx);
     };
 
     this.moveUp = function () {
-        y -= speed;
+        this.position.y -= speed;
     };
 
     this.moveDown = function () {
-        y += speed;
+        this.position.y += speed;
     };
 
     this.moveLeft = function () {
-        x -= speed;
+        this.position.x -= speed;
     };
 
     this.moveRight = function () {
-        x += speed;
+        this.position.x += speed;
     };
 
     this.resetPosition = function () {
-        x = 0;
-        y = 0;
+        this.position.x = 0;
+        this.position.y = 0;
     };
 
     this.onKeyDown = function (evt) {
@@ -57,14 +60,16 @@ function Hero() {
     };
 
     function draw(ctx) {
+        var me = this;
         ctx.fillStyle = g.PLAYER_COLOR;
-        ctx.fillRect(x, y, width, height);
+        ctx.fillRect(me.position.x, me.position.y, width, height);
     }
 
     function move() {
         var me = this,
+            position,
             newPosition,
-            lastPosition = me.getPosition();
+            lastPosition = Object.assign({}, me.position);
 
         for (var key in moving) {
             if (moving[key]) {
@@ -73,11 +78,22 @@ function Hero() {
         }
         newPosition = me.getPosition();
 
-        if (JSON.stringify(newPoint) === JSON.stringify(lastPosition)) {
+        if (JSON.stringify(newPosition) === JSON.stringify(lastPosition)) {
             return;
         }
 
-        utils.getNewPoint(lastPosition, newPosition, polygon)
+        if(!utils.isInside(newPosition, Stage.stagePoints)) {
+            newPosition = lastPosition;
+            updatePosition.call(me, newPosition)
+        }
+        // position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
+        // updatePosition.call(me, position)
+    }
+    
+    function updatePosition(position) {
+        var me = this;
+        me.position.x = position.x;
+        me.position.y = position.y;
     }
 
     function setMove(direction) {

@@ -17,7 +17,7 @@ function App() {
         window.addEventListener('keydown', hero.onKeyDown, false);
     }
 
-    function setUp() {
+    function setUp(canvas) {
         canvas.height = g.STAGE_HEIGHT;
         canvas.width = g.STAGE_WIDTH;
     }
