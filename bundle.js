@@ -9,7 +9,6 @@ function Hero() {
     var width = 10,
         height = 10,
         speed = g.HERO_SPEED,
-        isOnSegmentLine = false,
         moving = {
             left: false,
             right: false,
@@ -18,8 +17,8 @@ function Hero() {
         };
 
     this.position = {
-        x: 5,
-        y: 5
+        x: 0,
+        y: 0
     };
 
     this.handlers = [];
@@ -31,7 +30,6 @@ function Hero() {
     this.onFrame = function (ctx) {
         move.call(this);
         draw.call(this, ctx);
-        console.log(this.getPosition());
     };
 
     this.moveUp = function () {
@@ -65,7 +63,7 @@ function Hero() {
     function draw(ctx) {
         var me = this;
         ctx.fillStyle = g.PLAYER_COLOR;
-        ctx.fillRect(me.position.x, me.position.y, width, height);
+        ctx.fillRect(me.position.x - width / 2, me.position.y - height / 2, width, height);
     }
 
     function move() {
@@ -77,7 +75,6 @@ function Hero() {
         for (var key in moving) {
             if (moving[key]) {
                 moveInDirection.call(me, key);
-                console.log(me.getPosition());
             }
         }
         newPosition = me.getPosition();
@@ -86,18 +83,18 @@ function Hero() {
             return;
         }
 
-        if(!utils.isInside(newPosition, Stage.stagePoints)) {
-            newPosition = lastPosition;
-            updatePosition.call(me, newPosition)
-        }
-        // position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
-        // updatePosition.call(me, position)
+        // if(!utils.isInside(newPosition, Stage.stagePoints)) {
+        //     position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
+        //     updatePosition.call(me, newPosition)
+        // }
+        position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
+        updatePosition.call(me, position)
     }
     
     function updatePosition(position) {
-        this.position.x = position.x;
-        this.position.y = position.y;
-        console.log(this.getPosition());
+        var me = this;
+        me.position.x = position.x;
+        me.position.y = position.y;
     }
 
     function setMove(direction) {
@@ -225,10 +222,10 @@ function getOnSegmentLine(newPosition, segment) {
         max = Math.max(segment[0].x, segment[1].x);
         min = Math.min(segment[0].x, segment[1].x);
 
-        if (newPosition.y > max) {
-            newPosition.y = max
-        } else if (newPosition.y < min) {
-            newPosition.y = min;
+        if (newPosition.x > max) {
+            newPosition.x = max
+        } else if (newPosition.x < min) {
+            newPosition.x = min;
         }
         result.position = newPosition;
         result.isOnSegmentLine = true;

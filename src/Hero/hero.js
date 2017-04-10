@@ -16,8 +16,8 @@ function Hero() {
         };
 
     this.position = {
-        x: 5,
-        y: 5
+        x: 0,
+        y: 0
     };
 
     this.handlers = [];
@@ -62,7 +62,7 @@ function Hero() {
     function draw(ctx) {
         var me = this;
         ctx.fillStyle = g.PLAYER_COLOR;
-        ctx.fillRect(me.position.x, me.position.y, width, height);
+        ctx.fillRect(me.position.x - width / 2, me.position.y - height / 2, width, height);
     }
 
     function move() {
@@ -82,12 +82,12 @@ function Hero() {
             return;
         }
 
-        if(!utils.isInside(newPosition, Stage.stagePoints)) {
-            newPosition = lastPosition;
-            updatePosition.call(me, newPosition)
-        }
-        // position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
-        // updatePosition.call(me, position)
+        // if(!utils.isInside(newPosition, Stage.stagePoints)) {
+        //     position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
+        //     updatePosition.call(me, newPosition)
+        // }
+        position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
+        updatePosition.call(me, position)
     }
     
     function updatePosition(position) {

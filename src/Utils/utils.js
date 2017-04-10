@@ -22,10 +22,10 @@ function getOnSegmentLine(newPosition, segment) {
         max = Math.max(segment[0].x, segment[1].x);
         min = Math.min(segment[0].x, segment[1].x);
 
-        if (newPosition.y > max) {
-            newPosition.y = max
-        } else if (newPosition.y < min) {
-            newPosition.y = min;
+        if (newPosition.x > max) {
+            newPosition.x = max
+        } else if (newPosition.x < min) {
+            newPosition.x = min;
         }
         result.position = newPosition;
         result.isOnSegmentLine = true;
