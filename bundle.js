@@ -8,7 +8,7 @@ function Hero() {
 
     var width = 10,
         height = 10,
-        speed = g.HERO_SPEED,
+        speed = 5,
         moving = {
             left: false,
             right: false,
@@ -17,8 +17,8 @@ function Hero() {
         };
 
     this.position = {
-        x: 0,
-        y: 0
+        x: 5,
+        y: 5
     };
 
     this.handlers = [];
@@ -70,11 +70,13 @@ function Hero() {
         var me = this,
             position,
             newPosition,
+            needAdjustment = false,
             lastPosition = Object.assign({}, me.position);
 
         for (var key in moving) {
             if (moving[key]) {
                 moveInDirection.call(me, key);
+                // needAdjustment = key === "right" || key === "down";
             }
         }
         newPosition = me.getPosition();
@@ -83,11 +85,14 @@ function Hero() {
             return;
         }
 
-        // if(!utils.isInside(newPosition, Stage.stagePoints)) {
-        //     position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
-        //     updatePosition.call(me, newPosition)
-        // }
-        position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
+        // if(needAdjustment)
+
+        if(utils.isInside(newPosition, lastPosition, Stage.stagePoints)) {
+            position = newPosition;
+        } else {
+            position = lastPosition;
+            // position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
+        }
         updatePosition.call(me, position)
     }
     
@@ -134,14 +139,28 @@ var g = require('../Utils/globals');
 var Stage = {
     stagePoints: [
         {x: 0, y: 0},
+        {x: 300, y: 0},
+        {x: 300, y: 300},
+        {x: 400, y: 300},
+        {x: 400, y: 0},
         {x: g.STAGE_WIDTH, y: 0},
-        {x: g.STAGE_WIDTH, y: g.STAGE_HEIGHT},
+        {x: g.STAGE_WIDTH, y: 500},
+        {x: 500, y: 500},
+        {x: 500, y: g.STAGE_HEIGHT},
         {x: 0, y: g.STAGE_HEIGHT}
     ],
+    // {x: g.STAGE_WIDTH, y: g.STAGE_HEIGHT},
 
     drawBg: function (ctx) {
         ctx.fillStyle = g.STAGE_BG;
-        ctx.fillRect(0, 0, g.STAGE_WIDTH, g.STAGE_HEIGHT);
+        ctx.beginPath();
+        ctx.moveTo(this.stagePoints[0].x, this.stagePoints[0].y);
+        for (var i = 1; i < this.stagePoints.length; i++) {
+            var obj = this.stagePoints[i];
+            ctx.lineTo(obj.x, obj.y);
+        }
+        ctx.closePath();
+        ctx.fill();
     },
 
     onFrame: function (ctx) {
@@ -157,9 +176,8 @@ var Stage = {
 module.exports = Stage;
 },{"../Utils/globals":3}],3:[function(require,module,exports){
 module.exports = {
-    STAGE_WIDTH: 500,
-    STAGE_HEIGHT: 500,
-    HERO_SPEED: 5,
+    STAGE_WIDTH: 700,
+    STAGE_HEIGHT: 700,
     UP: 'up',
     DOWN: 'down',
     LEFT: 'left',
@@ -198,17 +216,21 @@ module.exports = {
     }
 };
 },{}],5:[function(require,module,exports){
-function getOnSegmentLine(newPosition, segment) {
+function getOnSegmentLine(newPosition, lastPosition, segment) {
     var max, min,
-        horizontal = segment[0].x === segment[1].x,
+        vertical = segment[0].x === segment[1].x,
         result = {
             position: {},
             isOnSegmentLine: false
         };
 
-    if (horizontal && newPosition.x === segment[0].x) {
+    if (vertical && newPosition.x === segment[0].x) {
         max = Math.max(segment[0].y, segment[1].y);
         min = Math.min(segment[0].y, segment[1].y);
+
+        if(lastPosition.y < min || lastPosition.y > max ) {
+            return result;
+        }
 
         if (newPosition.y > max) {
             newPosition.y = max
@@ -221,6 +243,10 @@ function getOnSegmentLine(newPosition, segment) {
     } else if (newPosition.y === segment[0].y) {
         max = Math.max(segment[0].x, segment[1].x);
         min = Math.min(segment[0].x, segment[1].x);
+
+        if(lastPosition.x < min || lastPosition.x > max ) {
+            return result;
+        }
 
         if (newPosition.x > max) {
             newPosition.x = max
@@ -235,7 +261,7 @@ function getOnSegmentLine(newPosition, segment) {
 
 }
 
-function isInside  (point, vs) {
+function isInside(point, lastPoint, vs) {
     // ray-casting algorithm based on
     // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
 
@@ -246,9 +272,20 @@ function isInside  (point, vs) {
         var xi = vs[i].x, yi = vs[i].y;
         var xj = vs[j].x, yj = vs[j].y;
 
-        var intersect = ((yi > y) != (yj > y))
+        var intersect = ((yi > y) !== (yj > y))
             && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
         if (intersect) inside = !inside;
+    }
+
+    if (!inside) {
+        var segment, onSegmentLineData;
+        for (var i = 0; i < vs.length - 1; i++) {
+            segment = [vs[i], vs[i + 1]];
+            onSegmentLineData = getOnSegmentLine(point, lastPoint, segment);
+            if (onSegmentLineData.isOnSegmentLine) {
+                inside = true;
+            }
+        }
     }
 
     return inside;

@@ -7,7 +7,7 @@ function Hero() {
 
     var width = 10,
         height = 10,
-        speed = g.HERO_SPEED,
+        speed = 5,
         moving = {
             left: false,
             right: false,
@@ -16,8 +16,8 @@ function Hero() {
         };
 
     this.position = {
-        x: 0,
-        y: 0
+        x: 5,
+        y: 5
     };
 
     this.handlers = [];
@@ -82,11 +82,11 @@ function Hero() {
             return;
         }
 
-        // if(!utils.isInside(newPosition, Stage.stagePoints)) {
-        //     position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
-        //     updatePosition.call(me, newPosition)
-        // }
-        position = utils.getNewPoint(lastPosition, newPosition, Stage.stagePoints);
+        if(utils.isInside(newPosition, lastPosition, Stage.stagePoints)) {
+            position = newPosition;
+        } else {
+            position = lastPosition;
+        }
         updatePosition.call(me, position)
     }
     
