@@ -47,10 +47,10 @@ function isInside(point, lastPoint, vs) {
     // ray-casting algorithm based on
     // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
 
-    var x = point.x, y = point.y;
+    var i, x = point.x, y = point.y;
 
     var inside = false;
-    for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+    for (i = 0, j = vs.length - 1; i < vs.length; j = i++) {
         var xi = vs[i].x, yi = vs[i].y;
         var xj = vs[j].x, yj = vs[j].y;
 
@@ -61,7 +61,7 @@ function isInside(point, lastPoint, vs) {
 
     if (!inside) {
         var segment, onSegmentLineData;
-        for (var i = 0; i < vs.length - 1; i++) {
+        for (i = 0; i < vs.length - 1; i++) {
             segment = [vs[i], vs[i + 1]];
             onSegmentLineData = getOnSegmentLine(point, lastPoint, segment);
             if (onSegmentLineData.isOnSegmentLine) {
@@ -73,23 +73,58 @@ function isInside(point, lastPoint, vs) {
     return inside;
 }
 
-module.exports = {
-// Find intersection of RAY & SEGMENT
-    getNewPoint: function (lastPosition, newPosition, polygon) {
-        var segment, onSegmentLineData;
-        for (var i = 0; i < polygon.length - 1; i++) {
-            segment = [polygon[i], polygon[i + 1]];
-            onSegmentLineData = getOnSegmentLine(newPosition, segment);
-            if (onSegmentLineData.isOnSegmentLine) {
-                return onSegmentLineData.position;
+function getOnSegmentPoint(newPosition, lastPosition, polygon) {
+    var segment, min, max,
+        vertical = lastPosition.x === newPosition.x;
+
+    for (i = 0; i < polygon.length; i++) {
+        segment = [polygon[i], polygon[i + 1] || polygon[0]];
+
+        if(vertical) {
+            if(segment[0].y !== segment[1].y) {
+                continue;
+            }
+            max = Math.max(segment[0].x, segment[1].x);
+            min = Math.min(segment[0].x, segment[1].x);
+
+            if(newPosition.x > max || newPosition.x < min) {
+                continue;
+            }
+
+            max = Math.max(newPosition.y, lastPosition.y);
+            min = Math.min(newPosition.y, lastPosition.y);
+
+            if(max >= segment[0].y && min <= segment[0].y) {
+                newPosition.y = segment[0].y;
+                return newPosition;
+            }
+        } else {
+            if(segment[0].x !== segment[1].x) {
+                continue;
+            }
+            max = Math.max(segment[0].y, segment[1].y);
+            min = Math.min(segment[0].y, segment[1].y);
+
+            if(newPosition.y > max || newPosition.y < min) {
+                continue;
+            }
+
+            max = Math.max(newPosition.x, lastPosition.x);
+            min = Math.min(newPosition.x, lastPosition.x);
+
+            if(max >= segment[0].x && min <= segment[0].x) {
+                newPosition.x = segment[0].x;
+                return newPosition;
             }
         }
 
-        return isInside(newPosition, polygon) ? newPosition : lastPosition;
 
-    },
+    }
+}
 
-    isInside: isInside
+module.exports = {
+    isInside: isInside,
+    getOnSegmentPoint: getOnSegmentPoint
 
 };
 

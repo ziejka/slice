@@ -82,12 +82,11 @@ function Hero() {
             return;
         }
 
-        if(utils.isInside(newPosition, lastPosition, Stage.stagePoints)) {
-            position = newPosition;
-        } else {
-            position = lastPosition;
+        if(!utils.isInside(newPosition, lastPosition, Stage.stagePoints))  {
+            position = utils.getOnSegmentPoint(newPosition, lastPosition, Stage.stagePoints);
+            updatePosition.call(me, position)
         }
-        updatePosition.call(me, position)
+
     }
     
     function updatePosition(position) {
