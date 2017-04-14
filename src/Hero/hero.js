@@ -8,6 +8,7 @@ function Hero() {
     var width = 10,
         height = 10,
         speed = 5,
+        hit = false,
         moving = {
             left: false,
             right: false,
@@ -16,8 +17,8 @@ function Hero() {
         };
 
     this.position = {
-        x: 5,
-        y: 5
+        x: 0,
+        y: 0
     };
 
     this.handlers = [];
@@ -60,20 +61,26 @@ function Hero() {
     };
 
     function draw(ctx) {
-        var me = this;
+        var me = this,
+            x = me.position.x - width / 2,
+            y = me.position.y - height / 2;
         ctx.fillStyle = g.PLAYER_COLOR;
-        ctx.fillRect(me.position.x - width / 2, me.position.y - height / 2, width, height);
+        ctx.fillRect(x, y, width, height);
+        ctx.fillStyle = g.POINT_COLOR;
+        ctx.fillRect(me.position.x, me.position.y, 1, 1);
     }
 
     function move() {
         var me = this,
-            position,
+            positionData,
+            moveKey,
             newPosition,
             lastPosition = Object.assign({}, me.position);
 
         for (var key in moving) {
             if (moving[key]) {
                 moveInDirection.call(me, key);
+                moveKey = key;
             }
         }
         newPosition = me.getPosition();
@@ -82,13 +89,30 @@ function Hero() {
             return;
         }
 
-        if(!utils.isInside(newPosition, lastPosition, Stage.stagePoints))  {
-            position = utils.getOnSegmentPoint(newPosition, lastPosition, Stage.stagePoints);
-            updatePosition.call(me, position)
+        positionData = utils.getNewPoint(newPosition, lastPosition, Stage.stagePoints, speed);
+        updatePosition.call(me, positionData.position);
+
+        if(positionData.blockMove) {
+            moving[moveKey] = false;
         }
 
+        // if (!utils.isInside(newPosition, lastPosition, Stage.stagePoints)) {
+        //
+        //     //ToDo Find intersecrion point, check if newPoint === intersectionPoint
+        //     position = lastPosition;
+        //     // position = utils.getOnSegmentPoint(newPosition, lastPosition, Stage.stagePoints);
+        //     updatePosition.call(me, position);
+        //
+        //     if (hit) {
+        //         console.log("HIT");
+        //         hit = false;
+        //     }
+        // } else {
+        //     hit = true;
+        // }
+
     }
-    
+
     function updatePosition(position) {
         var me = this;
         me.position.x = position.x;

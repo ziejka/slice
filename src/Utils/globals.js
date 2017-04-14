@@ -7,6 +7,7 @@ module.exports = {
     RIGHT: 'right',
     STAGE_BG: '#484848',
     PLAYER_COLOR: '#cdcdcd',
+    POINT_COLOR: "#ff2e00",
     KEY_MAP: {
         37: 'left',
         38: 'up',
