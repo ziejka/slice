@@ -21,14 +21,14 @@ function line_intersect(x1, y1, x2, y2, x3, y3, x4, y4) {
     };
 }
 
-function isInside(point, lastPoint, vs) {
+function isInside(point, vs) {
     // ray-casting algorithm based on
     // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
 
-    var i, x = point.x, y = point.y;
+    var x = point.x, y = point.y;
 
     var inside = false;
-    for (i = 0, j = vs.length - 1; i < vs.length; j = i++) {
+    for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
         var xi = vs[i].x, yi = vs[i].y;
         var xj = vs[j].x, yj = vs[j].y;
 
@@ -45,7 +45,7 @@ function getNewPoint(newPosition, lastPosition, polygon, speed) {
             position: newPosition,
             blockMove: false
         };
-    for (i = 0; i < polygon.length; i++) {
+    for (var i = 0; i < polygon.length; i++) {
         segment = [polygon[i], polygon[i + 1] || polygon[0]];
         intersectionPoint = line_intersect(lastPosition.x, lastPosition.y, newPosition.x, newPosition.y,
             segment[0].x, segment[0].y, segment[1].x, segment[1].y);
