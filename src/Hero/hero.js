@@ -90,26 +90,12 @@ function Hero() {
         }
 
         positionData = utils.getNewPoint(newPosition, lastPosition, Stage.stagePoints, speed);
-        updatePosition.call(me, positionData.position);
 
-        if(positionData.blockMove) {
-            moving[moveKey] = false;
+        if (positionData.blockMove) {
+                moving[moveKey] = false;
         }
 
-        // if (!utils.isInside(newPosition, lastPosition, Stage.stagePoints)) {
-        //
-        //     //ToDo Find intersecrion point, check if newPoint === intersectionPoint
-        //     position = lastPosition;
-        //     // position = utils.getOnSegmentPoint(newPosition, lastPosition, Stage.stagePoints);
-        //     updatePosition.call(me, position);
-        //
-        //     if (hit) {
-        //         console.log("HIT");
-        //         hit = false;
-        //     }
-        // } else {
-        //     hit = true;
-        // }
+        updatePosition.call(me, positionData.position);
 
     }
 

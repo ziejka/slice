@@ -63,8 +63,6 @@ function line_intersect(x1, y1, x2, y2, x3, y3, x4, y4) {
         x: x,
         y: y,
         onSegment: onSegment
-        // seg1: ua >= 0 && ua <= 1,
-        // seg2: ub >= 0 && ub <= 1
     };
 }
 
@@ -83,30 +81,6 @@ function isInside(point, lastPoint, vs) {
             && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
         if (intersect) inside = !inside;
     }
-
-    if (!inside) {
-        for (i = 0, j = vs.length - 1; i < vs.length; j = i++) {
-            var xi = vs[i].x, yi = vs[i].y;
-            var xj = vs[j].x, yj = vs[j].y;
-
-            var intersectionPoint = line_intersect(xi, yi, xj, yj, x, y, lastPoint.x, lastPoint.y);
-            if (intersectionPoint && intersectionPoint.x === x && intersectionPoint.y === y) {
-                inside = true;
-            }
-        }
-    }
-
-// if (!inside) {
-//     var segment, onSegmentLineData;
-//     for (i = 0; i < vs.length - 1; i++) {
-//         segment = [vs[i], vs[i + 1]];
-//         onSegmentLineData = getOnSegmentLine(point, lastPoint, segment);
-//         if (onSegmentLineData.isOnSegmentLine) {
-//             inside = true;
-//         }
-//     }
-// }
-
     return inside;
 }
 
