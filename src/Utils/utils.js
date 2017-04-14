@@ -61,58 +61,8 @@ function getNewPoint(newPosition, lastPosition, polygon, speed) {
     return resutl;
 }
 
-function getOnSegmentPoint(newPosition, lastPosition, polygon) {
-    var segment, min, max,
-        vertical = lastPosition.x === newPosition.x;
-
-    for (i = 0; i < polygon.length; i++) {
-        segment = [polygon[i], polygon[i + 1] || polygon[0]];
-
-        if (vertical) {
-            if (segment[0].y !== segment[1].y) {
-                continue;
-            }
-            max = Math.max(segment[0].x, segment[1].x);
-            min = Math.min(segment[0].x, segment[1].x);
-
-            if (newPosition.x > max || newPosition.x < min) {
-                continue;
-            }
-
-            max = Math.max(newPosition.y, lastPosition.y);
-            min = Math.min(newPosition.y, lastPosition.y);
-
-            if (max >= segment[0].y && min <= segment[0].y) {
-                newPosition.y = segment[0].y;
-                return newPosition;
-            }
-        } else {
-            if (segment[0].x !== segment[1].x) {
-                continue;
-            }
-            max = Math.max(segment[0].y, segment[1].y);
-            min = Math.min(segment[0].y, segment[1].y);
-
-            if (newPosition.y > max || newPosition.y < min) {
-                continue;
-            }
-
-            max = Math.max(newPosition.x, lastPosition.x);
-            min = Math.min(newPosition.x, lastPosition.x);
-
-            if (max >= segment[0].x && min <= segment[0].x) {
-                newPosition.x = segment[0].x;
-                return newPosition;
-            }
-        }
-
-
-    }
-}
-
 module.exports = {
     isInside: isInside,
-    getOnSegmentPoint: getOnSegmentPoint,
     getNewPoint: getNewPoint
 
 };
