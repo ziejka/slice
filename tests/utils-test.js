@@ -60,10 +60,14 @@ describe('Utils tests:', function () {
         point = {x: 70, y: 60};
         expect(utils.isInside(point, polygon)).to.equal(true);
         point = {x: 80, y: 80};
-        expect(utils.isInside(point, polygon)).to.equal(false);
+        expect(utils.isInside(point, polygon)).to.equal(true);
+        point = {x: 90, y: 30};
+        expect(utils.isInside(point, polygon)).to.equal(true);
         point = {x: 60, y: 80};
         expect(utils.isInside(point, polygon)).to.equal(false);
         point = {x: 50, y: 90};
-        expect(utils.isInside(point, polygon)).to.equal(false);
+        expect(utils.isInside(point, polygon)).to.equal(true);
+        point = {x: 20, y: 90};
+        expect(utils.isInside(point, polygon)).to.equal(true);
     });
 });

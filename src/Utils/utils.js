@@ -36,7 +36,48 @@ function isInside(point, vs) {
             && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
         if (intersect) inside = !inside;
     }
+
+    if (!inside) {
+        inside = isOnSegmentPoint(point, vs);
+    }
+
     return inside;
+}
+
+function isOnSegmentPoint(newPosition, polygon) {
+    var segment, min, max, vertical;
+
+
+    for (i = 0; i < polygon.length; i++) {
+        segment = [polygon[i], polygon[i + 1] || polygon[0]];
+        vertical = segment[0].x === segment[1].x;
+
+        if (vertical) {
+            if (newPosition.x !== segment[0].x) {
+                continue;
+            }
+
+            max = Math.max(segment[0].y, segment[1].y);
+            min = Math.min(segment[0].y, segment[1].y);
+
+            if (newPosition.y >= min && newPosition.y <= max) {
+                return true;
+            }
+        } else {
+            if (newPosition.y !== segment[0].y) {
+                continue;
+            }
+
+            max = Math.max(segment[0].x, segment[1].x);
+            min = Math.min(segment[0].x, segment[1].x);
+
+            if (newPosition.x >= min && newPosition.x <= max) {
+                return true;
+            }
+        }
+    }
+
+    return false;
 }
 
 function getNewPoint(newPosition, lastPosition, polygon, speed) {

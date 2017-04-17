@@ -8,7 +8,12 @@ function Hero() {
     var width = 10,
         height = 10,
         speed = 5,
-        hit = false,
+        canMove = {
+            left: false,
+            right: true,
+            up: false,
+            down: true
+        },
         moving = {
             left: false,
             right: false,
@@ -81,20 +86,22 @@ function Hero() {
             if (moving[key]) {
                 moveInDirection.call(me, key);
                 moveKey = key;
+                break;
             }
         }
+        if (!moveKey) return;
         newPosition = me.getPosition();
 
-        if (JSON.stringify(newPosition) === JSON.stringify(lastPosition)) {
+        if (!utils.isInside(newPosition, Stage.stagePoints)) {
+            moving[moveKey] = false;
+            updatePosition.call(me, lastPosition);
             return;
         }
 
         positionData = utils.getNewPoint(newPosition, lastPosition, Stage.stagePoints, speed);
-
         if (positionData.blockMove) {
-                moving[moveKey] = false;
+            moving[moveKey] = false;
         }
-
         updatePosition.call(me, positionData.position);
 
     }
@@ -110,6 +117,26 @@ function Hero() {
             moving[key] = false;
         }
         moving[direction] = true;
+        canMoveUpdate.call(this, direction)
+    }
+
+    function canMoveUpdate(key) {
+        var keyToUpdate;
+        switch (key) {
+            case "left":
+                keyToUpdate = "right";
+                break;
+            case "right":
+                keyToUpdate = "left";
+                break;
+            case "up":
+                keyToUpdate = "down";
+                break;
+            case "down":
+                keyToUpdate = "up";
+                break;
+        }
+        canMove[keyToUpdate] = true;
     }
 
     function moveInDirection(direction) {

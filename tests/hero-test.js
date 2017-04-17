@@ -7,7 +7,7 @@ var g = require('./../src/Utils/globals');
 describe('Hero tests:', function () {
 
     var hero = new Hero(),
-        speed = g.HERO_SPEED;
+        speed = 5;
 
     beforeEach(function () {
         hero.resetPosition();
@@ -45,44 +45,30 @@ describe('Hero tests:', function () {
         expect(hero.getPosition()).to.deep.equal(position);
     });
 
-    it('should move only on stage', function () {
-        var position = {x: 0, y: 0},
-            repeatNumber = 1000;
-        hero.moveLeft();
-        hero.moveUp();
-        expect(hero.getPosition()).to.deep.equal(position);
-        position = {x: g.STAGE_WIDTH - 5, y: g.STAGE_HEIGHT - 5};
-        for (var i = 0; i < repeatNumber; i++) {
-            hero.moveRight();
-            hero.moveDown();
-        }
-        expect(hero.getPosition()).to.deep.equal(position);
-    });
-
     it('should move on key down', function () {
-        var position = {x: 0, y: g.HERO_SPEED},
-            repeatNumber = 1000,
+        var position = {x: 0, y: 5},
             ctx = {fillRect: sinon.spy()},
             evt = {
                 preventDefault: sinon.spy(),
-                keyCode: 40
-            };
+                keyCode: 39
+            },
+            spyMoveDown = sinon.spy(hero, "moveDown");
+
+
+        hero.onKeyDown(evt);
+        console.log(spyMoveDown.notCalled);
+        expect(spyMoveDown.notCalled).to.equal(true);
+
+        evt.keyCode = 40;
         hero.onKeyDown(evt);
         hero.onFrame(ctx);
-        expect(hero.getPosition()).to.deep.equal(position);
+
+        expect(spyMoveDown.calledOnce).to.equal(true);
         hero.onFrame(ctx);
         position.y += g.HERO_SPEED;
-        expect(hero.getPosition()).to.deep.equal(position);
-        evt = {
-            preventDefault: sinon.spy(),
-            keyCode: 39
-        };
-        hero.onKeyDown(evt);
-        for (var i = 0; i < repeatNumber; i++) {
-            hero.onFrame(ctx);
-        }
-        position.x = g.STAGE_WIDTH - 5;
-        expect(hero.getPosition()).to.deep.equal(position);
+        expect(spyMoveDown.callCount).to.equal(2);
+        spyMoveDown.restore();
+
     });
 });
 
