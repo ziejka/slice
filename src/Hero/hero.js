@@ -95,6 +95,7 @@ function Hero() {
         positionData = utils.getNewPoint(newPosition, lastPosition, Stage.stagePoints, speed);
         if (positionData.blockMove) {
             moving[moveKey] = false;
+            // test user
         }
         updatePosition.call(me, positionData.position);
 
