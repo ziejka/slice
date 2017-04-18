@@ -8,12 +8,6 @@ function Hero() {
     var width = 10,
         height = 10,
         speed = 5,
-        canMove = {
-            left: false,
-            right: true,
-            up: false,
-            down: true
-        },
         moving = {
             left: false,
             right: false,
@@ -22,8 +16,8 @@ function Hero() {
         };
 
     this.position = {
-        x: 0,
-        y: 0
+        x: Stage.stagePoints[0].x,
+        y: Stage.stagePoints[0].y
     };
 
     this.handlers = [];
@@ -117,26 +111,6 @@ function Hero() {
             moving[key] = false;
         }
         moving[direction] = true;
-        canMoveUpdate.call(this, direction)
-    }
-
-    function canMoveUpdate(key) {
-        var keyToUpdate;
-        switch (key) {
-            case "left":
-                keyToUpdate = "right";
-                break;
-            case "right":
-                keyToUpdate = "left";
-                break;
-            case "up":
-                keyToUpdate = "down";
-                break;
-            case "down":
-                keyToUpdate = "up";
-                break;
-        }
-        canMove[keyToUpdate] = true;
     }
 
     function moveInDirection(direction) {

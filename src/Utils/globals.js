@@ -1,6 +1,6 @@
 module.exports = {
-    STAGE_WIDTH: 700,
-    STAGE_HEIGHT: 700,
+    STAGE_WIDTH: 1000,
+    STAGE_HEIGHT: 1000,
     UP: 'up',
     DOWN: 'down',
     LEFT: 'left',
