@@ -5,35 +5,35 @@ var utils = require('../src/Utils/utils');
 
 describe('Utils tests:', function () {
     var polygon = [
-        {x: 10, y: 0},
-        {x: 10, y: 10},
-        {x: 0, y: 10},
-        {x: 0, y: 40},
-        {x: 20, y: 40},
-        {x: 20, y: 90},
-        {x: 50, y: 90},
-        {x: 50, y: 80},
-        {x: 40, y: 80},
-        {x: 40, y: 60},
-        {x: 50, y: 60},
-        {x: 50, y: 50},
-        {x: 70, y: 50},
-        {x: 70, y: 60},
-        {x: 60, y: 60},
-        {x: 60, y: 70},
-        {x: 70, y: 70},
-        {x: 70, y: 80},
-        {x: 80, y: 80},
-        {x: 80, y: 50},
-        {x: 90, y: 50},
-        {x: 90, y: 20},
-        {x: 60, y: 20},
-        {x: 60, y: 30},
-        {x: 50, y: 30},
-        {x: 50, y: 0}
-    ],
+            {x: 10, y: 0},
+            {x: 10, y: 10},
+            {x: 0, y: 10},
+            {x: 0, y: 40},
+            {x: 20, y: 40},
+            {x: 20, y: 90},
+            {x: 50, y: 90},
+            {x: 50, y: 80},
+            {x: 40, y: 80},
+            {x: 40, y: 60},
+            {x: 50, y: 60},
+            {x: 50, y: 50},
+            {x: 70, y: 50},
+            {x: 70, y: 60},
+            {x: 60, y: 60},
+            {x: 60, y: 70},
+            {x: 70, y: 70},
+            {x: 70, y: 80},
+            {x: 80, y: 80},
+            {x: 80, y: 50},
+            {x: 90, y: 50},
+            {x: 90, y: 20},
+            {x: 60, y: 20},
+            {x: 60, y: 30},
+            {x: 50, y: 30},
+            {x: 50, y: 0}
+        ],
         point = {x: 0, y: 0};
-    
+
 
     it('should poperly determind inside, outside', function () {
         expect(utils.isInside(point, polygon)).to.equal(false);
@@ -70,4 +70,21 @@ describe('Utils tests:', function () {
         point = {x: 20, y: 90};
         expect(utils.isInside(point, polygon)).to.equal(true);
     });
+
+    it('should get point on polygon line', function () {
+        var speed = 5,
+            lastPoint = {x: 0, Y: 0},
+            newPoint = {x: 10, y: 0};
+        expect(utils.getNewPoint(newPoint, lastPoint, polygon, speed).position).to.deep.equal({x: 10, y: 0});
+        lastPoint = {x: 5, y: 5};
+        newPoint = {x: 14, y: 5};
+        expect(utils.getNewPoint(newPoint, lastPoint, polygon, speed).position).to.deep.equal({x: 10, y: 5, onSegment: true});
+        lastPoint = {x: 48, y: 90};
+        newPoint = {x: 53, y: 90};
+        expect(utils.getNewPoint(newPoint, lastPoint, polygon, speed).position).to.deep.equal({x: 50, y: 90, onSegment: true});
+        lastPoint = {x: 63, y: 62};
+        newPoint = {x: 63, y: 58};
+        expect(utils.getNewPoint(newPoint, lastPoint, polygon, speed).position).to.deep.equal({x: 63, y: 60, onSegment: true});
+
+    })
 });
