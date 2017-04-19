@@ -46,28 +46,35 @@ describe('Hero tests:', function () {
     });
 
     it('should move on key down', function () {
-        var position = {x: 0, y: 5},
-            ctx = {fillRect: sinon.spy()},
+        var ctx = {fillRect: sinon.spy()},
             evt = {
                 preventDefault: sinon.spy(),
                 keyCode: 39
             },
             spyMoveDown = sinon.spy(hero, "moveDown");
-
-
         hero.onKeyDown(evt);
         console.log(spyMoveDown.notCalled);
         expect(spyMoveDown.notCalled).to.equal(true);
-
         evt.keyCode = 40;
         hero.onKeyDown(evt);
         hero.onFrame(ctx);
-
         expect(spyMoveDown.calledOnce).to.equal(true);
-        hero.onFrame(ctx);
-        position.y += g.HERO_SPEED;
-        expect(spyMoveDown.callCount).to.equal(2);
-        spyMoveDown.restore();
+    });
+
+    it('should move position of speed', function () {
+        var heroPosition = Object.assign({}, hero.getPosition());
+        hero.moveUp();
+        heroPosition.y -= speed;
+        expect(heroPosition).to.deep.equal(hero.getPosition());
+        hero.moveDown();
+        heroPosition.y += speed;
+        expect(heroPosition).to.deep.equal(hero.getPosition());
+        hero.moveLeft();
+        heroPosition.x -= speed;
+        expect(heroPosition).to.deep.equal(hero.getPosition());
+        hero.moveRight();
+        heroPosition.x += speed;
+        expect(heroPosition).to.deep.equal(hero.getPosition());
 
     });
 });
