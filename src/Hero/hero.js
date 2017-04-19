@@ -53,6 +53,7 @@ function Hero() {
     };
 
     this.onKeyDown = function (evt) {
+        this.fire(this.position);
         if (g.KEY_MAP[evt.keyCode]) {
             evt.preventDefault();
             setMove(g.KEY_MAP[evt.keyCode]);

@@ -14,7 +14,9 @@ function App() {
         animationManager.add(Stage);
         animationManager.add(hero);
         animationManager.animate();
-        window.addEventListener('keydown', hero.onKeyDown, false);
+        window.addEventListener('keydown', function (e) {
+                hero.onKeyDown(e)
+        }, false);
     }
 
     function setUp(canvas) {

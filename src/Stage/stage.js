@@ -58,8 +58,8 @@ var Stage = {
         this.drawBg(ctx);
     },
 
-    eventHandler: function () {
-
+    eventHandler: function (args) {
+        console.log(args);
     }
 
 };
