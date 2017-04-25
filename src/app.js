@@ -10,7 +10,7 @@ function App() {
 
     function init() {
         setUp(canvas);
-        hero.subscribe(Stage.eventHandler);
+        // hero.subscribe(Stage.eventHandler);
         animationManager.add(Stage);
         animationManager.add(hero);
         animationManager.animate();

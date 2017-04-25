@@ -13,127 +13,135 @@ function Hero() {
             right: false,
             up: false,
             down: false
+        },
+        position = {
+            x: Stage.stagePoints[0].x,
+            y: Stage.stagePoints[0].y
         };
 
-    this.position = {
-        x: Stage.stagePoints[0].x,
-        y: Stage.stagePoints[0].y
-    };
+    function _moveUp() {
+        position.y -= speed;
+    }
 
-    this.handlers = [];
+    function _moveDown() {
+        position.y += speed;
+    }
 
-    this.getPosition = function () {
-        return this.position;
-    };
+    function _moveLeft() {
+        position.x -= speed;
+    }
 
-    this.onFrame = function (ctx) {
-        move.call(this);
-        draw.call(this, ctx);
-    };
+    function _moveRight() {
+        position.x += speed;
+    }
 
-    this.moveUp = function () {
-        this.position.y -= speed;
-    };
-
-    this.moveDown = function () {
-        this.position.y += speed;
-    };
-
-    this.moveLeft = function () {
-        this.position.x -= speed;
-    };
-
-    this.moveRight = function () {
-        this.position.x += speed;
-    };
-
-    this.resetPosition = function () {
-        this.position.x = 0;
-        this.position.y = 0;
-    };
-
-    this.onKeyDown = function (evt) {
-        this.fire(this.position);
-        if (g.KEY_MAP[evt.keyCode]) {
-            evt.preventDefault();
-            setMove(g.KEY_MAP[evt.keyCode]);
-        }
-    };
-
-    function draw(ctx) {
-        var me = this,
-            x = me.position.x - width / 2,
-            y = me.position.y - height / 2;
+    function _draw(ctx) {
+        var x = position.x - width / 2,
+            y = position.y - height / 2;
         ctx.fillStyle = g.PLAYER_COLOR;
         ctx.fillRect(x, y, width, height);
         ctx.fillStyle = g.POINT_COLOR;
-        ctx.fillRect(me.position.x, me.position.y, 1, 1);
+        ctx.fillRect(position.x, position.y, 1, 1);
     }
 
-    function move() {
-        var me = this,
-            positionData,
+    function _move() {
+        var positionData,
             moveKey,
-            newPosition,
-            lastPosition = Object.assign({}, me.position);
+            lastPosition = Object.assign({}, position);
 
         for (var key in moving) {
             if (moving[key]) {
-                moveInDirection.call(me, key);
+                _moveInDirection(key);
                 moveKey = key;
                 break;
             }
         }
         if (!moveKey) return;
-        newPosition = me.getPosition();
 
-        if (!utils.isInside(newPosition, Stage.stagePoints)) {
+        if (!utils.isInside(position, Stage.stagePoints)) {
             moving[moveKey] = false;
-            updatePosition.call(me, lastPosition);
+            _updatePosition(lastPosition);
             return;
         }
 
-        positionData = utils.getNewPoint(newPosition, lastPosition, Stage.stagePoints, speed);
+        positionData = utils.getNewPoint(position, lastPosition, Stage.stagePoints, speed);
         if (positionData.blockMove) {
             moving[moveKey] = false;
         }
-        updatePosition.call(me, positionData.position);
+        _updatePosition(positionData.position);
     }
 
-    function updatePosition(position) {
-        var me = this;
-        me.position.x = position.x;
-        me.position.y = position.y;
+    function _updatePosition(newPosition) {
+        position.x = newPosition.x;
+        position.y = newPosition.y;
     }
 
-    function setMove(direction) {
+    function _setMove(direction) {
         for (var key in moving) {
             moving[key] = false;
         }
         moving[direction] = true;
     }
 
-    function moveInDirection(direction) {
-        var me = this;
+    function _moveInDirection(direction) {
         switch (direction) {
             case g.UP:
-                me.moveUp();
+                _moveUp();
                 break;
             case g.DOWN:
-                me.moveDown();
+                _moveDown();
                 break;
             case g.LEFT:
-                me.moveLeft();
+                _moveLeft();
                 break;
             case g.RIGHT:
-                me.moveRight();
+                _moveRight();
                 break;
             default:
                 break;
         }
     }
+
+    return {
+        handlers: [],
+
+        getPosition: function () {
+            return {x: position.x, y: position.y};
+        },
+
+        onFrame: function (ctx) {
+            _move();
+            _draw(ctx);
+        },
+
+        resetPosition: function () {
+            position.x = 0;
+            position.y = 0;
+        },
+
+        onKeyDown: function (evt) {
+            // this.fire(position);
+            if (g.KEY_MAP[evt.keyCode]) {
+                evt.preventDefault();
+                _setMove(g.KEY_MAP[evt.keyCode]);
+            }
+        },
+
+        /* test-code */
+        __test: {
+            _moveUp: _moveUp,
+            _moveDown: _moveDown,
+            _moveLeft: _moveLeft,
+            _moveRight: _moveRight,
+            _draw: _draw,
+            _move: _move,
+            _updatePosition: _updatePosition,
+            _setMove: _setMove,
+            _moveInDirection: _moveInDirection
+        }
+        /* end-test-code */
+    }
 }
 
 Hero.prototype = subject;
-
 module.exports = Hero;

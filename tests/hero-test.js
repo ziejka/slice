@@ -26,12 +26,12 @@ describe('Hero tests:', function () {
     it('should move hero position of speed', function () {
         var position = {x: 0, y: 0};
         expect(hero.getPosition()).to.deep.equal(position);
-        hero.moveRight();
-        hero.moveRight();
-        hero.moveLeft();
-        hero.moveDown();
-        hero.moveDown();
-        hero.moveUp();
+        hero.__test._moveRight();
+        hero.__test._moveRight();
+        hero.__test._moveLeft();
+        hero.__test._moveDown();
+        hero.__test._moveDown();
+        hero.__test._moveUp();
         position.x += speed;
         position.y += speed;
         expect(hero.getPosition()).to.deep.equal(position);
@@ -39,8 +39,8 @@ describe('Hero tests:', function () {
 
     it('should reset hero position', function () {
         var position = {x: 0, y: 0};
-        hero.moveRight();
-        hero.moveDown();
+        hero.__test._moveRight();
+        hero.__test._moveDown();
         hero.resetPosition();
         expect(hero.getPosition()).to.deep.equal(position);
     });
@@ -51,7 +51,7 @@ describe('Hero tests:', function () {
                 preventDefault: sinon.spy(),
                 keyCode: 39
             },
-            spyMoveDown = sinon.spy(hero, "moveDown");
+            spyMoveDown = sinon.spy(hero, "_moveDown");
         hero.onKeyDown(evt);
         console.log(spyMoveDown.notCalled);
         expect(spyMoveDown.notCalled).to.equal(true);
@@ -63,16 +63,16 @@ describe('Hero tests:', function () {
 
     it('should move position of speed', function () {
         var heroPosition = Object.assign({}, hero.getPosition());
-        hero.moveUp();
+        hero.__test._moveUp();
         heroPosition.y -= speed;
         expect(heroPosition).to.deep.equal(hero.getPosition());
-        hero.moveDown();
+        hero.__test._moveDown();
         heroPosition.y += speed;
         expect(heroPosition).to.deep.equal(hero.getPosition());
-        hero.moveLeft();
+        hero.__test._moveLeft();
         heroPosition.x -= speed;
         expect(heroPosition).to.deep.equal(hero.getPosition());
-        hero.moveRight();
+        hero.__test._moveRight();
         heroPosition.x += speed;
         expect(heroPosition).to.deep.equal(hero.getPosition());
 
