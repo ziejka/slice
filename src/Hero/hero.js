@@ -19,6 +19,46 @@ function Hero() {
             y: Stage.stagePoints[0].y
         };
 
+    /* Hero API */
+    this.handlers = [];
+
+    this.getPosition = function () {
+        return {x: position.x, y: position.y};
+    };
+
+    this.onFrame = function (ctx) {
+        _move();
+        _draw(ctx);
+    };
+
+    this.resetPosition = function () {
+        position.x = 0;
+        position.y = 0;
+    };
+
+    this.onKeyDown = function (evt) {
+        this.fire(position);
+        if (g.KEY_MAP[evt.keyCode]) {
+            evt.preventDefault();
+            _setMove(g.KEY_MAP[evt.keyCode]);
+        }
+    };
+    /* End Hero API */
+
+    /* test-code */
+    this.__test = {
+        _moveUp: _moveUp,
+        _moveDown: _moveDown,
+        _moveLeft: _moveLeft,
+        _moveRight: _moveRight,
+        _draw: _draw,
+        _move: _move,
+        _updatePosition: _updatePosition,
+        _setMove: _setMove,
+        _moveInDirection: _moveInDirection
+    };
+    /* end-test-code */
+
     function _moveUp() {
         position.y -= speed;
     }
@@ -102,45 +142,7 @@ function Hero() {
         }
     }
 
-    return {
-        handlers: [],
 
-        getPosition: function () {
-            return {x: position.x, y: position.y};
-        },
-
-        onFrame: function (ctx) {
-            _move();
-            _draw(ctx);
-        },
-
-        resetPosition: function () {
-            position.x = 0;
-            position.y = 0;
-        },
-
-        onKeyDown: function (evt) {
-            // this.fire(position);
-            if (g.KEY_MAP[evt.keyCode]) {
-                evt.preventDefault();
-                _setMove(g.KEY_MAP[evt.keyCode]);
-            }
-        },
-
-        /* test-code */
-        __test: {
-            _moveUp: _moveUp,
-            _moveDown: _moveDown,
-            _moveLeft: _moveLeft,
-            _moveRight: _moveRight,
-            _draw: _draw,
-            _move: _move,
-            _updatePosition: _updatePosition,
-            _setMove: _setMove,
-            _moveInDirection: _moveInDirection
-        }
-        /* end-test-code */
-    }
 }
 
 Hero.prototype = subject;

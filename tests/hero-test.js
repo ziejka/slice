@@ -2,7 +2,6 @@ var chai = require('chai');
 var sinon = require('sinon');
 var expect = chai.expect;
 var Hero = require('./../src/Hero/hero');
-var g = require('./../src/Utils/globals');
 
 describe('Hero tests:', function () {
 
@@ -51,9 +50,9 @@ describe('Hero tests:', function () {
                 preventDefault: sinon.spy(),
                 keyCode: 39
             },
-            spyMoveDown = sinon.spy(hero, "_moveDown");
+            spyMoveDown = sinon.spy(hero, "__test._moveDown");
+
         hero.onKeyDown(evt);
-        console.log(spyMoveDown.notCalled);
         expect(spyMoveDown.notCalled).to.equal(true);
         evt.keyCode = 40;
         hero.onKeyDown(evt);
