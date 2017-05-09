@@ -63,7 +63,7 @@ var Stage = {
     },
 
     addNeaPath: function (newPath) {
-        console.log(newPath.length);
+        console.log(newPath.length); // ToDo Remove
     }
 
 };
