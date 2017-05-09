@@ -14,6 +14,7 @@ function Hero() {
             up: false,
             down: false
         },
+        heroPath = [],
         position = {
             x: Stage.stagePoints[0].x,
             y: Stage.stagePoints[0].y
@@ -37,10 +38,10 @@ function Hero() {
     };
 
     this.onKeyDown = function (evt) {
-        this.fire(position);
         if (g.KEY_MAP[evt.keyCode]) {
             evt.preventDefault();
             _setMove(g.KEY_MAP[evt.keyCode]);
+            heroPath.push(this.getPosition());
         }
     };
     /* End Hero API */
@@ -105,10 +106,17 @@ function Hero() {
         }
 
         positionData = utils.getNewPoint(position, lastPosition, Stage.stagePoints, speed);
-        if (positionData.blockMove) {
+        if (positionData.blockMove) { 
             moving[moveKey] = false;
+            _onHitWall(positionData);            
         }
         _updatePosition(positionData.position);
+    }
+
+    function _onHitWall (positionData) {
+        heroPath.push(position.position);
+        Stage.addNeaPath(heroPath);
+        heroPath = [];
     }
 
     function _updatePosition(newPosition) {

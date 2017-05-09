@@ -60,6 +60,10 @@ var Stage = {
 
     eventHandler: function (args) {
         console.log(args);
+    },
+
+    addNeaPath: function (newPath) {
+        console.log(newPath.length);
     }
 
 };
