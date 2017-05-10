@@ -1,9 +1,8 @@
 var g = require('../Utils/globals');
 var subject = require('../Utils/subject');
-var Stage = require('../Stage/stage');
 var utils = require('../Utils/utils');
 
-function Hero() {
+function Hero(Stage) {
 
     var width = 10,
         height = 10,
@@ -41,7 +40,11 @@ function Hero() {
         if (g.KEY_MAP[evt.keyCode]) {
             evt.preventDefault();
             _setMove(g.KEY_MAP[evt.keyCode]);
-            heroPath.push(this.getPosition());
+
+            var newPoint = this.getPosition();
+            if(!utils.isOnSegmentPoint(newPoint, Stage.stagePoints)) {
+                heroPath.push(newPoint);
+            }
         }
     };
     /* End Hero API */
@@ -114,7 +117,10 @@ function Hero() {
     }
 
     function _onHitWall (positionData) {
-        heroPath.push(position.position);
+        if(!heroPath) {
+            return;
+        }
+        heroPath.push(getPosition());
         Stage.addNeaPath(heroPath);
         heroPath = [];
     }

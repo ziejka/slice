@@ -104,7 +104,8 @@ function getNewPoint(newPosition, lastPosition, polygon, speed) {
 
 module.exports = {
     isInside: isInside,
-    getNewPoint: getNewPoint
+    getNewPoint: getNewPoint,
+    isOnSegmentPoint: isOnSegmentPoint
 
 };
 

@@ -74,7 +74,15 @@ describe('Hero tests:', function () {
         hero.__test._moveRight();
         heroPosition.x += speed;
         expect(heroPosition).to.deep.equal(hero.getPosition());
+    });
 
+    it("should add point to heroPath if is not moving on wall", function () {
+        var ctx = {fillRect: sinon.spy()},
+            evt = {
+                preventDefault: sinon.spy(),
+                keyCode: 39 // right arrow
+            },
+            spyMoveDown = sinon.spy(hero, "__test._moveDown");
     });
 });
 

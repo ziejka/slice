@@ -5,7 +5,7 @@ var AnimationManager = require('./animationManager');
 
 function App() {
     var canvas = document.getElementById('main-canvas'),
-        hero = new Hero(),
+        hero = new Hero(Stage),
         animationManager = new AnimationManager(window, canvas);
 
     function init() {
