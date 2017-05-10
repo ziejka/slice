@@ -2,10 +2,18 @@ var chai = require('chai');
 var sinon = require('sinon');
 var expect = chai.expect;
 var Hero = require('./../src/Hero/hero');
+var Stage = require('./../src/Stage/stage');
 
 describe('Hero tests:', function () {
 
-    var hero = new Hero(),
+    Stage.stagePoints = [
+        {x: 0, y: 0},
+        {x: 100, y: 0},
+        {x: 100, y: 100},
+        {x: 0, y: 100}
+    ]
+
+    var hero = new Hero(Stage),
         speed = 5;
 
     beforeEach(function () {
@@ -48,16 +56,13 @@ describe('Hero tests:', function () {
         var ctx = {fillRect: sinon.spy()},
             evt = {
                 preventDefault: sinon.spy(),
-                keyCode: 39
+                keyCode: 40
             },
-            spyMoveDown = sinon.spy(hero, "__test._moveDown");
+            spyMoveDown = sinon.spy(hero.__test, "_moveDown");
 
         hero.onKeyDown(evt);
-        expect(spyMoveDown.notCalled).to.equal(true);
-        evt.keyCode = 40;
-        hero.onKeyDown(evt);
         hero.onFrame(ctx);
-        expect(spyMoveDown.calledOnce).to.equal(true);
+        expect(hero.__test._getMoving.down).to.equal(true);
     });
 
     it('should move position of speed', function () {
@@ -81,8 +86,7 @@ describe('Hero tests:', function () {
             evt = {
                 preventDefault: sinon.spy(),
                 keyCode: 39 // right arrow
-            },
-            spyMoveDown = sinon.spy(hero, "__test._moveDown");
+            };
     });
 });
 

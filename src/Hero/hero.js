@@ -59,7 +59,8 @@ function Hero(Stage) {
         _move: _move,
         _updatePosition: _updatePosition,
         _setMove: _setMove,
-        _moveInDirection: _moveInDirection
+        _moveInDirection: _moveInDirection,
+        _getMoving: moving
     };
     /* end-test-code */
 
@@ -155,8 +156,6 @@ function Hero(Stage) {
                 break;
         }
     }
-
-
 }
 
 Hero.prototype = subject;
