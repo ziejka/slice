@@ -20,6 +20,7 @@
   "scripts": {
     "test": "mocha tests --recursive --watch",
     "build": "browserify ./src/app.js > bundle.js",
-    "watch": "watch-run -p 'src/**/*.js' browserify ./src/app.js -o bundle.js"
+    "watch": "watch-run -p \"./src/**/*.js\" npm run build",
+    "build:watch": "watch \"npm run build\" ./src" 
   }
 }
