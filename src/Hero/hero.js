@@ -32,8 +32,8 @@ function Hero(Stage) {
     };
 
     this.resetPosition = function () {
-        position.x = 0;
-        position.y = 0;
+        position.x = Stage.stagePoints[0].x;
+        position.y = Stage.stagePoints[0].y;
     };
 
     this.onKeyDown = function (evt) {
@@ -43,7 +43,7 @@ function Hero(Stage) {
 
             var newPoint = this.getPosition();
             if(!utils.isOnSegmentPoint(newPoint, Stage.stagePoints)) {
-                heroPath.push(newPoint);
+                _addPathPoint(newPoint);
             }
         }
     };
@@ -51,18 +51,30 @@ function Hero(Stage) {
 
     /* test-code */
     this.__test = {
+        _getMoving: moving,
+        _getHeroPath: _getHeroPath,
+        _getPosition: position,
+
         _moveUp: _moveUp,
         _moveDown: _moveDown,
         _moveLeft: _moveLeft,
         _moveRight: _moveRight,
+
         _draw: _draw,
         _move: _move,
         _updatePosition: _updatePosition,
         _setMove: _setMove,
         _moveInDirection: _moveInDirection,
-        _getMoving: moving
+        _onHitWall: _onHitWall,
+        _addPathPoint: _addPathPoint,
+        _resetPathPoints: _resetPathPoints
+        
     };
     /* end-test-code */
+
+    function _getHeroPath () {
+        return heroPath
+    }
 
     function _moveUp() {
         position.y -= speed;
@@ -112,17 +124,25 @@ function Hero(Stage) {
         positionData = utils.getNewPoint(position, lastPosition, Stage.stagePoints, speed);
         if (positionData.blockMove) { 
             moving[moveKey] = false;
-            _onHitWall(positionData);            
+            _onHitWall(this.ositionData);            
         }
         _updatePosition(positionData.position);
+    }
+
+    function _addPathPoint (newPoint) {
+        heroPath.push(newPoint);
     }
 
     function _onHitWall (positionData) {
         if(!heroPath) {
             return;
         }
-        heroPath.push(getPosition());
+        heroPath.push(this.getPosition());
         Stage.addNeaPath(heroPath);
+        _resetPathPoints();
+    }
+
+    function _resetPathPoints () {
         heroPath = [];
     }
 

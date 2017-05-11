@@ -18,6 +18,7 @@ describe('Hero tests:', function () {
 
     beforeEach(function () {
         hero.resetPosition();
+        hero.__test._resetPathPoints();
     });
 
     it('should return hero with and height', function () {
@@ -81,12 +82,42 @@ describe('Hero tests:', function () {
         expect(heroPosition).to.deep.equal(hero.getPosition());
     });
 
-    it("should add point to heroPath if is not moving on wall", function () {
-        var ctx = {fillRect: sinon.spy()},
-            evt = {
+    it("should add point to heroPath on arrowDown if is not moving on wall", function () {
+        var evt = {
                 preventDefault: sinon.spy(),
                 keyCode: 39 // right arrow
-            };
+            },
+            expected = [{ x: 10, y: 10}];
+
+            hero.__test._getPosition.x = 10;
+            hero.__test._getPosition.y = 10;
+            hero.onKeyDown(evt);
+            expect(hero.__test._getHeroPath()).to.deep.equal(expected);
+    });
+
+    it("should NOT add point to heroPath when moving on wall", function () {
+        var evt = {
+                preventDefault: sinon.spy(),
+                keyCode: 39 // right arrow
+            },
+            expected = [];
+            hero.onKeyDown(evt);
+            expect(hero.__test._getHeroPath()).to.deep.equal(expected);
+    });
+
+    it("should clear heroPath", function () {
+        var testPath = [
+                {x: 0, y: 0},
+                {x: 10, y: 10},
+            ],
+            testPoint = {x: 2, y: 2}
+        hero.__test._addPathPoint(testPath[0]);
+        hero.__test._addPathPoint(testPath[1]);
+        expect(hero.__test._getHeroPath()).to.deep.equal(testPath);
+
+        hero.__test._onHitWall.call(hero, testPoint);
+        expect(hero.__test._getHeroPath.length).to.equal(0);
+
     });
 });
 
