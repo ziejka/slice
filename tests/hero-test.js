@@ -1,6 +1,7 @@
 var chai = require('chai');
 var sinon = require('sinon');
 var expect = chai.expect;
+var assert = chai.assert;
 var Hero = require('./../src/Hero/hero');
 var Stage = require('./../src/Stage/stage');
 
@@ -11,7 +12,9 @@ describe('Hero tests:', function () {
         {x: 100, y: 0},
         {x: 100, y: 100},
         {x: 0, y: 100}
-    ]
+    ];
+
+    Stage.addNewPath = sinon.spy();
 
     var hero = new Hero(Stage),
         speed = 5;
@@ -19,6 +22,7 @@ describe('Hero tests:', function () {
     beforeEach(function () {
         hero.resetPosition();
         hero.__test._resetPathPoints();
+        Stage.addNewPath.reset()
     });
 
     it('should return hero with and height', function () {
@@ -117,6 +121,12 @@ describe('Hero tests:', function () {
 
         hero.__test._onHitWall.call(hero, testPoint);
         expect(hero.__test._getHeroPath.length).to.equal(0);
+    });
+
+    it("should call Stage.addNewPath", function () {
+        var testPoint = {x: 2, y: 2}
+        hero.__test._onHitWall.call(hero, testPoint);
+        assert(Stage.addNewPath.calledOnce);
     });
 });
 
