@@ -124,7 +124,7 @@ function Hero(Stage) {
         positionData = utils.getNewPoint(position, lastPosition, Stage.stagePoints, speed);
         if (positionData.blockMove) { 
             moving[moveKey] = false;
-            _onHitWall(this.ositionData);            
+            _onHitWall();            
         }
         _updatePosition(positionData.position);
     }
@@ -133,12 +133,12 @@ function Hero(Stage) {
         heroPath.push(newPoint);
     }
 
-    function _onHitWall (positionData) {
+    function _onHitWall () {
         if(!heroPath) {
             return;
         }
         heroPath.push(this.getPosition());
-        Stage.addNeaPath(heroPath);
+        Stage.addNewPath(heroPath);
         _resetPathPoints();
     }
 

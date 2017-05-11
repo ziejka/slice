@@ -117,7 +117,6 @@ describe('Hero tests:', function () {
 
         hero.__test._onHitWall.call(hero, testPoint);
         expect(hero.__test._getHeroPath.length).to.equal(0);
-
     });
 });
 
