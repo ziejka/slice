@@ -65,7 +65,8 @@ var Stage = {
 
     addNewPath: function (newPath) {
         var startPoint = this._getStartPoint(newPath),
-            startIndex = this._getIndexBefore(startPoint);
+            startIndex = this._getIndexBefore(startPoint),
+            endIndex = this._getIndexBefore(newPath[0]);
     },
 
     _getStartPoint: function (newPath) {
