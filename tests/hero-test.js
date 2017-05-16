@@ -113,16 +113,6 @@ describe('Hero tests:', function() {
         expect(hero.__test._getHeroPath()).to.deep.equal(expected);
     });
 
-    it("should NOT add point to heroPath when moving on wall", function() {
-        var evt = {
-                preventDefault: sinon.spy(),
-                keyCode: 39 // right arrow
-            },
-            expected = [];
-        hero.onKeyDown(evt);
-        expect(hero.__test._getHeroPath()).to.deep.equal(expected);
-    });
-
     it("should clear heroPath", function() {
         var testPath = [{
                 x: 0,

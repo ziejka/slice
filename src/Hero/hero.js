@@ -40,11 +40,7 @@ function Hero(Stage) {
         if (g.KEY_MAP[evt.keyCode]) {
             evt.preventDefault();
             _setMove(g.KEY_MAP[evt.keyCode]);
-
-            var newPoint = this.getPosition();
-            if(!utils.isOnSegmentPoint(newPoint, Stage.stagePoints)) {
-                _addPathPoint(newPoint);
-            }
+            _addPathPoint(position);
         }
     };
     /* End Hero API */
