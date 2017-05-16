@@ -73,9 +73,9 @@ describe('Utils tests:', function () {
 
     it('should get point on polygon line', function () {
         var speed = 5,
-            lastPoint = {x: 0, Y: 0},
-            newPoint = {x: 10, y: 0};
-        expect(utils.getNewPoint(newPoint, lastPoint, polygon, speed).position).to.deep.equal({x: 10, y: 0});
+            lastPoint = {x: 0, y: 0},
+            newPoint = {x: 5, y: 0};
+        expect(utils.getNewPoint(newPoint, lastPoint, polygon, speed).position).to.deep.equal({x: 5, y: 0});
         lastPoint = {x: 5, y: 5};
         newPoint = {x: 14, y: 5};
         expect(utils.getNewPoint(newPoint, lastPoint, polygon, speed).position).to.deep.equal({x: 10, y: 5, onSegment: true});
@@ -86,5 +86,28 @@ describe('Utils tests:', function () {
         newPoint = {x: 63, y: 58};
         expect(utils.getNewPoint(newPoint, lastPoint, polygon, speed).position).to.deep.equal({x: 63, y: 60, onSegment: true});
 
-    })
+    });
+
+    it("should identify if point is between", function () {
+        var point = {x: 1, y: 0},
+            a = {x: 0, y: 0},
+            b = {x: 20, y: 0};
+        expect(utils.isPointBetween(point, a, b)).to.equal(true);
+        point = {x: 0, y: 0};
+        a = {x: 0, y: 0};
+        b = {x: 20, y: 0};
+        expect(utils.isPointBetween(point, a, b)).to.equal(false);
+        point = {x: -2, y: 0};
+        a = {x: 0, y: 0};
+        b = {x: 20, y: 0};
+        expect(utils.isPointBetween(point, a, b)).to.equal(false);
+        point = {x: 0, y: 2};
+        a = {x: 0, y: 0};
+        b = {x: 0, y: 10};
+        expect(utils.isPointBetween(point, a, b)).to.equal(true);
+        point = {x: 1, y: 1};
+        a = {x: 0, y: 2};
+        b = {x: 0, y: 10};
+        expect(utils.isPointBetween(point, a, b)).to.equal(false);
+    });
 });

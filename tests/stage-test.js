@@ -29,7 +29,6 @@ describe('Stage tests:', function() {
         ];
         firstPoint = { x: 2, y: 0 };        
         expect(Stage._getStartPoint(path)).to.deep.equal(firstPoint);
-        console.log(path);
         path = [
 	        { x: 10, y: 0 }, 
 	        { x: 10, y: 100 }	       
@@ -57,5 +56,7 @@ describe('Stage tests:', function() {
         expect(Stage._getIndexBefore(firstPoint)).to.equal(7);
         firstPoint = { x: 80, y: 50 };
         expect(Stage._getIndexBefore(firstPoint)).to.equal(4);
+        firstPoint = { x: 40, y: 50 };
+        expect(Stage._getIndexBefore(firstPoint)).to.equal(5);
     });
 });

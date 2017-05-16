@@ -105,11 +105,29 @@ function getNewPoint(newPosition, lastPosition, polygon, speed) {
 function isPointBetween (point, a, b) {
     var vertical = a.x === b.x;
 
-    if( vertical ) {
-        
-    } else {
+    if (vertical) {
+        if (point.x !== a.x) {
+                return false;
+        }
+        max = Math.max(a.y, b.y);
+        min = Math.min(a.y, b.y);
 
+        if (point.y > min && point.y < max) {
+            return true;
+        }
+    } else {
+        if (point.y !== a.y) {
+            return false;
+        }
+
+        max = Math.max(a.x, b.x);
+        min = Math.min(a.x, b.x);
+
+        if (point.x > min && point.x < max) {
+            return true;
+        }
     }
+    return false;
 }
 
 module.exports = {

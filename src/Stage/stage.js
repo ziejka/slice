@@ -69,6 +69,9 @@ var Stage = {
     },
 
     _getStartPoint: function (newPath) {
+        if(newPath.length === 2) {
+            return newPath[0];
+        }
         var point = newPath.shift();
         if(!utils.isOnSegmentPoint(newPath[0], this.stagePoints)) {
             return point;
@@ -79,11 +82,21 @@ var Stage = {
 
     _getIndexBefore: function (point) {
         var a, b;
-        for (var i = 0; i < this.stagePoints.length - 1; i++) {
+        for (var i = 0; i < this.stagePoints.length; i++) {
             a = this.stagePoints[i];
-            b = this.stagePoints[i+1];
+            b = this.stagePoints[i+1] || this.stagePoints[0];
 
-            utils.isPointBetween(point, a, b)
+            if(JSON.stringify(point) === JSON.stringify(a)) {
+                return i;
+            }
+
+            if(JSON.stringify(point) === JSON.stringify(b)) {
+                return i + 1;
+            }
+
+            if(utils.isPointBetween(point, a, b)) {
+                return i;
+            };
         };
     }
 };
