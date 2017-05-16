@@ -137,7 +137,7 @@ function Hero(Stage) {
         if(!heroPath) {
             return;
         }
-        heroPath.push(this.getPosition());
+        heroPath.push(position);
         Stage.addNewPath(heroPath);
         _resetPathPoints();
     }

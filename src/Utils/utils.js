@@ -115,7 +115,7 @@ function isPointBetween (point, a, b) {
 module.exports = {
     isInside: isInside,
     getNewPoint: getNewPoint,
-    isOnSegmentPoint: isOnSegmentPoint
-
+    isOnSegmentPoint: isOnSegmentPoint,
+    isPointBetween: isPointBetween
 };
 
