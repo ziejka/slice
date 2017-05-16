@@ -1,4 +1,5 @@
 var g = require('../Utils/globals');
+var utils = require('../Utils/utils');
 
 var Stage = {
     stagePoints: [
@@ -63,9 +64,29 @@ var Stage = {
     },
 
     addNewPath: function (newPath) {
-        console.log(newPath.length); // ToDo Remove
-    }
+        var startPoint = this._getStartPoint(newPath),
+            startIndex = this._getIndexBefore(startPoint);
 
+    },
+
+    _getStartPoint: function (newPath) {
+        var point = newPath.shift();
+        if(!utils.isOnSegmentPoint(newPath[0], this.stagePoints)) {
+            return point;
+        } else {
+            return this._getStartPoint(newPath);
+        }        
+    },
+
+    _getIndexBefore: function (point) {
+        var a, b;
+        for (var i = 0; i < this.stagePoints.length - 1; i++) {
+            a = this.stagePoints[i];
+            b = this.stagePoints[i+1];
+
+            utils.isPointBetween(point, a, b)
+        };
+    }
 };
 
 module.exports = Stage;

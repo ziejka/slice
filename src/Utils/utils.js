@@ -44,7 +44,7 @@ function isInside(point, vs) {
     return inside;
 }
 
-function isOnSegmentPoint(newPosition, polygon) {
+function isOnSegmentPoint(point, polygon) {
     var segment, min, max, vertical;
 
 
@@ -53,25 +53,25 @@ function isOnSegmentPoint(newPosition, polygon) {
         vertical = segment[0].x === segment[1].x;
 
         if (vertical) {
-            if (newPosition.x !== segment[0].x) {
+            if (point.x !== segment[0].x) {
                 continue;
             }
 
             max = Math.max(segment[0].y, segment[1].y);
             min = Math.min(segment[0].y, segment[1].y);
 
-            if (newPosition.y >= min && newPosition.y <= max) {
+            if (point.y >= min && point.y <= max) {
                 return true;
             }
         } else {
-            if (newPosition.y !== segment[0].y) {
+            if (point.y !== segment[0].y) {
                 continue;
             }
 
             max = Math.max(segment[0].x, segment[1].x);
             min = Math.min(segment[0].x, segment[1].x);
 
-            if (newPosition.x >= min && newPosition.x <= max) {
+            if (point.x >= min && point.x <= max) {
                 return true;
             }
         }
@@ -100,6 +100,16 @@ function getNewPoint(newPosition, lastPosition, polygon, speed) {
         }
     }
     return resutl;
+}
+
+function isPointBetween (point, a, b) {
+    var vertical = a.x === b.x;
+
+    if( vertical ) {
+        
+    } else {
+
+    }
 }
 
 module.exports = {
