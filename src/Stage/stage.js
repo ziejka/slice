@@ -3,6 +3,13 @@ var utils = require('../Utils/utils');
 
 var Stage = {
     stagePoints: [
+        {x: 0, y: 0},
+        {x: 600, y: 0},
+        {x: 600, y: 600},
+        {x: 0, y: 600},
+    ],
+
+    p: [
         {x: 100, y: 0},
         {x: 100, y: 100},
         {x: 0, y: 100},
@@ -65,12 +72,12 @@ var Stage = {
 
     addNewPath: function (newPath) {
         var startPoint = this._getStartPoint(newPath),
-            startIndex = this._getIndexBefore(startPoint),
-            endIndex = this._getIndexBefore(newPath[newPath.length - 1]) + 1,
-            begin = this.stagePoints.slice(startIndex),
+            startIndex = this._getIndexAfter(startPoint),
+            endIndex = this._getIndexAfter(newPath[newPath.length - 1]),
+            begin = this.stagePoints.slice(0, startIndex),
             end = this.stagePoints.slice(endIndex);
 
-        this.stagePoints = begin.concat(newPath, end);
+        this.stagePoints = begin.concat(startPoint, newPath, end);
     },
 
     _getStartPoint: function (newPath) {
@@ -85,22 +92,22 @@ var Stage = {
         }        
     },
 
-    _getIndexBefore: function (point) {
+    _getIndexAfter: function (point) {
         var a, b;
         for (var i = 0; i < this.stagePoints.length; i++) {
             a = this.stagePoints[i];
             b = this.stagePoints[i+1] || this.stagePoints[0];
 
             if(JSON.stringify(point) === JSON.stringify(a)) {
-                return i;
-            }
-
-            if(JSON.stringify(point) === JSON.stringify(b)) {
                 return i + 1;
             }
 
+            if(JSON.stringify(point) === JSON.stringify(b)) {
+                return i + 2;
+            }
+
             if(utils.isPointBetween(point, a, b)) {
-                return i;
+                return i + 1;
             };
         };
     }
