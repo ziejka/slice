@@ -59,4 +59,40 @@ describe('Stage tests:', function() {
         firstPoint = { x: 40, y: 50 };
         expect(Stage._getIndexBefore(firstPoint)).to.equal(5);
     });
+
+    it("should add newPath to stagePoints", function() {
+    	var newPath, stagePoints;
+    	Stage.stagePoints = [
+        	{ x: 0, y: 0 },
+        	{ x: 100, y: 0 }, 
+        	{ x: 100, y: 100 },
+        	{ x: 80, y: 100 },
+        	{ x: 80, y: 50 },
+        	{ x: 40, y: 50 },
+        	{ x: 40, y: 100 },
+        	{ x: 0, y: 100}
+		];
+		newPath = [
+			{ x: 10, y: 0 },
+			{ x: 10, y: 20 },
+			{ x: 10, y: 100 }
+		];
+		stagePoints = [
+			{ x: 0, y: 0 },
+			{ x: 10, y: 0 },
+			{ x: 10, y: 20 },
+			{ x: 10, y: 100 },
+        	{ x: 100, y: 100 },
+        	{ x: 80, y: 100 },
+        	{ x: 80, y: 50 },
+        	{ x: 40, y: 50 },
+        	{ x: 40, y: 100 },
+        	{ x: 0, y: 100}
+		];
+
+		console.log()
+		Stage.addNewPath(newPath);
+		expect(Stage.stagePoints).to.deep.equal(stagePoints);
+
+    });
 });

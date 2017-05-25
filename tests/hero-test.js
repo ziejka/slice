@@ -7,22 +7,20 @@ var Stage = require('./../src/Stage/stage');
 
 describe('Hero tests:', function() {
 
-     Stage.stagePoints = [
-            { x: 0, y: 0 },
-            { x: 100, y: 0 }, 
-            { x: 100, y: 100 },
-            { x: 0, y: 100}
-        ];
-
-    Stage.addNewPath = sinon.spy();
+     
 
     var hero = new Hero(Stage),
         speed = 5;
 
     beforeEach(function() {
+        Stage.stagePoints = [
+            { x: 0, y: 0 },
+            { x: 100, y: 0 }, 
+            { x: 100, y: 100 },
+            { x: 0, y: 100}
+        ];
         hero.resetPosition();
         hero.__test._resetPathPoints();
-        Stage.addNewPath.reset()
     });
 
     it('should return hero with and height', function() {
@@ -133,12 +131,13 @@ describe('Hero tests:', function() {
         expect(hero.__test._getHeroPath.length).to.equal(0);
     });
 
-    it("should call Stage.addNewPath on wall hit", function() {
-        var testPoint = {
+    it("should call Stage.addNewPath on wall hit", sinon.test(function() {
+        var addNewPath = this.stub(Stage, "addNewPath");
+            testPoint = {
             x: 2,
             y: 2
         }
         hero.__test._onHitWall.call(hero, testPoint);
-        assert(Stage.addNewPath.calledOnce);
-    });
+        assert(addNewPath.calledOnce);
+    }));
 });
