@@ -71,24 +71,33 @@ var Stage = {
     },
 
     addNewPath: function (newPath) {
-        var startPoint = this._getStartPoint(newPath),
-            startIndex = this._getIndexAfter(startPoint),
-            endIndex = this._getIndexAfter(newPath[newPath.length - 1]),
-            begin = this.stagePoints.slice(0, startIndex),
-            end = this.stagePoints.slice(endIndex);
+        var startPoint, startIndex, endIndex;
 
-        this.stagePoints = begin.concat(startPoint, newPath, end);
+        this._cleanPathPoints(newPath);
+
+        startPoint = newPath[0];
+        startIndex = this._getIndexAfter(startPoint);
+        endIndex = this._getIndexAfter(newPath[newPath.length - 1]);
+
+        if (endIndex < startIndex) {
+            newPath.reverse();
+            startPoint = newPath[0];
+            startIndex = this._getIndexAfter(startPoint);
+            endIndex = this._getIndexAfter(newPath[newPath.length - 1]);
+        }
+        begin = this.stagePoints.slice(0, startIndex);
+        end = this.stagePoints.slice(endIndex);
+
+        this.stagePoints = begin.concat(newPath, end);
     },
 
-    _getStartPoint: function (newPath) {
+    _cleanPathPoints: function (newPath) {
         if (newPath.length === 2) {
-            return newPath[0];
+            return;
         }
-        var point = newPath.shift();
-        if (!utils.isOnSegmentPoint(newPath[0], this.stagePoints)) {
-            return point;
-        } else {
-            return this._getStartPoint(newPath);
+        if (utils.isOnSegmentPoint(newPath[1], this.stagePoints)) {
+            newPath.shift();
+            this._cleanPathPoints(newPath);
         }
     },
 
@@ -109,9 +118,7 @@ var Stage = {
             if (utils.isPointBetween(point, a, b)) {
                 return i + 1;
             }
-            ;
         }
-        ;
     }
 };
 

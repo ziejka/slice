@@ -27,14 +27,16 @@ describe('Stage tests:', function() {
 	        { x: 2, y: 3 },
 	        { x: 2, y: 100 }
         ];
-        firstPoint = { x: 2, y: 0 };        
-        expect(Stage._getStartPoint(path)).to.deep.equal(firstPoint);
+        firstPoint = { x: 2, y: 0 };
+        Stage._cleanPathPoints(path);
+        expect(path[0]).to.deep.equal(firstPoint);
         path = [
 	        { x: 10, y: 0 }, 
 	        { x: 10, y: 100 }	       
         ];
         firstPoint = { x: 10, y: 0 };
-        expect(Stage._getStartPoint(path)).to.deep.equal(firstPoint);
+        Stage._cleanPathPoints(path);
+        expect(path[0]).to.deep.equal(firstPoint);
     });
 
     it("should get index of polygon after point", function() {
@@ -117,7 +119,31 @@ describe('Stage tests:', function() {
 		];
 
 		Stage.addNewPath(newPath);
-		// expect(Stage.stagePoints).to.deep.equal(stagePoints);
+		expect(Stage.stagePoints).to.deep.equal(stagePoints);
+
+        Stage.stagePoints = [
+            { x: 0, y: 0 },
+            { x: 100, y: 0 },
+            { x: 100, y: 100 },
+            { x: 80, y: 100 },
+            { x: 80, y: 50 },
+            { x: 40, y: 50 },
+            { x: 40, y: 100 },
+            { x: 0, y: 100}
+        ];
+        newPath = [
+            { x: 10, y: 100 },
+            { x: 10, y: 0 }
+        ];
+        stagePoints = [
+            { x: 0, y: 0 },
+            { x: 10, y: 0 },
+            { x: 10, y: 100 },
+            { x: 0, y: 100}
+        ];
+
+        Stage.addNewPath(newPath);
+        expect(Stage.stagePoints).to.deep.equal(stagePoints);
 
     });
 });

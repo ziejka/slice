@@ -126,7 +126,7 @@ function Hero(Stage) {
     }
 
     function _addPathPoint(newPoint) {
-        var vertical, i,
+        var vertical,
             shouldRemoveSecond = false,
             lastIndex = heroPath.length - 1,
             lastPoint = heroPath[lastIndex],
@@ -143,7 +143,7 @@ function Hero(Stage) {
         }
 
         if (shouldRemoveSecond) {
-            heroPath.splice(lastIndex - 2, 1);
+            heroPath.splice(lastIndex, 1);
         }
         heroPath.push(newPoint);
     }
