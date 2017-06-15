@@ -89,6 +89,25 @@ function Hero(Stage) {
     }
 
     function _draw(ctx) {
+        _drawHero(ctx);
+        _drawLine(ctx);
+    }
+
+    function _drawLine(ctx) {
+        if (heroPath.length < 1) {
+            return;
+        }
+        ctx.strokeStyle = g.PLAYER_LINE;
+        ctx.beginPath();
+        ctx.moveTo(heroPath[0].x, heroPath[0].y);
+        for (var i = 1; i < heroPath.length; i++) {
+            ctx.lineTo(heroPath[i].x, heroPath[i].y)
+        }
+        ctx.lineTo(position.x, position.y);
+        ctx.stroke();
+    }
+
+    function _drawHero(ctx) {
         var x = position.x - width / 2,
             y = position.y - height / 2;
         ctx.fillStyle = g.PLAYER_COLOR;
