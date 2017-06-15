@@ -27,7 +27,7 @@ function Hero(Stage) {
     };
 
     this.onFrame = function (ctx) {
-        _move();
+        _move.call(this);
         _draw(ctx);
     };
 
@@ -40,7 +40,7 @@ function Hero(Stage) {
         if (g.KEY_MAP[evt.keyCode]) {
             evt.preventDefault();
             _setMove(g.KEY_MAP[evt.keyCode]);
-            _addPathPoint(position);
+            _addPathPoint(this.getPosition());
         }
     };
     /* End Hero API */
@@ -120,7 +120,7 @@ function Hero(Stage) {
         positionData = utils.getNewPoint(position, lastPosition, Stage.stagePoints, speed);
         if (positionData.blockMove) {
             moving[moveKey] = false;
-            _onHitWall();
+            _onHitWall.call(this);
         }
         _updatePosition(positionData.position);
     }
@@ -152,7 +152,8 @@ function Hero(Stage) {
         if (!heroPath) {
             return;
         }
-        heroPath.push(position);
+        var me = this;
+        heroPath.push(me.getPosition());
         Stage.addNewPath(heroPath);
         _resetPathPoints();
     }
