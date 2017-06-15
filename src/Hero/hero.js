@@ -64,11 +64,11 @@ function Hero(Stage) {
         _onHitWall: _onHitWall,
         _addPathPoint: _addPathPoint,
         _resetPathPoints: _resetPathPoints
-        
+
     };
     /* end-test-code */
 
-    function _getHeroPath () {
+    function _getHeroPath() {
         return heroPath
     }
 
@@ -118,19 +118,38 @@ function Hero(Stage) {
         }
 
         positionData = utils.getNewPoint(position, lastPosition, Stage.stagePoints, speed);
-        if (positionData.blockMove) { 
+        if (positionData.blockMove) {
             moving[moveKey] = false;
-            _onHitWall();            
+            _onHitWall();
         }
         _updatePosition(positionData.position);
     }
 
-    function _addPathPoint (newPoint) {
+    function _addPathPoint(newPoint) {
+        var vertical, i,
+            shouldRemoveSecond = false,
+            lastIndex = heroPath.length - 1,
+            lastPoint = heroPath[lastIndex],
+            secondToLastPoint = heroPath[lastIndex - 1];
+
+        if (lastPoint && secondToLastPoint) {
+            vertical = lastPoint.x === secondToLastPoint.x;
+
+            if (vertical && newPoint.x === secondToLastPoint.x) {
+                shouldRemoveSecond = true;
+            } else if (newPoint.y === secondToLastPoint.y) {
+                shouldRemoveSecond = true;
+            }
+        }
+
+        if (shouldRemoveSecond) {
+            heroPath.splice(lastIndex - 2, 1);
+        }
         heroPath.push(newPoint);
     }
 
-    function _onHitWall () {
-        if(!heroPath) {
+    function _onHitWall() {
+        if (!heroPath) {
             return;
         }
         heroPath.push(position);
@@ -138,7 +157,7 @@ function Hero(Stage) {
         _resetPathPoints();
     }
 
-    function _resetPathPoints () {
+    function _resetPathPoints() {
         heroPath = [];
     }
 

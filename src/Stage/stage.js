@@ -6,7 +6,7 @@ var Stage = {
         {x: 0, y: 0},
         {x: 600, y: 0},
         {x: 600, y: 600},
-        {x: 0, y: 600},
+        {x: 0, y: 600}
     ],
 
     p: [
@@ -81,35 +81,37 @@ var Stage = {
     },
 
     _getStartPoint: function (newPath) {
-        if(newPath.length === 2) {
+        if (newPath.length === 2) {
             return newPath[0];
         }
         var point = newPath.shift();
-        if(!utils.isOnSegmentPoint(newPath[0], this.stagePoints)) {
+        if (!utils.isOnSegmentPoint(newPath[0], this.stagePoints)) {
             return point;
         } else {
             return this._getStartPoint(newPath);
-        }        
+        }
     },
 
     _getIndexAfter: function (point) {
         var a, b;
         for (var i = 0; i < this.stagePoints.length; i++) {
             a = this.stagePoints[i];
-            b = this.stagePoints[i+1] || this.stagePoints[0];
+            b = this.stagePoints[i + 1] || this.stagePoints[0];
 
-            if(JSON.stringify(point) === JSON.stringify(a)) {
+            if (JSON.stringify(point) === JSON.stringify(a)) {
                 return i + 1;
             }
 
-            if(JSON.stringify(point) === JSON.stringify(b)) {
+            if (JSON.stringify(point) === JSON.stringify(b)) {
                 return i + 2;
             }
 
-            if(utils.isPointBetween(point, a, b)) {
+            if (utils.isPointBetween(point, a, b)) {
                 return i + 1;
-            };
-        };
+            }
+            ;
+        }
+        ;
     }
 };
 
