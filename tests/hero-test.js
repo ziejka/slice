@@ -65,13 +65,17 @@ describe('Hero tests:', function () {
 
     it('should move on key down', function () {
         var ctx = {
-                fillRect: sinon.spy()
+                fillRect: sinon.stub(),
+                beginPath: sinon.stub(),
+                moveTo: sinon.stub(),
+                lineTo: sinon.stub(),
+                stroke: sinon.stub()
+
             },
             evt = {
                 preventDefault: sinon.spy(),
                 keyCode: 40
-            },
-            spyMoveDown = sinon.spy(hero.__test, "_moveDown");
+            };
 
         hero.onKeyDown(evt);
         hero.onFrame(ctx);

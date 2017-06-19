@@ -71,7 +71,7 @@ var Stage = {
     },
 
     addNewPath: function (newPath) {
-        var startPoint, startIndex, endIndex;
+        var startPoint, startIndex, endIndex, begin, end;
 
         this._cleanPathPoints(newPath);
 

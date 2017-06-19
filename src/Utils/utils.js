@@ -45,7 +45,7 @@ function isInside(point, vs) {
 }
 
 function isOnSegmentPoint(point, polygon) {
-    var segment, min, max, vertical;
+    var segment, min, max, vertical, i;
 
 
     for (i = 0; i < polygon.length; i++) {
@@ -103,7 +103,8 @@ function getNewPoint(newPosition, lastPosition, polygon, speed) {
 }
 
 function isPointBetween (point, a, b) {
-    var vertical = a.x === b.x;
+    var max, min,
+        vertical = a.x === b.x;
 
     if (vertical) {
         if (point.x !== a.x) {
