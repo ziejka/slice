@@ -110,4 +110,29 @@ describe('Utils tests:', function () {
         b = {x: 0, y: 10};
         expect(utils.isPointBetween(point, a, b)).to.equal(false);
     });
+
+    it("should get index of polygon after point", function() {
+        stagePoints = [
+            { x: 0, y: 0 },
+            { x: 100, y: 0 },
+            { x: 100, y: 100 },
+            { x: 80, y: 100 },
+            { x: 80, y: 50 },
+            { x: 40, y: 50 },
+            { x: 40, y: 100 },
+            { x: 0, y: 100}
+        ];
+        firstPoint = { x: 20, y: 0 };
+        expect(utils.getIndexAfter(firstPoint, stagePoints)).to.equal(1);
+        firstPoint = { x: 100, y: 20 };
+        expect(utils.getIndexAfter(firstPoint, stagePoints)).to.equal(2);
+        firstPoint = { x: 0, y: 20 };
+        expect(utils.getIndexAfter(firstPoint, stagePoints)).to.equal(8);
+        firstPoint = { x: 80, y: 50 };
+        expect(utils.getIndexAfter(firstPoint, stagePoints)).to.equal(5);
+        firstPoint = { x: 40, y: 50 };
+        expect(utils.getIndexAfter(firstPoint, stagePoints)).to.equal(6);
+        firstPoint = { x: 10, y: 100 };
+        expect(utils.getIndexAfter(firstPoint, stagePoints)).to.equal(7);
+    });
 });

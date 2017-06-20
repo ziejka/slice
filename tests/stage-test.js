@@ -39,31 +39,6 @@ describe('Stage tests:', function() {
         expect(path[0]).to.deep.equal(firstPoint);
     });
 
-    it("should get index of polygon after point", function() {
-    	Stage.stagePoints = [
-        	{ x: 0, y: 0 },
-        	{ x: 100, y: 0 }, 
-        	{ x: 100, y: 100 },
-        	{ x: 80, y: 100 },
-        	{ x: 80, y: 50 },
-        	{ x: 40, y: 50 },
-        	{ x: 40, y: 100 },
-        	{ x: 0, y: 100}
-		];
-    	firstPoint = { x: 20, y: 0 };
-        expect(Stage._getIndexAfter(firstPoint)).to.equal(1);
-        firstPoint = { x: 100, y: 20 };
-        expect(Stage._getIndexAfter(firstPoint)).to.equal(2);
-        firstPoint = { x: 0, y: 20 };
-        expect(Stage._getIndexAfter(firstPoint)).to.equal(8);
-        firstPoint = { x: 80, y: 50 };
-        expect(Stage._getIndexAfter(firstPoint)).to.equal(5);
-        firstPoint = { x: 40, y: 50 };
-        expect(Stage._getIndexAfter(firstPoint)).to.equal(6);
-        firstPoint = { x: 10, y: 100 };
-        expect(Stage._getIndexAfter(firstPoint)).to.equal(7);
-    });
-
     it("should add newPath to stagePoints", function() {
     	var newPath, stagePoints;
     	Stage.stagePoints = [

@@ -71,6 +71,9 @@ var Stage = {
     },
 
     addNewPath: function (newPath) {
+        if(newPath.length < 2) {
+            return;
+        }
         var startPoint, startIndex, endIndex, begin, end;
 
         this._cleanPathPoints(newPath);
@@ -102,23 +105,7 @@ var Stage = {
     },
 
     _getIndexAfter: function (point) {
-        var a, b;
-        for (var i = 0; i < this.stagePoints.length; i++) {
-            a = this.stagePoints[i];
-            b = this.stagePoints[i + 1] || this.stagePoints[0];
-
-            if (JSON.stringify(point) === JSON.stringify(a)) {
-                return i + 1;
-            }
-
-            if (JSON.stringify(point) === JSON.stringify(b)) {
-                return i + 2;
-            }
-
-            if (utils.isPointBetween(point, a, b)) {
-                return i + 1;
-            }
-        }
+        return utils.getIndexAfter(point, this.stagePoints);
     }
 };
 

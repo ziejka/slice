@@ -159,6 +159,21 @@ describe('Hero tests:', function () {
         expect(hero.__test._getHeroPath()).to.deep.equal(expectedPath);
     });
 
+    it("should reduce path if cut path line", function () {
+        var testPath = [
+                {x: 0, y: 100},
+                {x: 60, y: 100},
+                {x: 60, y: 40},
+                {x: 40, y: 40}
+            ],
+            newPosition = {x: 60, y: 40},
+            expectedPath = [
+                {x: 100, y: 0},
+                {x: 100, y: 40}
+            ];
+        expect(hero.__test._getHeroPath()).to.deep.equal(expectedPath);
+    });
+
     it("should call Stage.addNewPath on wall hit", sinon.test(function () {
         var addNewPath = this.stub(Stage, "addNewPath");
         testPoint = {

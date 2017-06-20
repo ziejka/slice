@@ -116,6 +116,13 @@ function Hero(Stage) {
         ctx.fillRect(position.x, position.y, 1, 1);
     }
 
+    function _updatePath(position) {
+        if(utils.isOnSegmentPoint(position, heroPath)) {
+            heroPath.splice(-1);
+            heroPath.push(position);
+        }
+    }
+
     function _move() {
         var positionData,
             moveKey,
@@ -137,6 +144,7 @@ function Hero(Stage) {
         }
 
         positionData = utils.getNewPoint(position, lastPosition, Stage.stagePoints, speed);
+        _updatePath(positionData.position);
         if (positionData.blockMove) {
             moving[moveKey] = false;
             _onHitWall.call(this);

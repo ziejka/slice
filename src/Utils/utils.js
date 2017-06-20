@@ -1,4 +1,5 @@
-function line_intersect(x1, y1, x2, y2, x3, y3, x4, y4) {
+module.exports = {
+    line_intersect: function(x1, y1, x2, y2, x3, y3, x4, y4) {
     var x, y, seg1, seg2, onSegment, ua, ub, denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
     if (denom === 0) {
         return null;
@@ -19,9 +20,9 @@ function line_intersect(x1, y1, x2, y2, x3, y3, x4, y4) {
         y: y,
         onSegment: onSegment
     };
-}
+},
 
-function isInside(point, vs) {
+isInside: function(point, vs) {
     // ray-casting algorithm based on
     // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
 
@@ -38,13 +39,13 @@ function isInside(point, vs) {
     }
 
     if (!inside) {
-        inside = isOnSegmentPoint(point, vs);
+        inside = this.isOnSegmentPoint(point, vs);
     }
 
     return inside;
-}
+},
 
-function isOnSegmentPoint(point, polygon) {
+isOnSegmentPoint: function(point, polygon) {
     var segment, min, max, vertical, i;
 
 
@@ -78,9 +79,9 @@ function isOnSegmentPoint(point, polygon) {
     }
 
     return false;
-}
+},
 
-function getNewPoint(newPosition, lastPosition, polygon, speed) {
+getNewPoint: function(newPosition, lastPosition, polygon, speed) {
     var segment, intersectionPoint,
         resutl = {
             position: newPosition,
@@ -88,7 +89,7 @@ function getNewPoint(newPosition, lastPosition, polygon, speed) {
         };
     for (var i = 0; i < polygon.length; i++) {
         segment = [polygon[i], polygon[i + 1] || polygon[0]];
-        intersectionPoint = line_intersect(lastPosition.x, lastPosition.y, newPosition.x, newPosition.y,
+        intersectionPoint = this.line_intersect(lastPosition.x, lastPosition.y, newPosition.x, newPosition.y,
             segment[0].x, segment[0].y, segment[1].x, segment[1].y);
         if (!intersectionPoint || !intersectionPoint.onSegment) continue;
         var distance = Math.sqrt((newPosition.x - intersectionPoint.x) * (newPosition.x - intersectionPoint.x) + (newPosition.y - intersectionPoint.y) * (newPosition.y - intersectionPoint.y));
@@ -100,15 +101,15 @@ function getNewPoint(newPosition, lastPosition, polygon, speed) {
         }
     }
     return resutl;
-}
+},
 
-function isPointBetween (point, a, b) {
+isPointBetween: function(point, a, b) {
     var max, min,
         vertical = a.x === b.x;
 
     if (vertical) {
         if (point.x !== a.x) {
-                return false;
+            return false;
         }
         max = Math.max(a.y, b.y);
         min = Math.min(a.y, b.y);
@@ -129,12 +130,26 @@ function isPointBetween (point, a, b) {
         }
     }
     return false;
-}
+},
 
-module.exports = {
-    isInside: isInside,
-    getNewPoint: getNewPoint,
-    isOnSegmentPoint: isOnSegmentPoint,
-    isPointBetween: isPointBetween
+getIndexAfter: function (point, path) {
+    var a, b;
+    for (var i = 0; i < path.length; i++) {
+        a = path[i];
+        b = path[i + 1] || path[0];
+
+        if (JSON.stringify(point) === JSON.stringify(a)) {
+            return i + 1;
+        }
+
+        if (JSON.stringify(point) === JSON.stringify(b)) {
+            return i + 2;
+        }
+
+        if (this.isPointBetween(point, a, b)) {
+            return i + 1;
+        }
+    }
+}
 };
 
