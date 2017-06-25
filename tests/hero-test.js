@@ -166,11 +166,58 @@ describe('Hero tests:', function () {
                 {x: 60, y: 40},
                 {x: 40, y: 40}
             ],
-            newPosition = {x: 60, y: 40},
+            newPosition = {x: 40, y: 100},
             expectedPath = [
-                {x: 100, y: 0},
-                {x: 100, y: 40}
+                {x: 0, y: 100},
+                {x: 40, y: 100}
             ];
+        testPath.forEach(function (p) {
+            hero.__test._addPathPoint(p);
+        });
+        hero.__test._updatePosition(newPosition);
+        hero.__test._updatePath.call(hero, newPosition);
+        expect(hero.__test._getHeroPath()).to.deep.equal(expectedPath);
+    });
+
+    it("should reduce path when moving back", function () {
+        var testPath = [
+                {x: 0, y: 100},
+                {x: 100, y: 100}
+            ],
+            newPosition = {x: 95, y: 100},
+            expectedPath = [
+                {x: 0, y: 100},
+                {x: 90, y: 100}
+            ];
+        testPath.forEach(function (p) {
+            hero.__test._addPathPoint(p);
+        });
+        hero.__test._updatePosition(newPosition);
+        hero.__test._updatePath.call(hero, newPosition);
+        newPosition = {x: 90, y: 100};
+        hero.__test._updatePosition(newPosition);
+        hero.__test._updatePath.call(hero, newPosition);
+        expect(hero.__test._getHeroPath()).to.deep.equal(expectedPath);
+    });
+
+    it("should reduce path when moving back", function () {
+        var testPath = [
+                {x: 0, y: 100},
+                {x: 100, y: 100}
+            ],
+            newPosition = {x: 95, y: 100},
+            expectedPath = [
+                {x: 0, y: 100},
+                {x: 90, y: 100}
+            ];
+        testPath.forEach(function (p) {
+            hero.__test._addPathPoint(p);
+        });
+        hero.__test._updatePosition(newPosition);
+        hero.__test._updatePath.call(hero, newPosition);
+        newPosition = {x: 90, y: 100};
+        hero.__test._updatePosition(newPosition);
+        hero.__test._updatePath.call(hero, newPosition);
         expect(hero.__test._getHeroPath()).to.deep.equal(expectedPath);
     });
 

@@ -63,7 +63,8 @@ function Hero(Stage) {
         _moveInDirection: _moveInDirection,
         _onHitWall: _onHitWall,
         _addPathPoint: _addPathPoint,
-        _resetPathPoints: _resetPathPoints
+        _resetPathPoints: _resetPathPoints,
+        _updatePath: _updatePath
 
     };
     /* end-test-code */
@@ -117,9 +118,18 @@ function Hero(Stage) {
     }
 
     function _updatePath(position) {
-        if(utils.isOnSegmentPoint(position, heroPath)) {
-            heroPath.splice(-1);
-            heroPath.push(position);
+        var i;
+        if(utils.isOnPathSegmentPoint(position, heroPath)) {
+            i = utils.getIndexAfter(position, heroPath);
+            if(i < heroPath.length) {
+                heroPath.splice(i);
+                heroPath.push(this.getPosition());
+            } else {
+                heroPath.splice(i);
+            }
+
+
+
         }
     }
 
@@ -144,12 +154,12 @@ function Hero(Stage) {
         }
 
         positionData = utils.getNewPoint(position, lastPosition, Stage.stagePoints, speed);
-        _updatePath(positionData.position);
         if (positionData.blockMove) {
             moving[moveKey] = false;
             _onHitWall.call(this);
         }
         _updatePosition(positionData.position);
+        _updatePath.call(this, positionData.position);
     }
 
     function _addPathPoint(newPoint) {
