@@ -120,5 +120,31 @@ describe('Stage tests:', function() {
         Stage.addNewPath(newPath);
         expect(Stage.stagePoints).to.deep.equal(stagePoints);
 
+        Stage.stagePoints = [
+            { x: 0, y: 0 },
+            { x: 100, y: 0 },
+            { x: 100, y: 100 },
+            { x: 0, y: 100 }
+        ];
+        newPath = [
+            { x: 80, y: 0 },
+            { x: 80, y: 20 },
+            { x: 60, y: 20 },
+            { x: 60, y: 0 }
+        ];
+        stagePoints = [
+            { x: 0, y: 0 },
+            { x: 60, y: 0 },
+            { x: 60, y: 20 },
+            { x: 80, y: 20 },
+            { x: 80, y: 0 },
+            { x: 100, y: 0 },
+            { x: 100, y: 100 },
+            { x: 0, y: 100 }
+        ];
+
+        Stage.addNewPath(newPath);
+        expect(Stage.stagePoints).to.deep.equal(stagePoints);
+
     });
 });

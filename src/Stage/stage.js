@@ -71,10 +71,12 @@ var Stage = {
     },
 
     addNewPath: function (newPath) {
-        if(newPath.length < 2) {
+        if (newPath.length < 2) {
             return;
         }
-        var startPoint, startIndex, endIndex, begin, end;
+        var needReversePath = false,
+            pathDirection, segmentDirection, a, b,
+            startPoint, startIndex, endIndex, begin, end, vertical;
 
         this._cleanPathPoints(newPath);
 
@@ -83,6 +85,24 @@ var Stage = {
         endIndex = this._getIndexAfter(newPath[newPath.length - 1]);
 
         if (endIndex < startIndex) {
+            needReversePath = true;
+        } else if (endIndex === startIndex) {
+            vertical = newPath[0].x === newPath[newPath.length - 1].x;
+            if (vertical) {
+                a = this.stagePoints[startIndex - 1] || this.stagePoints[this.stagePoints.length - 1];
+                b = this.stagePoints[startIndex] || this.stagePoints[0];
+                segmentDirection = a.y < b.y;
+                pathDirection = newPath[0].y < newPath[newPath.length - 1].y;
+            } else {
+                a = this.stagePoints[startIndex - 1] || this.stagePoints[this.stagePoints.length - 1];
+                b = this.stagePoints[startIndex];
+                segmentDirection = a.x < b.x;
+                pathDirection = newPath[0].x < newPath[newPath.length - 1].x;
+            }
+            needReversePath = segmentDirection !== pathDirection;
+        }
+
+        if (needReversePath) {
             newPath.reverse();
             startPoint = newPath[0];
             startIndex = this._getIndexAfter(startPoint);

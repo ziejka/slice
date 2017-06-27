@@ -118,18 +118,16 @@ function Hero(Stage) {
     }
 
     function _updatePath(position) {
-        var i;
-        if(utils.isOnPathSegmentPoint(position, heroPath)) {
+        var i,
+            me = this;
+        if (utils.isOnPathSegmentPoint(position, heroPath)) {
             i = utils.getIndexAfter(position, heroPath);
-            if(i < heroPath.length) {
+            if (i < heroPath.length) {
                 heroPath.splice(i);
-                heroPath.push(this.getPosition());
+                heroPath.push(me.getPosition());
             } else {
                 heroPath.splice(i);
             }
-
-
-
         }
     }
 
